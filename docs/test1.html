@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fang den Smiley!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        h1 {
+            color: #d63031;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        #smiley {
+            font-size: 50px;
+            cursor: pointer;
+            position: absolute;
+            transition: transform 0.1s, left 0.3s, top 0.3s;
+            will-change: transform;
+        }
+
+        #smiley:hover {
+            transform: scale(1.1);
+        }
+
+        #counter {
+            font-size: 24px;
+            color: #0984e3;
+            margin-top: 20px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2d3436;
+            font-weight: bold;
+            text-align: center;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fang den Smiley! 😺</h1>
+    <p id="message">Versuche, den Smiley zu klicken! Er ist schnell...</p>
+    <div id="smiley" onclick="moveSmiley()">😊</div>
+    <div id="counter">Versuche: <span id="count">0</span></div>
+
+    <script>
+        const smiley = document.getElementById('smiley');
+        const counter = document.getElementById('count');
+        const message = document.getElementById('message');
+        let count = 0;
+
+        function moveSmiley() {
+            count++;
+            counter.textContent = count;
+
+            if (count >= 5) {
+                message.textContent = "Wow, du bist hartnäckig! Aber ich bin schneller! 🏃‍♂️";
+            }
+
+            const x = Math.random() * (window.innerWidth - 60);
+            const y = Math.random() * (window.innerHeight - 100);
+            smiley.style.left = `${x}px`;
+            smiley.style.top = `${y}px`;
+        }
+
+        // Smiley zufällig platzieren
+        moveSmiley();
+
+        // Smiley bewegt sich alle 2 Sekunden von allein
+        setInterval(moveSmiley, 2000);
+    </script>
+</body>
+</html>
