@@ -1,163 +1,268 @@
+Hier ist eine vollständige HTML-Präsentation zum Thema **"For-Schleife in Java"** nach deinen Vorgaben:
+
+```html
 <!DOCTYPE html>
-<html lang="en" >
-<head >
-	<meta charset="UTF-8" >
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title >QR Code Generator</title >
-	<style >
-		body{ font-size: 20px; line-height: 1.4em; font-family: "Trebuchet MS", sans-serif; color: #000;}
-		input, textarea, select{font-family: Consolas, "Liberation Mono", Courier, monospace; font-size: 75%; line-height: 1.25em; border: 1px solid #aaa; }
-		input:focus, textarea:focus, select:focus{ border: 1px solid #ccc; }
-		label{ cursor: pointer; }
-		#qrcode-settings, div#qrcode-output{ text-align: center; }
-		div#qrcode-output > div {margin: 0;padding: 0;height: 3px;}
-		div#qrcode-output > div > span {display: inline-block;width: 3px;height: 3px;}
-		div#qrcode-output > div > span {background-color: lightgrey;}
-	</style >
-</head >
-<body >
-<h1>/docs</h1>
-<form id="qrcode-settings" >
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For-Schleife in Java</title>
+    <style>
+        /* Standardmäßig helles Design */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --nav-bg-color: #f0f0f0;
+            --nav-text-color: #555555;
+            --active-bg-color: #e0e0e0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #navigation {
+            width: 200px;
+            background-color: var(--nav-bg-color);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            position: fixed;
+            height: 100%;
+        }
+        #navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #navigation li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: var(--nav-text-color);
+            padding: 8px;
+            border-radius: 4px;
+        }
+        #navigation li:hover {
+            background-color: var(--active-bg-color);
+        }
+        #navigation li.active {
+            background-color: var(--active-bg-color);
+            font-weight: bold;
+        }
+        #content {
+            margin-left: 220px;
+            padding: 20px;
+            box-sizing: border-box;
+            width: calc(100% - 220px);
+            overflow-y: auto;
+        }
+        .slide {
+            display: none;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        .slide.active {
+            display: block;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            max-width: 150px;
+        }
+        .date {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+        .title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation">
+        <ul>
+            <li class="nav-item active" data-slide="0">Einführung</li>
+            <li class="nav-item" data-slide="1">Grundsyntax</li>
+            <li class="nav-item" data-slide="2">Beispiel 1: Zahlen ausgeben</li>
+            <li class="nav-item" data-slide="3">Beispiel 2: Arrays durchlaufen</li>
+            <li class="nav-item" data-slide="4">Beispiel 3: Verschachtelte Schleifen</li>
+            <li class="nav-item" data-slide="5">Zusammenfassung</li>
+        </ul>
+    </div>
+    <div id="content">
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo" class="logo">
+        <div class="date">21. April 2026</div>
+        <div class="title">For-Schleife in Java</div>
 
-	<label for="inputstring" >Input String</label ><br /><textarea name="inputstring" id="inputstring" cols="80" rows="3" autocomplete="off" spellcheck="false"></textarea ><br />
+        <section class="slide active" data-slide="0">
+            <h1>Einführung</h1>
+            <p>
+                Die <code>for</code>-Schleife in Java ist eine Kontrollstruktur, die es ermöglicht, einen Codeblock mehrfach auszuführen.
+                Sie ist besonders nützlich, wenn die Anzahl der Durchläufe im Voraus bekannt ist.
+            </p>
+            <p>
+                In dieser Präsentation lernst du die Grundlagen der <code>for</code>-Schleife und siehst praktische Beispiele.
+            </p>
+        </section>
 
-	<label for="version" >Version</label >
-	<input id="version" name="version" class="options" type="number" min="1" max="40" value="5" placeholder="version" />
+        <section class="slide" data-slide="1">
+            <h1>Grundsyntax</h1>
+            <p>
+                Die Syntax der <code>for</code>-Schleife in Java:
+            </p>
+            <pre>
+for (Initialisierung; Bedingung; Aktualisierung) {
+    // Code, der wiederholt ausgeführt wird
+}</pre>
+            <ul>
+                <li><strong>Initialisierung:</strong> Wird einmal zu Beginn ausgeführt (z. B. Zählvariable initialisieren).</li>
+                <li><strong>Bedingung:</strong> Wird vor jedem Durchlauf geprüft. Wenn <code>false</code>, wird die Schleife beendet.</li>
+                <li><strong>Aktualisierung:</strong> Wird nach jedem Durchlauf ausgeführt (z. B. Zählvariable erhöhen).</li>
+            </ul>
+        </section>
 
-	<label for="maskpattern" >Mask Pattern</label >
-	<input id="maskpattern" name="maskpattern" class="options" type="number" min="-1" max="7" value="-1" placeholder="mask pattern" />
+        <section class="slide" data-slide="2">
+            <h1>Beispiel 1: Zahlen ausgeben</h1>
+            <p>
+                Dieses Beispiel gibt die Zahlen von 1 bis 5 aus:
+            </p>
+            <pre>
+for (int i = 1; i <= 5; i++) {
+    System.out.println(i);
+}</pre>
+            <p>
+                <strong>Ausgabe:</strong>
+            </p>
+            <pre>
+1
+2
+3
+4
+5
+            </pre>
+        </section>
 
-	<label for="ecc" >ECC</label >
-	<select class="options" id="ecc" name="ecc" >
-		<option value="L" selected="selected" >L - 7%</option >
-		<option value="M" >M - 15%</option >
-		<option value="Q" >Q - 25%</option >
-		<option value="H" >H - 30%</option >
-	</select >
+        <section class="slide" data-slide="3">
+            <h1>Beispiel 2: Arrays durchlaufen</h1>
+            <p>
+                Mit einer <code>for</code>-Schleife kannst du einfach durch Arrays iterieren:
+            </p>
+            <pre>
+String[] namen = {"Anna", "Ben", "Clara", "David"};
 
-	<br />
+for (int i = 0; i < namen.length; i++) {
+    System.out.println(namen[i]);
+}</pre>
+            <p>
+                <strong>Ausgabe:</strong>
+            </p>
+            <pre>
+Anna
+Ben
+Clara
+David
+            </pre>
+        </section>
 
-	<label for="quietzone" >Quiet Zone
-		<input id="quietzone" name="quietzone" class="options" type="checkbox" value="true" />
-	</label >
+        <section class="slide" data-slide="4">
+            <h1>Beispiel 3: Verschachtelte Schleifen</h1>
+            <p>
+                Du kannst <code>for</code>-Schleifen auch verschachteln, z. B. für eine Multiplikationstabelle:
+            </p>
+            <pre>
+for (int i = 1; i <= 5; i++) {
+    for (int j = 1; j <= 5; j++) {
+        System.out.print(i * j + " ");
+    }
+    System.out.println();
+}</pre>
+            <p>
+                <strong>Ausgabe:</strong>
+            </p>
+            <pre>
+1 2 3 4 5
+2 4 6 8 10
+3 6 9 12 15
+4 8 12 16 20
+5 10 15 20 25
+            </pre>
+        </section>
 
-	<label for="quietzonesize" >size</label >
-	<input id="quietzonesize" name="quietzonesize" class="options" type="number" min="0" max="100" value="4" placeholder="quiet zone" />
+        <section class="slide" data-slide="5">
+            <h1>Zusammenfassung</h1>
+            <p>
+                Die <code>for</code>-Schleife ist eine mächtige Kontrollstruktur in Java, die dir hilft, Codeblöcke effizient zu wiederholen.
+                Sie besteht aus Initialisierung, Bedingung und Aktualisierung.
+            </p>
+            <p>
+                Typische Anwendungsfälle sind:
+            </p>
+            <ul>
+                <li>Zahlenbereiche durchlaufen</li>
+                <li>Arrays und Listen verarbeiten</li>
+                <li>Verschachtelte Schleifen für komplexe Aufgaben</li>
+            </ul>
+            <p>
+                Übe die Beispiele und experimentiere mit eigenen Schleifen!
+            </p>
+        </section>
+    </div>
 
-	<br />
+    <script>
+        // Navigation mit Pfeiltasten
+        document.addEventListener('keydown', function(e) {
+            const slides = document.querySelectorAll('.slide');
+            const navItems = document.querySelectorAll('.nav-item');
+            let currentSlideIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
 
-	<label for="output_type" >Output</label >
-	<select class="options" id="output_type" name="output_type" >
-		<option value="html" >Markup - HTML</option >
-		<option value="svg"  selected="selected" >Markup - SVG</option >
-		<option value="png">Image - png</option >
-		<option value="jpg" >Image - jpg</option >
-		<option value="gif" >Image - gif</option >
-		<option value="text" >String - text</option >
-		<option value="json" >String - json</option >
-	</select >
+            if (e.key === 'ArrowRight' && currentSlideIndex < slides.length - 1) {
+                slides[currentSlideIndex].classList.remove('active');
+                navItems[currentSlideIndex].classList.remove('active');
+                currentSlideIndex++;
+                slides[currentSlideIndex].classList.add('active');
+                navItems[currentSlideIndex].classList.add('active');
+            } else if (e.key === 'ArrowLeft' && currentSlideIndex > 0) {
+                slides[currentSlideIndex].classList.remove('active');
+                navItems[currentSlideIndex].classList.remove('active');
+                currentSlideIndex--;
+                slides[currentSlideIndex].classList.add('active');
+                navItems[currentSlideIndex].classList.add('active');
+            }
+        });
 
-	<label for="scale" >scale</label >
-	<input id="scale" name="scale" class="options" type="number" min="1" max="10" value="5" placeholder="scale" />
-
-	<div>Finder</div>
-	<label for="m_finder_light" >
-		<input type="text" id="m_finder_light" name="m_finder_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_finder_dark" >
-		<input type="text" id="m_finder_dark" name="m_finder_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Alignment</div>
-	<label for="m_alignment_light" >
-		<input type="text" id="m_alignment_light" name="m_alignment_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_alignment_dark" >
-		<input type="text" id="m_alignment_dark" name="m_alignment_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Timing</div>
-	<label for="m_timing_light" >
-		<input type="text" id="m_timing_light" name="m_timing_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_timing_dark" >
-		<input type="text" id="m_timing_dark" name="m_timing_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Format</div>
-	<label for="m_format_light" >
-		<input type="text" id="m_format_light" name="m_format_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_format_dark" >
-		<input type="text" id="m_format_dark" name="m_format_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Version</div>
-	<label for="m_version_light" >
-		<input type="text" id="m_version_light" name="m_version_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_version_dark" >
-		<input type="text" id="m_version_dark" name="m_version_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Data</div>
-	<label for="m_data_light" >
-		<input type="text" id="m_data_light" name="m_data_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_data_dark" >
-		<input type="text" id="m_data_dark" name="m_data_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Dark Module</div>
-	<label for="m_darkmodule_light" >
-		<input disabled="disabled" type="text" id="m_darkmodule_light" class="options" value="" autocomplete="off" spellcheck="false" />
-	</label >
-	<label for="m_darkmodule_dark" >
-		<input type="text" id="m_darkmodule_dark" name="m_darkmodule_dark" class="jscolor options" value="000000" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-
-	<div>Separator</div>
-	<label for="m_separator_light" >
-		<input type="text" id="m_separator_light" name="m_separator_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_separator_dark" >
-		<input disabled="disabled" type="text" id="m_separator_dark" class="options" value="" autocomplete="off" spellcheck="false" />
-	</label >
-
-	<div>Quiet Zone</div>
-	<label for="m_quietzone_light" >
-		<input type="text" id="m_quietzone_light" name="m_quietzone_light" class="jscolor options" value="ffffff" autocomplete="off" spellcheck="false" minlength="6" maxlength="6" />
-	</label >
-	<label for="m_quietzone_dark" >
-		<input disabled="disabled" type="text" id="m_quietzone_dark" class="options" value="" autocomplete="off" spellcheck="false" />
-	</label >
-
-	<br />
-	<button type="submit" >generate</button >
-</form >
-<div id="qrcode-output" ></div >
-
-<div><a href="https://play.google.com/store/apps/details?id=com.google.zxing.client.android" >ZXing Barcode Scanner</a ></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js" ></script >
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js" ></script >
-<script >
-	((form, output, url) => {
-
-		$(form).observe('submit', ev => {
-			Event.stop(ev);
-
-			new Ajax.Request(url, {
-				method: 'post',
-				parameters: ev.target.serialize(true),
-				onUninitialized: $(output).update(),
-				onLoading: $(output).update('[portlandia_screaming.gif]'),
-				onFailure: response => $(output).update(response.responseJSON.error),
-				onSuccess: response => $(output).update(response.responseJSON.qrcode),
-			});
-
-		});
-	})('qrcode-settings', 'qrcode-output', './qrcode.php');
-</script >
-
-</body >
-</html >
+        // Navigation per Klick
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                document.querySelectorAll('.slide').forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                document.querySelectorAll('.nav-item').forEach(navItem => {
+                    navItem.classList.remove('active');
+                });
+                document.querySelector(`.slide[data-slide="${slideIndex}"]`).classList.add('active');
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+```
