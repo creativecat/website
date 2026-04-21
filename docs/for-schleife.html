@@ -1,0 +1,557 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For-Schleife in Java</title>
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --nav-bg-color: #ffffff;
+      --nav-text-color: #495057;
+      --nav-hover-color: #eef3fb;
+      --nav-active-color: #1a73e8;
+      --nav-active-bg: #eaf2ff;
+      --nav-active-text: #1a73e8;
+      --slide-bg-color: #ffffff;
+      --logo-size: 120px;
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --transition-speed: 0.32s;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.12);
+      --border-color: #e6e6e9;
+      --menu-size: 64px;
+      --nav-width: 320px;
+      --menu-left-closed: 24px;
+      --menu-left-open: calc(var(--nav-width) - (var(--menu-size) / 2));
+    }
+
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #e1e1e1;
+      --nav-bg-color: #1e1e1e;
+      --nav-text-color: #b0b0b0;
+      --nav-hover-color: #2d2d2d;
+      --nav-active-color: #7db4ff;
+      --nav-active-bg: #1d2f4a;
+      --nav-active-text: #dbeafe;
+      --slide-bg-color: #1e1e1e;
+      --border-color: #32343a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      line-height: 1.6;
+    }
+
+    #toggle-menu {
+      position: fixed;
+      top: 22px;
+      left: var(--menu-left-closed);
+      z-index: 220;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: 18px;
+      width: var(--menu-size);
+      height: var(--menu-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      transition:
+        left var(--transition-speed) cubic-bezier(0.22, 1, 0.36, 1),
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 0;
+    }
+
+    #toggle-menu:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+    }
+
+    #toggle-menu.active {
+      left: var(--menu-left-open);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    #toggle-menu .icon-wrap {
+      position: relative;
+      width: 28px;
+      height: 28px;
+    }
+
+    #toggle-menu .icon-open,
+    #toggle-menu .icon-close {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+    }
+
+    #toggle-menu .icon-open {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    #toggle-menu .icon-close {
+      opacity: 0;
+      transform: scale(0.8) rotate(-90deg);
+      color: #2b3138;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    #toggle-menu.active .icon-open {
+      opacity: 0;
+      transform: scale(0.8) rotate(90deg);
+    }
+
+    #toggle-menu.active .icon-close {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    #toggle-menu .hamburger {
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    #toggle-menu .bar {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2d3138 0%, #565d66 100%);
+    }
+
+    #navigation {
+      width: var(--nav-width);
+      background-color: var(--nav-bg-color);
+      padding: 0;
+      position: fixed;
+      height: 100%;
+      box-shadow: var(--shadow-md);
+      z-index: 100;
+      transform: translateX(-100%);
+      transition: transform var(--transition-speed) cubic-bezier(0.22, 1, 0.36, 1);
+      border-right: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    #navigation.visible {
+      transform: translateX(0);
+    }
+
+    .nav-top {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      padding: 0 28px 0 108px;
+      border-bottom: 1px solid var(--border-color);
+      background: #fafafa;
+      color: var(--nav-text-color);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    #navigation ul {
+      list-style: none;
+      padding: 20px 0;
+      margin: 0;
+    }
+
+    #navigation li {
+      margin-bottom: 4px;
+      cursor: pointer;
+      color: var(--nav-text-color);
+      padding: 18px 26px;
+      padding-left: 34px;
+      border-left: 5px solid transparent;
+      transition: all var(--transition-speed) ease;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 68px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    #navigation li:hover {
+      background-color: var(--nav-hover-color);
+    }
+
+    #navigation li.active {
+      background-color: var(--nav-active-bg);
+      color: var(--nav-active-text);
+      border-left-color: var(--nav-active-color);
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      font-size: 1.7rem;
+      width: 34px;
+      text-align: center;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .nav-label {
+      line-height: 1.2;
+      font-size: 0.95rem;
+    }
+
+    #content {
+      margin-left: 0;
+      padding: 2rem;
+      height: calc(100vh - 4rem);
+      overflow-y: auto;
+      transition: margin-left var(--transition-speed) ease, width var(--transition-speed) ease;
+      position: relative;
+    }
+
+    #content.expanded {
+      margin-left: var(--nav-width);
+      width: calc(100% - var(--nav-width));
+    }
+
+    .slide {
+      display: none;
+      height: calc(100vh - 10rem);
+      padding: 1.5rem 0;
+      box-sizing: border-box;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .logo {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      max-width: var(--logo-size);
+      height: auto;
+      z-index: 10;
+    }
+
+    .page-indicator {
+      position: fixed;
+      top: 1rem;
+      right: calc(1rem + var(--logo-size) + 0.5rem);
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .date {
+      position: fixed;
+      bottom: 3rem;
+      right: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.7;
+      z-index: 10;
+    }
+
+    .title {
+      position: fixed;
+      bottom: 3rem;
+      left: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.7;
+      z-index: 10;
+      transition: left var(--transition-speed) ease;
+    }
+
+    .title.expanded {
+      left: calc(var(--nav-width) + 20px);
+    }
+
+    h1, h2, h3 {
+      color: var(--nav-active-color);
+      margin-top: 0;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+    }
+
+    pre {
+      background-color: #f5f5f5;
+      color: #333;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      border-left: 4px solid var(--nav-active-color);
+    }
+
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #f5f5f5;
+      color: #d63384;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .progress-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--nav-active-color);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .placeholder-box {
+      background-color: #e9ecef;
+      border: 1px dashed #ced4da;
+      border-radius: 6px;
+      padding: 2rem;
+      text-align: center;
+      color: #6c757d;
+      margin: 1rem 0;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --nav-width: min(84vw, 320px);
+        --menu-left-open: calc(var(--nav-width) - (var(--menu-size) / 2));
+      }
+
+      #content.expanded {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .title.expanded {
+        left: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-menu" aria-label="Navigation öffnen oder schließen">
+    <span class="icon-wrap">
+      <span class="icon-open" aria-hidden="true">
+        <span class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+      </span>
+      <span class="icon-close" aria-hidden="true">✕</span>
+    </span>
+  </button>
+
+  <div id="navigation">
+    <div class="nav-top">For-Schleife in Java</div>
+    <ul>
+      <li class="nav-item active" data-slide="0"><span class="nav-icon">📌</span><span class="nav-label">Einführung</span></li>
+      <li class="nav-item" data-slide="1"><span class="nav-icon">🔄</span><span class="nav-label">Grundsyntax</span></li>
+      <li class="nav-item" data-slide="2"><span class="nav-icon">📝</span><span class="nav-label">Beispiele</span></li>
+      <li class="nav-item" data-slide="3"><span class="nav-icon">🔍</span><span class="nav-label">Häufige Fehler</span></li>
+      <li class="nav-item" data-slide="4"><span class="nav-icon">📚</span><span class="nav-label">Zusammenfassung</span></li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Java_Logo.svg/1200px-Java_Logo.svg.png" alt="Java Logo" class="logo">
+    <div class="page-indicator">1/5</div>
+    <div class="date">21. April 2026</div>
+    <div class="title">For-Schleife in Java</div>
+
+    <section class="slide active" data-slide="0">
+      <h1>Einführung in die For-Schleife</h1>
+      <div class="placeholder-box">
+        <p>
+          Die <code>for</code>-Schleife ist eine der wichtigsten Kontrollstrukturen in Java.
+          Sie wird verwendet, um einen Codeblock mehrmals auszuführen, basierend auf einer Bedingung.
+          Besonders nützlich ist sie, wenn die Anzahl der Durchläufe vorher bekannt ist.
+        </p>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="1">
+      <h1>Grundsyntax der For-Schleife</h1>
+      <div class="placeholder-box">
+        <p>
+          Die Grundsyntax der <code>for</code>-Schleife in Java sieht wie folgt aus:
+        </p>
+        <pre><code>
+for (Initialisierung; Bedingung; Aktualisierung) {
+    // Code, der wiederholt ausgeführt wird
+}
+        </code></pre>
+        <ul>
+          <li><strong>Initialisierung:</strong> Wird einmal zu Beginn ausgeführt (z. B. <code>int i = 0</code>).</li>
+          <li><strong>Bedingung:</strong> Wird vor jedem Durchlauf geprüft (z. B. <code>i < 10</code>).</li>
+          <li><strong>Aktualisierung:</strong> Wird nach jedem Durchlauf ausgeführt (z. B. <code>i++</code>).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="2">
+      <h1>Beispiele für For-Schleifen</h1>
+      <div class="placeholder-box">
+        <p>
+          Hier sind einige typische Beispiele für die Verwendung der <code>for</code>-Schleife:
+        </p>
+        <pre><code>
+// Beispiel 1: Zahlen von 0 bis 9 ausgeben
+for (int i = 0; i < 10; i++) {
+    System.out.println(i);
+}
+
+// Beispiel 2: Array durchlaufen
+int[] zahlen = {1, 2, 3, 4, 5};
+for (int i = 0; i < zahlen.length; i++) {
+    System.out.println(zahlen[i]);
+}
+
+// Beispiel 3: Verschachtelte Schleifen
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 2; j++) {
+        System.out.println("i: " + i + ", j: " + j);
+    }
+}
+        </code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="3">
+      <h1>Häufige Fehler bei For-Schleifen</h1>
+      <div class="placeholder-box">
+        <p>
+          Typische Fehler, die bei der Verwendung von <code>for</code>-Schleifen auftreten können:
+        </p>
+        <ul>
+          <li><strong>Endlosschleifen:</strong> Wenn die Bedingung nie <code>false</code> wird, z. B. <code>for (int i = 0; i >= 0; i++)</code>.</li>
+          <li><strong>Off-by-One-Fehler:</strong> Schleife läuft einmal zu oft oder zu wenig, z. B. <code>i <= 10</code> statt <code>i < 10</code>.</li>
+          <li><strong>Falsche Aktualisierung:</strong> Vergessen, die Zählvariable zu aktualisieren, z. B. <code>for (int i = 0; i < 10;)</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="4">
+      <h1>Zusammenfassung</h1>
+      <div class="placeholder-box">
+        <p>
+          Die <code>for</code>-Schleife ist eine leistungsstarke Kontrollstruktur in Java, die es ermöglicht,
+          Codeblöcke basierend auf einer Bedingung mehrmals auszuführen.
+          Sie besteht aus Initialisierung, Bedingung und Aktualisierung.
+          Achte darauf, Endlosschleifen und Off-by-One-Fehler zu vermeiden.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <script>
+    const toggleMenu = document.getElementById('toggle-menu');
+    const navigation = document.getElementById('navigation');
+    const content = document.getElementById('content');
+    const title = document.querySelector('.title');
+    const pageIndicator = document.querySelector('.page-indicator');
+    const progressBar = document.getElementById('progress-bar');
+    const slides = document.querySelectorAll('.slide');
+    const navItems = document.querySelectorAll('.nav-item');
+    let isVisible = false;
+
+    function syncMenuState() {
+      navigation.classList.toggle('visible', isVisible);
+      content.classList.toggle('expanded', isVisible && window.innerWidth > 900);
+      title.classList.toggle('expanded', isVisible && window.innerWidth > 900);
+      toggleMenu.classList.toggle('active', isVisible);
+    }
+
+    toggleMenu.addEventListener('click', () => {
+      isVisible = !isVisible;
+      syncMenuState();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        isVisible = !isVisible;
+        syncMenuState();
+      }
+
+      let currentSlideIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+      if (e.key === 'ArrowRight' && currentSlideIndex < slides.length - 1) {
+        updateSlide(currentSlideIndex + 1);
+      } else if (e.key === 'ArrowLeft' && currentSlideIndex > 0) {
+        updateSlide(currentSlideIndex - 1);
+      }
+    });
+
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const slideIndex = parseInt(this.getAttribute('data-slide'));
+        updateSlide(slideIndex);
+      });
+    });
+
+    function updateSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      navItems.forEach(item => item.classList.remove('active'));
+      slides[index].classList.add('active');
+      navItems[index].classList.add('active');
+      pageIndicator.textContent = `${index + 1}/${slides.length}`;
+      const progress = ((index) / (slides.length - 1)) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    window.addEventListener('resize', syncMenuState);
+    syncMenuState();
+    updateSlide(0);
+  </script>
+</body>
+</html>
+```
