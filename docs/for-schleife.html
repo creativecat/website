@@ -333,19 +333,36 @@
 
     pre {
       margin: 0;
-      background-color: #111827;
+      background-color: #0f172a;
       color: #e5eefb;
       padding: 1.25rem 1.4rem;
       border-radius: 16px;
       overflow-x: auto;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      tab-size: 2;
+      white-space: pre;
     }
 
     code {
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 0.95em;
     }
+
+    .code-block {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .code-comment { color: #94a3b8; }
+    .code-keyword { color: #c084fc; }
+    .code-function { color: #60a5fa; }
+    .code-variable { color: #f8fafc; }
+    .code-string { color: #86efac; }
+    .code-number { color: #fbbf24; }
+    .code-operator { color: #f472b6; }
+    .code-property { color: #67e8f9; }
 
     .progress-container {
       position: fixed;
@@ -390,31 +407,33 @@
 
     .slide-hero-title {
       text-align: center;
-      font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+      font-size: clamp(2.2rem, 4.2vw, 4.2rem);
       font-weight: 800;
-      line-height: 1.04;
+      line-height: 1.08;
       color: #16181d;
-      margin: 0 auto 1.2rem;
+      margin: 0 auto 1rem;
       max-width: 1180px;
+      letter-spacing: -0.02em;
     }
 
     .slide-hero-subtitle {
       text-align: center;
-      font-size: clamp(1.2rem, 2vw, 2rem);
+      font-size: clamp(1.1rem, 1.75vw, 1.55rem);
       line-height: 1.45;
       color: #444b55;
       max-width: 1180px;
-      margin: 0 auto 2.4rem;
+      margin: 0 auto 2.2rem;
+      font-weight: 400;
     }
 
     .hero-number {
       text-align: center;
-      font-size: clamp(5rem, 14vw, 11rem);
+      font-size: clamp(4.2rem, 11vw, 8.5rem);
       line-height: 0.95;
-      font-weight: 900;
+      font-weight: 800;
       color: #1772de;
       letter-spacing: -0.04em;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.25rem;
     }
 
     .stats-row {
@@ -431,10 +450,11 @@
     }
 
     .stat-value {
-      font-size: clamp(3.3rem, 7vw, 6.4rem);
+      font-size: clamp(2.6rem, 5.8vw, 4.8rem);
       line-height: 1;
-      font-weight: 900;
+      font-weight: 800;
       margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
     }
 
     .stat-value.orange { color: #fb8c00; }
@@ -456,8 +476,9 @@
       background: rgba(234, 242, 255, 0.45);
       padding: 1.5rem 2rem;
       color: #2d3440;
-      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      font-size: clamp(1.05rem, 1.5vw, 1.35rem);
       line-height: 1.45;
+      font-weight: 400;
     }
 
     .question-box strong,
@@ -489,16 +510,19 @@
     }
 
     .feature-title {
-      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      font-size: clamp(1.25rem, 1.9vw, 1.7rem);
       font-weight: 700;
       color: #1a1d23;
       margin-bottom: 0.9rem;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
     }
 
     .feature-text {
-      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+      font-size: clamp(1rem, 1.45vw, 1.28rem);
       color: #4b4f57;
       line-height: 1.5;
+      font-weight: 400;
     }
 
     .stack-list {
@@ -549,9 +573,11 @@
     .stack-card.green .stack-icon { background: #dceedd; }
 
     .stack-title {
-      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      font-size: clamp(1.25rem, 1.7vw, 1.6rem);
       font-weight: 700;
       margin-bottom: 0.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     .stack-card.blue .stack-title { color: #1666d2; }
@@ -559,9 +585,10 @@
     .stack-card.green .stack-title { color: #2ea54b; }
 
     .stack-text {
-      font-size: clamp(1.05rem, 1.75vw, 1.45rem);
+      font-size: clamp(1rem, 1.4vw, 1.24rem);
       color: #454b54;
       line-height: 1.45;
+      font-weight: 400;
     }
 
     .tone-note {
@@ -569,16 +596,17 @@
       margin: 2.2rem auto 0;
       text-align: center;
       color: #8a8d93;
-      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
       line-height: 1.5;
+      font-weight: 400;
     }
 
     .two-col {
       display: grid;
-      grid-template-columns: minmax(340px, 0.95fr) minmax(440px, 1.25fr);
-      gap: 2rem;
+      grid-template-columns: minmax(700px, 1.6fr) minmax(320px, 0.8fr);
+      gap: 1.6rem;
       align-items: start;
-      max-width: 1500px;
+      max-width: 1540px;
       margin: 2.3rem auto 0;
     }
 
@@ -592,12 +620,13 @@
 
     .panel-label {
       display: inline-block;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #1b6fe3;
       font-weight: 700;
       margin-bottom: 0.9rem;
+      font-family: var(--font-main);
     }
 
     .explain-list {
@@ -842,19 +871,21 @@
       <div class="two-col">
         <section class="code-panel">
           <span class="panel-label">Code-Beispiel</span>
-          <pre><code>function updateFeedback(studentData) {
-  const weakTopics = studentData.answers
-    .filter(answer =&gt; !answer.correct)
-    .map(answer =&gt; answer.topic);
+          <pre><code class="code-block"><span class="code-keyword">function</span> <span class="code-function">updateFeedback</span>(<span class="code-variable">studentData</span>) {
+  <span class="code-keyword">const</span> <span class="code-variable">weakTopics</span> <span class="code-operator">=</span> <span class="code-variable">studentData</span>.<span class="code-property">answers</span>
+    .<span class="code-function">filter</span>(<span class="code-variable">answer</span> <span class="code-operator">=&gt;</span> !<span class="code-variable">answer</span>.<span class="code-property">correct</span>)
+    .<span class="code-function">map</span>(<span class="code-variable">answer</span> <span class="code-operator">=&gt;</span> <span class="code-variable">answer</span>.<span class="code-property">topic</span>);
 
-  const priorities = [...new Set(weakTopics)].slice(0, 3);
+  <span class="code-keyword">const</span> <span class="code-variable">priorities</span> <span class="code-operator">=</span> [<span class="code-operator">...</span><span class="code-keyword">new</span> <span class="code-function">Set</span>(<span class="code-variable">weakTopics</span>)].<span class="code-function">slice</span>(<span class="code-number">0</span>, <span class="code-number">3</span>);
 
-  return {
-    diagnosis: `Achte besonders auf: ${priorities.join(', ')}`,
-    nextStep: 'Bearbeite zuerst eine Aufgabe mit mittlerem Niveau.',
-    reflection: 'Kannst du deinen Lösungsweg in 2 Sätzen erklären?'
+  <span class="code-keyword">return</span> {
+    <span class="code-property">diagnosis</span>: <span class="code-string">`Achte besonders auf: ${priorities.join(', ')}`</span>,
+    <span class="code-property">nextStep</span>: <span class="code-string">'Bearbeite zuerst eine Aufgabe mit mittlerem Niveau.'</span>,
+    <span class="code-property">reflection</span>: <span class="code-string">'Kannst du deinen Lösungsweg in 2 Sätzen erklären?'</span>
   };
-}</code></pre>
+}
+
+<span class="code-comment">// Beispielausgabe: strukturierte Rückmeldung für ein Feedback-Objekt</span></code></pre>
           <div class="example-caption">[HINWEIS ZUM CODE ODER ZUR LAUFZEIT, Z. B. EINGABEN / AUSGABEN / KONTEXT]</div>
         </section>
 
