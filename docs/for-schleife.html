@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For-Schleife in der Programmierung</title>
+  <title>For-Schleife – Grundlagen und Anwendungen</title>
   <style>
     :root {
       --bg-color: #f6f7f9;
@@ -718,28 +718,29 @@
   </button>
 
   <nav id="navigation">
-    <div class="nav-top">For-Schleife in der Programmierung</div>
+    <div class="nav-top">For-Schleife – Grundlagen und Anwendungen</div>
     <ul>
-      <li class="nav-item active" data-slide="0"><span class="nav-icon">🏠</span><span class="nav-label">Einführung</span></li>
+      <li class="nav-item active" data-slide="0"><span class="nav-icon">📌</span><span class="nav-label">Einführung</span></li>
       <li class="nav-item" data-slide="1"><span class="nav-icon">🔄</span><span class="nav-label">Grundlagen</span></li>
       <li class="nav-item" data-slide="2"><span class="nav-icon">📝</span><span class="nav-label">Syntax</span></li>
-      <li class="nav-item" data-slide="3"><span class="nav-icon">💡</span><span class="nav-label">Beispiele</span></li>
-      <li class="nav-item" data-slide="4"><span class="nav-icon">🔍</span><span class="nav-label">Anwendungsfälle</span></li>
-      <li class="nav-item" data-slide="5"><span class="nav-icon">⚠️</span><span class="nav-label">Häufige Fehler</span></li>
-      <li class="nav-item" data-slide="6"><span class="nav-icon">📚</span><span class="nav-label">Zusammenfassung</span></li>
+      <li class="nav-item" data-slide="3"><span class="nav-icon">💡</span><span class="nav-label">Anwendungsbeispiele</span></li>
+      <li class="nav-item" data-slide="4"><span class="nav-icon">🔍</span><span class="nav-label">Typische Fehler</span></li>
+      <li class="nav-item" data-slide="5"><span class="nav-icon">📊</span><span class="nav-label">Vergleich mit anderen Schleifen</span></li>
+      <li class="nav-item" data-slide="6"><span class="nav-icon">🎓</span><span class="nav-label">Übungen</span></li>
+      <li class="nav-item" data-slide="7"><span class="nav-icon">📚</span><span class="nav-label">Zusammenfassung</span></li>
     </ul>
   </nav>
 
   <div id="content">
-    <img src="https://via.placeholder.com/120x60?text=Logo" alt="Logo" class="logo">
-    <div class="page-indicator">1/7</div>
+    <img src="https://raw.githubusercontent.com/creativecat/website/refs/heads/main/docs/Logo-PVS.svg" alt="Logo" class="logo">
+    <div class="page-indicator">1/8</div>
     <div class="date">21. April 2026</div>
-    <div class="title">For-Schleife in der Programmierung</div>
+    <div class="title">For-Schleife – Grundlagen und Anwendungen</div>
 
     <section class="slide active" data-slide="0">
-      <h1>Willkommen zur Präsentation über die For-Schleife</h1>
+      <h1>For-Schleife</h1>
       <div class="placeholder-box">
-        <p>Hier lernst du die Grundlagen, Syntax und Anwendungsfälle der For-Schleife kennen.</p>
+        <p>Willkommen zur Präsentation über die For-Schleife – eine der wichtigsten Kontrollstrukturen in der Programmierung.</p>
       </div>
     </section>
 
@@ -748,12 +749,30 @@
         <div class="slide-kicker">GRUNDLAGEN</div>
         <div class="slide-hero-title">Was ist eine For-Schleife?</div>
         <div class="slide-hero-subtitle">
-          Eine For-Schleife ist eine Kontrollstruktur in der Programmierung, die es ermöglicht, einen Codeblock mehrfach auszuführen.
-          Sie wird häufig verwendet, wenn die Anzahl der Wiederholungen vorher bekannt ist.
+          Eine For-Schleife ist eine Kontrollstruktur, die es ermöglicht, einen Codeblock mehrfach auszuführen, basierend auf einer vordefinierten Bedingung.
         </div>
       </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">Iteration</div>
+          <div class="feature-text">Die For-Schleife wird verwendet, um über eine bestimmte Anzahl von Iterationen zu laufen.</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Zähler</div>
+          <div class="feature-text">Ein Zähler wird verwendet, um die Anzahl der Durchläufe zu steuern.</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title">Anwendungsbereich</div>
+          <div class="feature-text">Ideal für Aufgaben, bei denen die Anzahl der Wiederholungen bekannt ist.</div>
+        </article>
+      </div>
+
       <div class="info-box">
-        <strong>Wichtig:</strong> Die For-Schleife besteht aus drei Teilen: Initialisierung, Bedingung und Inkrement.
+        <strong>Wichtig:</strong> Die For-Schleife ist besonders nützlich, wenn die Anzahl der Iterationen im Voraus bekannt ist.
       </div>
     </section>
 
@@ -761,32 +780,40 @@
       <div class="center-box">
         <div class="slide-kicker">SYNTAX</div>
         <div class="slide-hero-title">Syntax der For-Schleife</div>
+        <div class="slide-hero-subtitle">
+          Die grundlegende Syntax einer For-Schleife in den meisten Programmiersprachen sieht wie folgt aus:
+        </div>
       </div>
 
       <div class="two-col">
         <section class="code-panel">
-          <span class="panel-label">Beispiel in JavaScript</span>
-          <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">0</span>; <span class="code-variable">i</span> < <span class="code-number">5</span>; <span class="code-variable">i</span>++) {
-    <span class="code-comment">// Code, der wiederholt ausgeführt wird</span>
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-string">"Wiederholung Nr. "</span> + <span class="code-variable">i</span>);
+          <span class="panel-label">Code-Beispiel (JavaScript)</span>
+          <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">0</span>; <span class="code-variable">i</span> <span class="code-operator">&lt;</span> <span class="code-number">5</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) {
+    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-string">"Iteration Nr. "</span> <span class="code-operator">+</span> <span class="code-variable">i</span>);
 }</code></pre>
-          <div class="example-caption">Dieses Beispiel gibt die Zahlen von 0 bis 4 in der Konsole aus.</div>
+          <div class="example-caption">
+            Dieses Beispiel gibt die Iterationsnummer von 0 bis 4 in der Konsole aus.
+          </div>
         </section>
 
         <section class="explain-panel">
           <span class="panel-label">Erklärung</span>
           <div class="explain-list">
             <div class="explain-item">
-              <strong>Initialisierung</strong>
-              <span>Die Variable <code>i</code> wird mit dem Wert 0 initialisiert.</span>
+              <strong>1. Initialisierung</strong>
+              <span>Der Zähler <code>i</code> wird auf 0 gesetzt.</span>
             </div>
             <div class="explain-item">
-              <strong>Bedingung</strong>
+              <strong>2. Bedingung</strong>
               <span>Die Schleife läuft, solange <code>i</code> kleiner als 5 ist.</span>
             </div>
             <div class="explain-item">
-              <strong>Inkrement</strong>
+              <strong>3. Inkrement</strong>
               <span>Nach jedem Durchlauf wird <code>i</code> um 1 erhöht.</span>
+            </div>
+            <div class="explain-item">
+              <strong>4. Codeblock</strong>
+              <span>Der Code innerhalb der geschweiften Klammern wird bei jedem Durchlauf ausgeführt.</span>
             </div>
           </div>
         </section>
@@ -795,42 +822,47 @@
 
     <section class="slide" data-slide="3">
       <div class="center-box">
-        <div class="slide-kicker">BEISPIELE</div>
-        <div class="slide-hero-title">Praktische Beispiele</div>
+        <div class="slide-kicker">ANWENDUNGSBEISPIELE</div>
+        <div class="slide-hero-title">Anwendungsbeispiele</div>
+        <div class="slide-hero-subtitle">
+          Hier sind einige typische Anwendungsbeispiele für For-Schleifen:
+        </div>
       </div>
 
       <div class="feature-grid">
         <article class="feature-card">
+          <div class="feature-icon">📋</div>
+          <div class="feature-title">Arrays durchlaufen</div>
+          <div class="feature-text">
+            <pre><code class="code-block"><span class="code-keyword">let</span> <span class="code-variable">zahlen</span> <span class="code-operator">=</span> [<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>, <span class="code-number">4</span>, <span class="code-number">5</span>];
+<span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">0</span>; <span class="code-variable">i</span> <span class="code-operator">&lt;</span> <span class="code-variable">zahlen</span>.<span class="code-property">length</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) {
+    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">zahlen</span>[<span class="code-variable">i</span>]);
+}</code></pre>
+          </div>
+        </article>
+        <article class="feature-card">
           <div class="feature-icon">🔢</div>
-          <div class="feature-title">Zahlen ausgeben</div>
+          <div class="feature-title">Tabellen erstellen</div>
           <div class="feature-text">
-            <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">1</span>; <span class="code-variable">i</span> <= <span class="code-number">10</span>; <span class="code-variable">i</span>++) {
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">i</span>);
-}</code></pre>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon">📚</div>
-          <div class="feature-title">Array durchlaufen</div>
-          <div class="feature-text">
-            <pre><code class="code-block"><span class="code-keyword">let</span> <span class="code-variable">fruechte</span> = [<span class="code-string">"Apfel"</span>, <span class="code-string">"Banane"</span>, <span class="code-string">"Orange"</span>];
-<span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">0</span>; <span class="code-variable">i</span> < <span class="code-variable">fruechte</span>.<span class="code-property">length</span>; <span class="code-variable">i</span>++) {
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">fruechte</span>[<span class="code-variable">i</span>]);
-}</code></pre>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon">🔲</div>
-          <div class="feature-title">Tabelle erstellen</div>
-          <div class="feature-text">
-            <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">1</span>; <span class="code-variable">i</span> <= <span class="code-number">10</span>; <span class="code-variable">i</span>++) {
-    <span class="code-keyword">let</span> <span class="code-variable">zeile</span> = <span class="code-string">""</span>;
-    <span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">j</span> = <span class="code-number">1</span>; <span class="code-variable">j</span> <= <span class="code-number">10</span>; <span class="code-variable">j</span>++) {
-        <span class="code-variable">zeile</span> += <span class="code-variable">i</span> * <span class="code-variable">j</span> + <span class="code-string">" "</span>;
+            <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">1</span>; <span class="code-variable">i</span> <span class="code-operator">&lt;=</span> <span class="code-number">10</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) {
+    <span class="code-keyword">let</span> <span class="code-variable">row</span> <span class="code-operator">=</span> <span class="code-string">""</span>;
+    <span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">j</span> <span class="code-operator">=</span> <span class="code-number">1</span>; <span class="code-variable">j</span> <span class="code-operator">&lt;=</span> <span class="code-number">10</span>; <span class="code-variable">j</span><span class="code-operator">++</span>) {
+        <span class="code-variable">row</span> <span class="code-operator">+=</span> (<span class="code-variable">i</span> <span class="code-operator">*</span> <span class="code-variable">j</span>) <span class="code-operator">+</span> <span class="code-string">" "</span>;
     }
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">zeile</span>);
+    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">row</span>);
+}</code></pre>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-title">Suche in Daten</div>
+          <div class="feature-text">
+            <pre><code class="code-block"><span class="code-keyword">let</span> <span class="code-variable">daten</span> <span class="code-operator">=</span> [<span class="code-string">"Apfel"</span>, <span class="code-string">"Banane"</span>, <span class="code-string">"Kirsche"</span>];
+<span class="code-keyword">let</span> <span class="code-variable">suchbegriff</span> <span class="code-operator">=</span> <span class="code-string">"Banane"</span>;
+<span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">0</span>; <span class="code-variable">i</span> <span class="code-operator">&lt;</span> <span class="code-variable">daten</span>.<span class="code-property">length</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) {
+    <span class="code-keyword">if</span> (<span class="code-variable">daten</span>[<span class="code-variable">i</span>] <span class="code-operator">===</span> <span class="code-variable">suchbegriff</span>) {
+        <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-string">"Gefunden!"</span>);
+    }
 }</code></pre>
           </div>
         </article>
@@ -839,32 +871,44 @@
 
     <section class="slide" data-slide="4">
       <div class="center-box">
-        <div class="slide-kicker">ANWENDUNGSFÄLLE</div>
-        <div class="slide-hero-title">Wann verwendet man For-Schleifen?</div>
+        <div class="slide-kicker">TYPISCHE FEHLER</div>
+        <div class="slide-hero-title>Typische Fehler</div>
+        <div class="slide-hero-subtitle">
+          Hier sind einige häufige Fehler, die bei der Verwendung von For-Schleifen auftreten können:
+        </div>
       </div>
 
       <div class="stack-list">
-        <article class="stack-card blue">
-          <div class="stack-icon">📊</div>
+        <article class="stack-card red">
+          <div class="stack-icon">⚠️</div>
           <div>
-            <div class="stack-title">Datenverarbeitung</div>
-            <div class="stack-text">For-Schleifen eignen sich ideal, um große Datenmengen zu durchlaufen und zu verarbeiten.</div>
+            <div class="stack-title">Unendliche Schleifen</div>
+            <div class="stack-text">
+              Wenn die Bedingung nie <code>false</code> wird, läuft die Schleife unendlich.
+              <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">0</span>; <span class="code-variable">i</span> <span class="code-operator">&gt;</span> <span class="code-number">-1</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) { ... }</code></pre>
+            </div>
           </div>
         </article>
 
-        <article class="stack-card purple">
-          <div class="stack-icon">🔄</div>
+        <article class="stack-card red">
+          <div class="stack-icon">⚠️</div>
           <div>
-            <div class="stack-title">Wiederholte Aufgaben</div>
-            <div class="stack-text">Sie sind nützlich, wenn eine bestimmte Aktion mehrfach wiederholt werden muss.</div>
+            <div class="stack-title">Falsche Initialisierung</div>
+            <div class="stack-text">
+              Wenn der Zähler falsch initialisiert wird, kann die Schleife nicht wie gewünscht laufen.
+              <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">5</span>; <span class="code-variable">i</span> <span class="code-operator">&lt;</span> <span class="code-number">5</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) { ... }</code></pre>
+            </div>
           </div>
         </article>
 
-        <article class="stack-card green">
-          <div class="stack-icon">📈</div>
+        <article class="stack-card red">
+          <div class="stack-icon">⚠️</div>
           <div>
-            <div class="stack-title">Algorithmen</div>
-            <div class="stack-text">For-Schleifen werden oft in Algorithmen verwendet, z. B. bei Sortieralgorithmen.</div>
+            <div class="stack-title">Off-by-One-Fehler</div>
+            <div class="stack-text">
+              Wenn die Bedingung nicht korrekt gesetzt ist, kann eine Iteration zu viel oder zu wenig ausgeführt werden.
+              <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> <span class="code-operator">=</span> <span class="code-number">0</span>; <span class="code-variable">i</span> <span class="code-operator">&lt;=</span> <span class="code-number">5</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) { ... }</code></pre>
+            </div>
           </div>
         </article>
       </div>
@@ -872,50 +916,84 @@
 
     <section class="slide" data-slide="5">
       <div class="center-box">
-        <div class="slide-kicker">HÄUFIGE FEHLER</div>
-        <div class="slide-hero-title">Typische Fehler bei For-Schleifen</div>
+        <div class="slide-kicker">VERGLEICH MIT ANDEREN SCHLEIFEN</div>
+        <div class="slide-hero-title">Vergleich mit anderen Schleifen</div>
+        <div class="slide-hero-subtitle">
+          Wie unterscheidet sich die For-Schleife von anderen Schleifenarten?
+        </div>
       </div>
 
       <div class="feature-grid">
         <article class="feature-card">
           <div class="feature-icon">🔄</div>
-          <div class="feature-title">Endlosschleifen</div>
+          <div class="feature-title">For-Schleife</div>
           <div class="feature-text">
-            <p>Vergessen, die Schleifenvariable zu erhöhen, führt zu einer Endlosschleife.</p>
-            <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">0</span>; <span class="code-variable">i</span> < <span class="code-number">5</span>; ) {
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">i</span>);
-}</code></pre>
+            Ideal, wenn die Anzahl der Iterationen im Voraus bekannt ist.
           </div>
         </article>
-
         <article class="feature-card">
-          <div class="feature-icon">🔢</div>
-          <div class="feature-title">Falsche Bedingung</div>
+          <div class="feature-icon">🔁</div>
+          <div class="feature-title">While-Schleife</div>
           <div class="feature-text">
-            <p>Eine falsche Bedingung kann dazu führen, dass die Schleife nicht ausgeführt wird.</p>
-            <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">10</span>; <span class="code-variable">i</span> < <span class="code-number">5</span>; <span class="code-variable">i</span>++) {
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">i</span>);
-}</code></pre>
+            Wird verwendet, wenn die Anzahl der Iterationen nicht bekannt ist und die Schleife basierend auf einer Bedingung läuft.
           </div>
         </article>
+        <article class="feature-card">
+          <div class="feature-icon">🔀</div>
+          <div class="feature-title">Do-While-Schleife</div>
+          <div class="feature-text">
+            Ähnlich wie die While-Schleife, aber der Codeblock wird mindestens einmal ausgeführt.
+          </div>
+        </article>
+      </div>
 
+      <div class="info-box">
+        <strong>Tipp:</strong> Verwende die For-Schleife, wenn du genau weißt, wie oft der Codeblock ausgeführt werden soll.
+      </div>
+    </section>
+
+    <section class="slide" data-slide="6">
+      <div class="center-box">
+        <div class="slide-kicker">ÜBUNGEN</div>
+        <div class="slide-hero-title>Übungen</div>
+        <div class="slide-hero-subtitle">
+          Versuche, die folgenden Aufgaben mit For-Schleifen zu lösen:
+        </div>
+      </div>
+
+      <div class="feature-grid">
         <article class="feature-card">
           <div class="feature-icon">📝</div>
-          <div class="feature-title">Off-by-One-Fehler</div>
+          <div class="feature-title">Aufgabe 1</div>
           <div class="feature-text">
-            <p>Ein häufiger Fehler ist, wenn die Schleife eine Iteration zu viel oder zu wenig durchläuft.</p>
-            <pre><code class="code-block"><span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-variable">i</span> = <span class="code-number">1</span>; <span class="code-variable">i</span> <= <span class="code-number">10</span>; <span class="code-variable">i</span>++) {
-    <span class="code-function">console</span>.<span class="code-function">log</span>(<span class="code-variable">i</span>);
-}</code></pre>
+            Schreibe eine For-Schleife, die die Zahlen von 1 bis 10 in der Konsole ausgibt.
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📝</div>
+          <div class="feature-title">Aufgabe 2</div>
+          <div class="feature-text">
+            Schreibe eine For-Schleife, die die Summe der Zahlen von 1 bis 100 berechnet.
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📝</div>
+          <div class="feature-title">Aufgabe 3</div>
+          <div class="feature-text">
+            Schreibe eine For-Schleife, die alle geraden Zahlen zwischen 1 und 50 ausgibt.
           </div>
         </article>
       </div>
     </section>
 
-    <section class="slide" data-slide="6">
+    <section class="slide" data-slide="7">
       <h1>Zusammenfassung</h1>
       <div class="placeholder-box">
-        <p>Die For-Schleife ist eine mächtige Kontrollstruktur, die in vielen Programmiersprachen verwendet wird. Sie ermöglicht es, Codeblöcke mehrfach auszuführen und ist besonders nützlich, wenn die Anzahl der Wiederholungen bekannt ist.</p>
+        <p>
+          Die For-Schleife ist eine leistungsstarke Kontrollstruktur, die es ermöglicht, Codeblöcke mehrfach auszuführen.
+          Sie ist besonders nützlich, wenn die Anzahl der Iterationen im Voraus bekannt ist.
+          Denke daran, die Initialisierung, Bedingung und das Inkrement korrekt zu setzen, um Fehler zu vermeiden.
+        </p>
       </div>
     </section>
   </div>
