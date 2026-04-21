@@ -1,48 +1,63 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For-Schleife in Java</title>
+  <title>[PRÄSENTATIONS-TITEL]</title>
   <style>
     :root {
-      --bg-color: #f8f9fa;
+      --bg-color: #f6f7f9;
       --text-color: #212529;
+      --muted-color: #6b7280;
       --nav-bg-color: #ffffff;
-      --nav-text-color: #495057;
-      --nav-hover-color: #eef3fb;
-      --nav-active-color: #1a73e8;
+      --nav-text-color: #4b5563;
+      --nav-hover-color: #eef4ff;
+      --nav-active-color: #1f6fe5;
       --nav-active-bg: #eaf2ff;
-      --nav-active-text: #1a73e8;
+      --nav-active-text: #1f6fe5;
       --slide-bg-color: #ffffff;
       --logo-size: 120px;
       --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       --transition-speed: 0.32s;
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 10px 24px rgba(0, 0, 0, 0.12);
-      --border-color: #e6e6e9;
+      --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 16px 40px rgba(15, 23, 42, 0.12);
+      --border-color: #e5e7eb;
       --menu-size: 64px;
       --nav-width: 320px;
       --menu-left-closed: 24px;
       --menu-left-open: calc(var(--nav-width) - (var(--menu-size) / 2));
+      --content-left-padding: calc(2rem + var(--menu-size) + 18px);
+      --nav-icon-width: 34px;
+      --nav-item-left: 34px;
+      --nav-gap: 16px;
+      --nav-text-start: calc(var(--nav-item-left) + var(--nav-icon-width) + var(--nav-gap));
+      --slide-max-width: 1600px;
+      --hero-max-width: 1260px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
     }
 
     .dark-mode {
-      --bg-color: #121212;
-      --text-color: #e1e1e1;
-      --nav-bg-color: #1e1e1e;
-      --nav-text-color: #b0b0b0;
-      --nav-hover-color: #2d2d2d;
+      --bg-color: #121417;
+      --text-color: #edf2f7;
+      --muted-color: #a0aec0;
+      --nav-bg-color: #1a1f27;
+      --nav-text-color: #d1d5db;
+      --nav-hover-color: #222a35;
       --nav-active-color: #7db4ff;
-      --nav-active-bg: #1d2f4a;
-      --nav-active-text: #dbeafe;
-      --slide-bg-color: #1e1e1e;
-      --border-color: #32343a;
+      --nav-active-bg: #1b3152;
+      --nav-active-text: #d9eafe;
+      --slide-bg-color: #161b22;
+      --border-color: #2d3748;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
     }
 
     body {
@@ -51,9 +66,8 @@
       color: var(--text-color);
       margin: 0;
       padding: 0;
-      height: 100vh;
       overflow: hidden;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     #toggle-menu {
@@ -62,7 +76,7 @@
       left: var(--menu-left-closed);
       z-index: 220;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       border: 1px solid rgba(17, 24, 39, 0.08);
       border-radius: 18px;
       width: var(--menu-size);
@@ -88,7 +102,7 @@
 
     #toggle-menu.active {
       left: var(--menu-left-open);
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.98);
     }
 
     #toggle-menu .icon-wrap {
@@ -151,6 +165,7 @@
       background-color: var(--nav-bg-color);
       padding: 0;
       position: fixed;
+      inset: 0 auto 0 0;
       height: 100%;
       box-shadow: var(--shadow-md);
       z-index: 100;
@@ -168,19 +183,21 @@
       height: 150px;
       display: flex;
       align-items: center;
-      padding: 0 28px 0 108px;
+      padding: 0 28px 0 var(--nav-text-start);
       border-bottom: 1px solid var(--border-color);
       background: #fafafa;
       color: var(--nav-text-color);
       font-size: 1.05rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.02em;
     }
 
     #navigation ul {
       list-style: none;
-      padding: 20px 0;
+      padding: 20px 0 26px;
       margin: 0;
+      overflow-y: auto;
+      height: calc(100% - 150px);
     }
 
     #navigation li {
@@ -188,12 +205,12 @@
       cursor: pointer;
       color: var(--nav-text-color);
       padding: 18px 26px;
-      padding-left: 34px;
+      padding-left: var(--nav-item-left);
       border-left: 5px solid transparent;
       transition: all var(--transition-speed) ease;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: var(--nav-gap);
       min-height: 68px;
       font-size: 1rem;
       font-weight: 500;
@@ -212,7 +229,7 @@
 
     .nav-icon {
       font-size: 1.7rem;
-      width: 34px;
+      width: var(--nav-icon-width);
       text-align: center;
       flex-shrink: 0;
       line-height: 1;
@@ -226,22 +243,26 @@
     #content {
       margin-left: 0;
       padding: 2rem;
+      padding-left: var(--content-left-padding);
       height: calc(100vh - 4rem);
       overflow-y: auto;
-      transition: margin-left var(--transition-speed) ease, width var(--transition-speed) ease;
+      transition: margin-left var(--transition-speed) ease, width var(--transition-speed) ease, padding-left var(--transition-speed) ease;
       position: relative;
     }
 
     #content.expanded {
       margin-left: var(--nav-width);
       width: calc(100% - var(--nav-width));
+      padding-left: 2rem;
     }
 
     .slide {
       display: none;
-      height: calc(100vh - 10rem);
-      padding: 1.5rem 0;
+      min-height: calc(100vh - 10rem);
+      padding: 2.2rem 0 3rem;
       box-sizing: border-box;
+      max-width: var(--slide-max-width);
+      margin: 0 auto;
     }
 
     .slide.active {
@@ -265,7 +286,7 @@
       color: var(--text-color);
       opacity: 0.8;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.24);
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
     }
@@ -295,34 +316,35 @@
       left: calc(var(--nav-width) + 20px);
     }
 
-    h1, h2, h3 {
-      color: var(--nav-active-color);
+    h1, h2, h3, h4 {
       margin-top: 0;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     h1 {
+      color: var(--nav-active-color);
       font-size: 2.2rem;
       margin-bottom: 1.2rem;
-      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin: 0;
     }
 
     pre {
-      background-color: #f5f5f5;
-      color: #333;
-      padding: 1rem;
-      border-radius: 6px;
+      margin: 0;
+      background-color: #111827;
+      color: #e5eefb;
+      padding: 1.25rem 1.4rem;
+      border-radius: 16px;
       overflow-x: auto;
-      border-left: 4px solid var(--nav-active-color);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     code {
       font-family: 'Courier New', Courier, monospace;
-      background-color: #f5f5f5;
-      color: #d63384;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.9em;
+      font-size: 0.95em;
     }
 
     .progress-container {
@@ -331,7 +353,7 @@
       left: 0;
       width: 100%;
       height: 6px;
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.08);
       z-index: 100;
     }
 
@@ -345,15 +367,278 @@
     .placeholder-box {
       background-color: #e9ecef;
       border: 1px dashed #ced4da;
-      border-radius: 6px;
+      border-radius: 12px;
       padding: 2rem;
       text-align: center;
       color: #6c757d;
       margin: 1rem 0;
-      min-height: 100px;
+      min-height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .slide-kicker {
+      text-align: center;
+      color: #1b6fe3;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .slide-hero-title {
+      text-align: center;
+      font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+      font-weight: 800;
+      line-height: 1.04;
+      color: #16181d;
+      margin: 0 auto 1.2rem;
+      max-width: 1180px;
+    }
+
+    .slide-hero-subtitle {
+      text-align: center;
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      line-height: 1.45;
+      color: #444b55;
+      max-width: 1180px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .hero-number {
+      text-align: center;
+      font-size: clamp(5rem, 14vw, 11rem);
+      line-height: 0.95;
+      font-weight: 900;
+      color: #1772de;
+      letter-spacing: -0.04em;
+      margin: 0 auto 1.5rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1320px;
+      margin: 2.2rem auto 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1rem 1rem 0.4rem;
+    }
+
+    .stat-value {
+      font-size: clamp(3.3rem, 7vw, 6.4rem);
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-value.orange { color: #fb8c00; }
+    .stat-value.red { color: #e53935; }
+    .stat-value.gray { color: #8a8d93; }
+
+    .stat-label {
+      font-size: clamp(1rem, 1.8vw, 1.5rem);
+      color: #7b8088;
+      line-height: 1.35;
+    }
+
+    .question-box,
+    .info-box {
+      max-width: 1400px;
+      margin: 1.8rem auto 0;
+      border: 2px solid #bcd5fb;
+      border-radius: 28px;
+      background: rgba(234, 242, 255, 0.45);
+      padding: 1.5rem 2rem;
+      color: #2d3440;
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      line-height: 1.45;
+    }
+
+    .question-box strong,
+    .info-box strong {
+      color: #17191e;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1500px;
+      margin: 2.5rem auto 2rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid #d8dbe1;
+      border-radius: 30px;
+      padding: 2rem 2rem 1.8rem;
+      min-height: 320px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+    }
+
+    .feature-icon {
+      font-size: 2.1rem;
+      margin-bottom: 1.25rem;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      font-weight: 700;
+      color: #1a1d23;
+      margin-bottom: 0.9rem;
+    }
+
+    .feature-text {
+      font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+      color: #4b4f57;
+      line-height: 1.5;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 1.7rem;
+      max-width: 1500px;
+      margin: 2.4rem auto 0;
+    }
+
+    .stack-card {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      align-items: center;
+      gap: 1.7rem;
+      border-radius: 30px;
+      padding: 1.7rem 2rem;
+      border: 2px solid transparent;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .stack-card.blue {
+      background: #edf4ff;
+      border-color: #bcd5fb;
+    }
+
+    .stack-card.purple {
+      background: #f4eff9;
+      border-color: #dbc8ea;
+    }
+
+    .stack-card.green {
+      background: #eef8f0;
+      border-color: #c4e2c9;
+    }
+
+    .stack-icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+    }
+
+    .stack-card.blue .stack-icon { background: #dce9fb; }
+    .stack-card.purple .stack-icon { background: #eadff2; }
+    .stack-card.green .stack-icon { background: #dceedd; }
+
+    .stack-title {
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .stack-card.blue .stack-title { color: #1666d2; }
+    .stack-card.purple .stack-title { color: #9757c1; }
+    .stack-card.green .stack-title { color: #2ea54b; }
+
+    .stack-text {
+      font-size: clamp(1.05rem, 1.75vw, 1.45rem);
+      color: #454b54;
+      line-height: 1.45;
+    }
+
+    .tone-note {
+      max-width: 1380px;
+      margin: 2.2rem auto 0;
+      text-align: center;
+      color: #8a8d93;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      line-height: 1.5;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(340px, 0.95fr) minmax(440px, 1.25fr);
+      gap: 2rem;
+      align-items: start;
+      max-width: 1500px;
+      margin: 2.3rem auto 0;
+    }
+
+    .code-panel,
+    .explain-panel {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid #d8dbe1;
+      border-radius: 28px;
+      padding: 1.4rem;
+    }
+
+    .panel-label {
+      display: inline-block;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1b6fe3;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .explain-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .explain-item {
+      border-radius: 18px;
+      background: #f3f6fb;
+      padding: 1rem 1.1rem;
+      border: 1px solid #d7e3f8;
+    }
+
+    .explain-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #1a1d23;
+    }
+
+    .example-caption {
+      margin-top: 1rem;
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .center-box {
+      max-width: var(--hero-max-width);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1200px) {
+      .feature-grid,
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 900px) {
@@ -362,13 +647,29 @@
         --menu-left-open: calc(var(--nav-width) - (var(--menu-size) / 2));
       }
 
+      #content {
+        padding-left: var(--content-left-padding);
+      }
+
       #content.expanded {
         margin-left: 0;
         width: 100%;
+        padding-left: var(--content-left-padding);
       }
 
       .title.expanded {
         left: 1rem;
+      }
+
+      .feature-grid,
+      .stats-row,
+      .two-col {
+        gap: 1.2rem;
+      }
+
+      .stack-card {
+        grid-template-columns: 1fr;
+        text-align: left;
       }
     }
   </style>
@@ -387,104 +688,232 @@
     </span>
   </button>
 
-  <div id="navigation">
-    <div class="nav-top">For-Schleife in Java</div>
+  <nav id="navigation">
+    <div class="nav-top">[PRÄSENTATIONS-TITEL]</div>
     <ul>
-      <li class="nav-item active" data-slide="0"><span class="nav-icon">📌</span><span class="nav-label">Einführung</span></li>
-      <li class="nav-item" data-slide="1"><span class="nav-icon">🔄</span><span class="nav-label">Grundsyntax</span></li>
-      <li class="nav-item" data-slide="2"><span class="nav-icon">📝</span><span class="nav-label">Beispiele</span></li>
-      <li class="nav-item" data-slide="3"><span class="nav-icon">🔍</span><span class="nav-label">Häufige Fehler</span></li>
-      <li class="nav-item" data-slide="4"><span class="nav-icon">📚</span><span class="nav-label">Zusammenfassung</span></li>
+      <li class="nav-item active" data-slide="0"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 1]</span></li>
+      <li class="nav-item" data-slide="1"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 2]</span></li>
+      <li class="nav-item" data-slide="2"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 3]</span></li>
+      <li class="nav-item" data-slide="3"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 4]</span></li>
+      <li class="nav-item" data-slide="4"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 5]</span></li>
+      <li class="nav-item" data-slide="5"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 6]</span></li>
+      <li class="nav-item" data-slide="6"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 7]</span></li>
+      <li class="nav-item" data-slide="7"><span class="nav-icon">[ICON]</span><span class="nav-label">[NAVIGATIONS-PUNKT 8]</span></li>
     </ul>
-  </div>
+  </nav>
 
   <div id="content">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Java_Logo.svg/1200px-Java_Logo.svg.png" alt="Java Logo" class="logo">
-    <div class="page-indicator">1/5</div>
-    <div class="date">21. April 2026</div>
-    <div class="title">For-Schleife in Java</div>
+    <img src="[LOGO-URL]" alt="Logo" class="logo">
+    <div class="page-indicator">1/8</div>
+    <div class="date">[DATUM]</div>
+    <div class="title">[PRÄSENTATIONS-TITEL]</div>
 
     <section class="slide active" data-slide="0">
-      <h1>Einführung in die For-Schleife</h1>
+      <h1>[ÜBERSCHRIFT SLIDE 1]</h1>
       <div class="placeholder-box">
-        <p>
-          Die <code>for</code>-Schleife ist eine der wichtigsten Kontrollstrukturen in Java.
-          Sie wird verwendet, um einen Codeblock mehrmals auszuführen, basierend auf einer Bedingung.
-          Besonders nützlich ist sie, wenn die Anzahl der Durchläufe vorher bekannt ist.
-        </p>
+        <p>[INHALT ODER BESCHREIBUNG FÜR SLIDE 1]</p>
       </div>
     </section>
 
     <section class="slide" data-slide="1">
-      <h1>Grundsyntax der For-Schleife</h1>
-      <div class="placeholder-box">
-        <p>
-          Die Grundsyntax der <code>for</code>-Schleife in Java sieht wie folgt aus:
-        </p>
-        <pre><code>
-for (Initialisierung; Bedingung; Aktualisierung) {
-    // Code, der wiederholt ausgeführt wird
-}
-        </code></pre>
-        <ul>
-          <li><strong>Initialisierung:</strong> Wird einmal zu Beginn ausgeführt (z. B. <code>int i = 0</code>).</li>
-          <li><strong>Bedingung:</strong> Wird vor jedem Durchlauf geprüft (z. B. <code>i < 10</code>).</li>
-          <li><strong>Aktualisierung:</strong> Wird nach jedem Durchlauf ausgeführt (z. B. <code>i++</code>).</li>
-        </ul>
+      <div class="center-box">
+        <div class="slide-kicker">DIE HERAUSFORDERUNG</div>
+        <div class="hero-number">d = 0.73</div>
+        <div class="slide-hero-title">Feedback wirkt – aber wann?</div>
+        <div class="slide-hero-subtitle">Formatives Feedback zeigt Effektstärken von d = 0.48–0.80 und gehört zu den wirksamsten Faktoren für Lernerfolg.</div>
       </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value orange">28</div>
+          <div class="stat-label">Schüler pro Klasse</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value red">≈0</div>
+          <div class="stat-label">Minuten für Einzelfeedback</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value gray">„Übe mehr“</div>
+          <div class="stat-label">Typische Rückmeldung</div>
+        </div>
+      </div>
+
+      <div class="question-box"><strong>Die Frage:</strong> Kann KI die Lehrkraft unterstützen, ohne pädagogische Qualität zu opfern?</div>
     </section>
 
     <section class="slide" data-slide="2">
-      <h1>Beispiele für For-Schleifen</h1>
-      <div class="placeholder-box">
-        <p>
-          Hier sind einige typische Beispiele für die Verwendung der <code>for</code>-Schleife:
-        </p>
-        <pre><code>
-// Beispiel 1: Zahlen von 0 bis 9 ausgeben
-for (int i = 0; i < 10; i++) {
-    System.out.println(i);
-}
-
-// Beispiel 2: Array durchlaufen
-int[] zahlen = {1, 2, 3, 4, 5};
-for (int i = 0; i < zahlen.length; i++) {
-    System.out.println(zahlen[i]);
-}
-
-// Beispiel 3: Verschachtelte Schleifen
-for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 2; j++) {
-        System.out.println("i: " + i + ", j: " + j);
-    }
-}
-        </code></pre>
+      <div class="center-box">
+        <div class="slide-kicker">SCHRITT 1</div>
+        <div class="slide-hero-title">Interaktives Arbeitsblatt<br>mit KI erstellen</div>
+        <div class="slide-hero-subtitle">Claude generiert eine komplette HTML5-Datei – didaktisch strukturiert, datenerfassend.</div>
       </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📚</div>
+          <div class="feature-title">Claude-Projekt</div>
+          <div class="feature-text">LehrplanPLUS + Didaktik-Exposé als hinterlegte Quellen</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🎚️</div>
+          <div class="feature-title">Differenzierung</div>
+          <div class="feature-text">Fünf Niveaustufen, Selbsteinschätzung, formative Checks</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📦</div>
+          <div class="feature-title">SCORM-Paket</div>
+          <div class="feature-text">Eine HTML5-Datei, als SCORM verpackt, in bycs hochgeladen</div>
+        </article>
+      </div>
+
+      <div class="info-box">Der Mehrwert gegenüber Papier: Die Daten aus der Schülerarbeit werden <strong>auswertbar</strong> – und bleiben durch <strong>localStorage</strong> auch beim Wiederöffnen erhalten.</div>
     </section>
 
     <section class="slide" data-slide="3">
-      <h1>Häufige Fehler bei For-Schleifen</h1>
-      <div class="placeholder-box">
-        <p>
-          Typische Fehler, die bei der Verwendung von <code>for</code>-Schleifen auftreten können:
-        </p>
-        <ul>
-          <li><strong>Endlosschleifen:</strong> Wenn die Bedingung nie <code>false</code> wird, z. B. <code>for (int i = 0; i >= 0; i++)</code>.</li>
-          <li><strong>Off-by-One-Fehler:</strong> Schleife läuft einmal zu oft oder zu wenig, z. B. <code>i <= 10</code> statt <code>i < 10</code>.</li>
-          <li><strong>Falsche Aktualisierung:</strong> Vergessen, die Zählvariable zu aktualisieren, z. B. <code>for (int i = 0; i < 10;)</code>.</li>
-        </ul>
+      <div class="center-box">
+        <div class="slide-kicker">SCHRITT 2</div>
+        <div class="slide-hero-title">Dashboard mit klaren<br>Mustern und Prioritäten</div>
+        <div class="slide-hero-subtitle">Nicht jede falsche Antwort braucht sofortiges Eingreifen. Das Dashboard zeigt, wo sich gezielte Unterstützung am meisten lohnt.</div>
       </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Klassenüberblick</div>
+          <div class="feature-text">Quote gelöster Aufgaben, Bearbeitungsstand und häufige Fehlermuster auf einen Blick</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <div class="feature-title">Priorisierung</div>
+          <div class="feature-text">Automatische Hinweise, welche Schüler oder Aufgaben zuerst angeschaut werden sollten</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🧩</div>
+          <div class="feature-title">Didaktische Muster</div>
+          <div class="feature-text">Nicht nur richtig/falsch, sondern typische Denkwege, Lücken und Missverständnisse sichtbar machen</div>
+        </article>
+      </div>
+
+      <div class="info-box"><strong>Beispiel:</strong> Wenn viele Schüler denselben Zwischenschritt falsch lösen, ist das eher ein Hinweis auf eine gemeinsame Hürde als auf Einzelfehler.</div>
     </section>
 
     <section class="slide" data-slide="4">
-      <h1>Zusammenfassung</h1>
+      <div class="center-box">
+        <div class="slide-kicker">SCHRITT 3</div>
+        <div class="slide-hero-title">Drei-Ebenen-Feedback<br>für jeden Schüler</div>
+      </div>
+
+      <div class="stack-list">
+        <article class="stack-card blue">
+          <div class="stack-icon">🔎</div>
+          <div>
+            <div class="stack-title">Diagnose – „Wo stehst du?“</div>
+            <div class="stack-text">Konkrete Stärken und Fehlermuster. Keine Noten, keine Vergleiche.</div>
+          </div>
+        </article>
+
+        <article class="stack-card purple">
+          <div class="stack-icon">🧭</div>
+          <div>
+            <div class="stack-title">Strategie – „Was ist dein nächster Schritt?“</div>
+            <div class="stack-text">1–2 konkrete Handlungsempfehlungen, ohne Rückfrage umsetzbar.</div>
+          </div>
+        </article>
+
+        <article class="stack-card green">
+          <div class="stack-icon">🚀</div>
+          <div>
+            <div class="stack-title">Anschluss – „Wie geht es weiter?“</div>
+            <div class="stack-text">Übungsaufgabe mit Zeitschätzung und Selbstüberprüfungsfrage.</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="tone-note">Der Ton: altersangemessen, wertschätzend, handlungsorientiert – so formuliert, als käme es von der Lehrkraft.</div>
+    </section>
+
+    <section class="slide" data-slide="5">
+      <div class="center-box">
+        <div class="slide-kicker">BEISPIEL: CODE</div>
+        <div class="slide-hero-title">Code zeigen und<br>didaktisch erklären</div>
+        <div class="slide-hero-subtitle">Ideal für APIs, JavaScript-Logik, SQL, Python oder Konfigurationsbeispiele mit begleitender Einordnung.</div>
+      </div>
+
+      <div class="two-col">
+        <section class="code-panel">
+          <span class="panel-label">Code-Beispiel</span>
+          <pre><code>function updateFeedback(studentData) {
+  const weakTopics = studentData.answers
+    .filter(answer =&gt; !answer.correct)
+    .map(answer =&gt; answer.topic);
+
+  const priorities = [...new Set(weakTopics)].slice(0, 3);
+
+  return {
+    diagnosis: `Achte besonders auf: ${priorities.join(', ')}`,
+    nextStep: 'Bearbeite zuerst eine Aufgabe mit mittlerem Niveau.',
+    reflection: 'Kannst du deinen Lösungsweg in 2 Sätzen erklären?'
+  };
+}</code></pre>
+          <div class="example-caption">[HINWEIS ZUM CODE ODER ZUR LAUFZEIT, Z. B. EINGABEN / AUSGABEN / KONTEXT]</div>
+        </section>
+
+        <section class="explain-panel">
+          <span class="panel-label">Erklärung</span>
+          <div class="explain-list">
+            <div class="explain-item">
+              <strong>1. Eingabedaten</strong>
+              <span>Die Funktion erwartet Antworten eines Schülers mit Information, ob eine Aufgabe korrekt gelöst wurde.</span>
+            </div>
+            <div class="explain-item">
+              <strong>2. Muster erkennen</strong>
+              <span>Falsche Antworten werden gesammelt und nach Themen gruppiert. So entstehen sinnvolle Prioritäten.</span>
+            </div>
+            <div class="explain-item">
+              <strong>3. Rückmeldung erzeugen</strong>
+              <span>Aus den Schwerpunkten entsteht direkt eine Diagnose, ein nächster Schritt und eine Reflexionsfrage.</span>
+            </div>
+            <div class="explain-item">
+              <strong>4. Didaktischer Nutzen</strong>
+              <span>Der Code illustriert, wie aus Lernspuren automatisch eine kurze, handlungsorientierte Rückmeldung abgeleitet werden kann.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="slide" data-slide="6">
+      <div class="center-box">
+        <div class="slide-kicker">WORKFLOW</div>
+        <div class="slide-hero-title">Vom Material bis zur<br>persönlichen Rückmeldung</div>
+        <div class="slide-hero-subtitle">Eine mögliche Struktur für die Erzählung deiner Präsentation – mit klaren Übergängen zwischen Erstellung, Auswertung und Feedback.</div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📝</div>
+          <div class="feature-title">1. Arbeitsblatt</div>
+          <div class="feature-text">Interaktives Material generieren, Aufgaben strukturieren, Eingaben erfassen</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📈</div>
+          <div class="feature-title">2. Dashboard</div>
+          <div class="feature-text">Daten aggregieren, Muster erkennen, relevante Fälle für die Lehrkraft priorisieren</div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">💬</div>
+          <div class="feature-title">3. Feedback</div>
+          <div class="feature-text">Persönliche Rückmeldung erzeugen, nächste Schritte ableiten und Anschlussaufgaben vorschlagen</div>
+        </article>
+      </div>
+
+      <div class="info-box"><strong>Merksatz:</strong> Nicht die Automatisierung ist das Ziel, sondern mehr Zeit für wirksame pädagogische Intervention.</div>
+    </section>
+
+    <section class="slide" data-slide="7">
+      <h1>[ÜBERSCHRIFT SLIDE 8]</h1>
       <div class="placeholder-box">
-        <p>
-          Die <code>for</code>-Schleife ist eine leistungsstarke Kontrollstruktur in Java, die es ermöglicht,
-          Codeblöcke basierend auf einer Bedingung mehrmals auszuführen.
-          Sie besteht aus Initialisierung, Bedingung und Aktualisierung.
-          Achte darauf, Endlosschleifen und Off-by-One-Fehler zu vermeiden.
-        </p>
+        <p>[ZUSAMMENFASSUNG ODER ABSCHLUSS FÜR SLIDE 8]</p>
       </div>
     </section>
   </div>
@@ -533,7 +962,7 @@ for (int i = 0; i < 3; i++) {
 
     navItems.forEach(item => {
       item.addEventListener('click', function() {
-        const slideIndex = parseInt(this.getAttribute('data-slide'));
+        const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
         updateSlide(slideIndex);
       });
     });
@@ -544,7 +973,7 @@ for (int i = 0; i < 3; i++) {
       slides[index].classList.add('active');
       navItems[index].classList.add('active');
       pageIndicator.textContent = `${index + 1}/${slides.length}`;
-      const progress = ((index) / (slides.length - 1)) * 100;
+      const progress = (index / (slides.length - 1)) * 100;
       progressBar.style.width = `${progress}%`;
     }
 
@@ -554,4 +983,3 @@ for (int i = 0; i < 3; i++) {
   </script>
 </body>
 </html>
-```
