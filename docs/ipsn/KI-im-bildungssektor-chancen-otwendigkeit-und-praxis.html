@@ -401,7 +401,6 @@
       line-height: 1.35;
     }
 
-    .question-box,
     .info-box {
       max-width: 1400px;
       margin: 1.8rem auto 0;
@@ -415,7 +414,6 @@
       font-weight: 400;
     }
 
-    .question-box strong,
     .info-box strong {
       color: #17191e;
     }
@@ -482,6 +480,29 @@
     .list-container li:before {
       content: "•";
       color: #1f6fe5;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .sublist-container ul {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4b5563;
+      list-style: none;
+      padding-left: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .sublist-container li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .sublist-container li:before {
+      content: "•";
+      color: #6b7280;
       font-weight: bold;
       position: absolute;
       left: 0;
@@ -650,17 +671,46 @@
 
       <div class="list-container">
         <ul>
-          <li><strong>Lernbegleitung und Förderung:</strong> Wissenschaftlich belegt, dass selbstgesteuertes Lernen zu tieferem Verständnis führt. Lehrkräfte unterstützen und fördern diesen Prozess.</li>
+          <li>
+            <strong>Lernbegleitung und Förderung:</strong>
+            <div class="sublist-container">
+              <ul>
+                <li>Wissenschaftlich belegt: Selbstgesteuertes Lernen führt zu tieferem Verständnis.</li>
+                <li>Lehrkräfte unterstützen diesen Prozess durch individuelle Betreuung und Motivation.</li>
+              </ul>
+            </div>
+          </li>
 
-          <li><strong>Individuelles Feedback:</strong> KI kann Lehrkräfte entlasten, indem sie individuelle Rückmeldungen für Schüler:innen generiert – z. B. durch Analyse von Fehlermustern oder Lernfortschritten.</li>
+          <li>
+            <strong>Vermittlung von KI-Kompetenz:</strong>
+            <div class="sublist-container">
+              <ul>
+                <li>Schüler:innen lernen, KI als <em>Tool für Verständnis und Kreativität</em> zu nutzen.</li>
+                <li>KI kann als Coach fungieren, z. B. als Projektbegleiter oder Mathe-Tutor.</li>
+                <li>KI generiert individuelles Feedback durch Analyse von Fehlermustern oder Lernfortschritten.</li>
+              </ul>
+            </div>
+          </li>
 
-          <li><strong>Vermittlung von KI-Kompetenz:</strong> Schüler:innen lernen, KI als <em>Tool für Verständnis und Kreativität</em> zu nutzen – nicht zum Abschreiben von Hausaufgaben.</li>
+          <li>
+            <strong>Förderung kritischen Denkens:</strong>
+            <div class="sublist-container">
+              <ul>
+                <li>Lehrkräfte zeigen, wie KI sinnvoll eingesetzt wird, um Denkprozesse zu vertiefen.</li>
+                <li>Beispiele: Erklärungen anfordern, Übungen generieren, Ideen entwickeln.</li>
+              </ul>
+            </div>
+          </li>
 
-          <li><strong>Förderung kritischen Denkens:</strong> Lehrkräfte zeigen, wie KI sinnvoll eingesetzt wird, um Denkprozesse zu vertiefen (z. B. Erklärungen anfordern, Übungen generieren, Ideen entwickeln).</li>
-
-          <li><strong>KI als Coach:</strong> KI kann als „Allrounder“ fungieren, der Schüler:innen durch Lernprozesse begleitet – z. B. als Projektbegleiter oder Mathe-Tutor.</li>
-
-          <li><strong>Vorbereitung auf die Lebensrealität:</strong> Wir müssen Schüler:innen auf ihre Zukunft in Beruf und Privatleben vorbereiten und sie auf ihrem Weg zu <em>mündigen, kritisch reflektierten Menschen</em> begleiten.</li>
+          <li>
+            <strong>Vorbereitung auf die Lebensrealität:</strong>
+            <div class="sublist-container">
+              <ul>
+                <li>Schüler:innen auf ihre Zukunft in Beruf und Privatleben vorbereiten.</li>
+                <li>Begleitung auf dem Weg zu <em>mündigen, kritisch reflektierten Menschen</em>.</li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
 
