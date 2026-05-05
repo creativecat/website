@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KI im Bildungssektor: Chancen, Notwendigkeit und Praxis</title>
+  <style>
+    :root {
+      --bg-color: #f6f7f9;
+      --text-color: #212529;
+      --muted-color: #6b7280;
+      --nav-bg-color: #ffffff;
+      --nav-text-color: #4b5563;
+      --nav-hover-color: #eef4ff;
+      --nav-active-color: #1f6fe5;
+      --nav-active-bg: #eaf2ff;
+      --nav-active-text: #1f6fe5;
+      --slide-bg-color: #ffffff;
+      --logo-size: 0px;
+      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --transition-speed: 0.32s;
+      --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 16px 40px rgba(15, 23, 42, 0.12);
+      --border-color: #e5e7eb;
+      --menu-size: 64px;
+      --nav-width: 320px;
+      --menu-left-closed: 24px;
+      --menu-left-open: calc(var(--nav-width) - (var(--menu-size) / 2));
+      --content-left-padding: calc(2rem + var(--menu-size) + 18px);
+      --nav-icon-width: 34px;
+      --nav-item-left: 34px;
+      --nav-gap: 16px;
+      --nav-text-start: calc(var(--nav-item-left) + var(--nav-icon-width) + var(--nav-gap));
+      --slide-max-width: 1600px;
+      --hero-max-width: 1260px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+
+    #toggle-menu {
+      position: fixed;
+      top: 22px;
+      left: var(--menu-left-closed);
+      z-index: 220;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: 18px;
+      width: var(--menu-size);
+      height: var(--menu-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      transition:
+        left var(--transition-speed) cubic-bezier(0.22, 1, 0.36, 1),
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease,
+        background-color var(--transition-speed) ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 0;
+    }
+
+    #toggle-menu:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+    }
+
+    #toggle-menu.active {
+      left: var(--menu-left-open);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    #toggle-menu .icon-wrap {
+      position: relative;
+      width: 28px;
+      height: 28px;
+    }
+
+    #toggle-menu .icon-open,
+    #toggle-menu .icon-close {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+    }
+
+    #toggle-menu .icon-open {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    #toggle-menu .icon-close {
+      opacity: 0;
+      transform: scale(0.8) rotate(-90deg);
+      color: #2b3138;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    #toggle-menu.active .icon-open {
+      opacity: 0;
+      transform: scale(0.8) rotate(90deg);
+    }
+
+    #toggle-menu.active .icon-close {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    #toggle-menu .hamburger {
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    #toggle-menu .bar {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2d3138 0%, #565d66 100%);
+    }
+
+    #navigation {
+      width: var(--nav-width);
+      background-color: var(--nav-bg-color);
+      padding: 0;
+      position: fixed;
+      inset: 0 auto 0 0;
+      height: 100%;
+      box-shadow: var(--shadow-md);
+      z-index: 100;
+      transform: translateX(-100%);
+      transition: transform var(--transition-speed) cubic-bezier(0.22, 1, 0.36, 1);
+      border-right: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    #navigation.visible {
+      transform: translateX(0);
+    }
+
+    .nav-top {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      padding: 0 28px 0 var(--nav-text-start);
+      border-bottom: 1px solid var(--border-color);
+      background: #fafafa;
+      color: var(--nav-text-color);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    #navigation ul {
+      list-style: none;
+      padding: 20px 0 26px;
+      margin: 0;
+      overflow-y: auto;
+      height: calc(100% - 150px);
+    }
+
+    #navigation li {
+      margin-bottom: 4px;
+      cursor: pointer;
+      color: var(--nav-text-color);
+      padding: 18px 26px;
+      padding-left: var(--nav-item-left);
+      border-left: 5px solid transparent;
+      transition: all var(--transition-speed) ease;
+      display: flex;
+      align-items: center;
+      gap: var(--nav-gap);
+      min-height: 68px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    #navigation li:hover {
+      background-color: var(--nav-hover-color);
+    }
+
+    #navigation li.active {
+      background-color: var(--nav-active-bg);
+      color: var(--nav-active-text);
+      border-left-color: var(--nav-active-color);
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      font-size: 1.7rem;
+      width: var(--nav-icon-width);
+      text-align: center;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .nav-label {
+      line-height: 1.2;
+      font-size: 0.95rem;
+    }
+
+    #content {
+      margin-left: 0;
+      padding: 2rem;
+      padding-left: var(--content-left-padding);
+      height: calc(100vh - 4rem);
+      overflow-y: auto;
+      transition: margin-left var(--transition-speed) ease, width var(--transition-speed) ease, padding-left var(--transition-speed) ease;
+      position: relative;
+    }
+
+    #content.expanded {
+      margin-left: var(--nav-width);
+      width: calc(100% - var(--nav-width));
+      padding-left: 2rem;
+    }
+
+    .slide {
+      display: none;
+      min-height: calc(100vh - 10rem);
+      padding: 2.2rem 0 3rem;
+      box-sizing: border-box;
+      max-width: var(--slide-max-width);
+      margin: 0 auto;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .logo {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      max-width: var(--logo-size);
+      height: auto;
+      z-index: 10;
+    }
+
+    .page-indicator {
+      position: fixed;
+      top: 1rem;
+      right: calc(1rem + var(--logo-size) + 0.5rem);
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.24);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .date {
+      position: fixed;
+      bottom: 3rem;
+      right: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.7;
+      z-index: 10;
+    }
+
+    .title {
+      position: fixed;
+      bottom: 3rem;
+      left: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-color);
+      opacity: 0.7;
+      z-index: 10;
+      transition: left var(--transition-speed) ease;
+    }
+
+    .title.expanded {
+      left: calc(var(--nav-width) + 20px);
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 0;
+      line-height: 1.15;
+    }
+
+    h1 {
+      color: var(--nav-active-color);
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      color: var(--nav-active-color);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    pre {
+      margin: 0;
+      background-color: #0f172a;
+      color: #e5eefb;
+      padding: 1.25rem 1.4rem;
+      border-radius: 16px;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      tab-size: 2;
+      white-space: pre;
+    }
+
+    code {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.95em;
+    }
+
+    .code-block {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .code-comment { color: #94a3b8; }
+    .code-keyword { color: #c084fc; }
+    .code-function { color: #60a5fa; }
+    .code-variable { color: #f8fafc; }
+    .code-string { color: #86efac; }
+    .code-number { color: #fbbf24; }
+    .code-operator { color: #f472b6; }
+    .code-property { color: #67e8f9; }
+
+    .progress-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.08);
+      z-index: 100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--nav-active-color);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .placeholder-box {
+      background-color: #e9ecef;
+      border: 1px dashed #ced4da;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      color: #6c757d;
+      margin: 1rem 0;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-kicker {
+      text-align: center;
+      color: #1b6fe3;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .slide-hero-title {
+      text-align: center;
+      font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: #16181d;
+      margin: 0 auto 1rem;
+      max-width: 1180px;
+      letter-spacing: -0.02em;
+    }
+
+    .slide-hero-subtitle {
+      text-align: center;
+      font-size: clamp(1.1rem, 1.75vw, 1.55rem);
+      line-height: 1.45;
+      color: #444b55;
+      max-width: 1180px;
+      margin: 0 auto 2.2rem;
+      font-weight: 400;
+    }
+
+    .hero-number {
+      text-align: center;
+      font-size: clamp(4.2rem, 11vw, 8.5rem);
+      line-height: 0.95;
+      font-weight: 800;
+      color: #1772de;
+      letter-spacing: -0.04em;
+      margin: 0 auto 1.25rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1320px;
+      margin: 2.2rem auto 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1rem 1rem 0.4rem;
+    }
+
+    .stat-value {
+      font-size: clamp(2.6rem, 5.8vw, 4.8rem);
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-value.orange { color: #fb8c00; }
+    .stat-value.red { color: #e53935; }
+    .stat-value.gray { color: #8a8d93; }
+
+    .stat-label {
+      font-size: clamp(1rem, 1.8vw, 1.5rem);
+      color: #7b8088;
+      line-height: 1.35;
+    }
+
+    .question-box,
+    .info-box {
+      max-width: 1400px;
+      margin: 1.8rem auto 0;
+      border: 2px solid #bcd5fb;
+      border-radius: 28px;
+      background: rgba(234, 242, 255, 0.45);
+      padding: 1.5rem 2rem;
+      color: #2d3440;
+      font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    .question-box strong,
+    .info-box strong {
+      color: #17191e;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1500px;
+      margin: 2.5rem auto 2rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid #d8dbe1;
+      border-radius: 30px;
+      padding: 2rem 2rem 1.8rem;
+      min-height: 320px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+    }
+
+    .feature-icon {
+      font-size: 2.1rem;
+      margin-bottom: 1.25rem;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-size: clamp(1.25rem, 1.9vw, 1.7rem);
+      font-weight: 700;
+      color: #1a1d23;
+      margin-bottom: 0.9rem;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-text {
+      font-size: clamp(1rem, 1.45vw, 1.28rem);
+      color: #4b4f57;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 1.7rem;
+      max-width: 1500px;
+      margin: 2.4rem auto 0;
+    }
+
+    .stack-card {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      align-items: center;
+      gap: 1.7rem;
+      border-radius: 30px;
+      padding: 1.7rem 2rem;
+      border: 2px solid transparent;
+      background: rgba(255,255,255,0.4);
+    }
+
+    .stack-card.blue {
+      background: #edf4ff;
+      border-color: #bcd5fb;
+    }
+
+    .stack-card.purple {
+      background: #f4eff9;
+      border-color: #dbc8ea;
+    }
+
+    .stack-card.green {
+      background: #eef8f0;
+      border-color: #c4e2c9;
+    }
+
+    .stack-icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+    }
+
+    .stack-card.blue .stack-icon { background: #dce9fb; }
+    .stack-card.purple .stack-icon { background: #eadff2; }
+    .stack-card.green .stack-icon { background: #dceedd; }
+
+    .stack-title {
+      font-size: clamp(1.25rem, 1.7vw, 1.6rem);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .stack-card.blue .stack-title { color: #1666d2; }
+    .stack-card.purple .stack-title { color: #9757c1; }
+    .stack-card.green .stack-title { color: #2ea54b; }
+
+    .stack-text {
+      font-size: clamp(1rem, 1.4vw, 1.24rem);
+      color: #454b54;
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    .tone-note {
+      max-width: 1380px;
+      margin: 2.2rem auto 0;
+      text-align: center;
+      color: #8a8d93;
+      font-size: clamp(1rem, 1.4vw, 1.22rem);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(700px, 1.6fr) minmax(320px, 0.8fr);
+      gap: 1.6rem;
+      align-items: start;
+      max-width: 1540px;
+      margin: 2.3rem auto 0;
+    }
+
+    .code-panel,
+    .explain-panel {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid #d8dbe1;
+      border-radius: 28px;
+      padding: 1.4rem;
+    }
+
+    .panel-label {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1b6fe3;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+      font-family: var(--font-main);
+    }
+
+    .explain-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .explain-item {
+      border-radius: 18px;
+      background: #f3f6fb;
+      padding: 1rem 1.1rem;
+      border: 1px solid #d7e3f8;
+    }
+
+    .explain-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #1a1d23;
+    }
+
+    .example-caption {
+      margin-top: 1rem;
+      color: #6b7280;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .center-box {
+      max-width: var(--hero-max-width);
+      margin: 0 auto;
+    }
+
+    .list-container {
+      max-width: 1200px;
+      margin: 1.5rem auto;
+      text-align: left;
+    }
+
+    .list-container ul {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    .list-container li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .list-container li:before {
+      content: "•";
+      color: #1f6fe5;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .feature-grid,
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --nav-width: min(84vw, 320px);
+        --menu-left-open: calc(var(--nav-width) - (var(--menu-size) / 2));
+      }
+
+      #content {
+        padding-left: var(--content-left-padding);
+      }
+
+      #content.expanded {
+        margin-left: 0;
+        width: 100%;
+        padding-left: var(--content-left-padding);
+      }
+
+      .title.expanded {
+        left: 1rem;
+      }
+
+      .feature-grid,
+      .stats-row,
+      .two-col {
+        gap: 1.2rem;
+      }
+
+      .stack-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-menu" aria-label="Navigation öffnen oder schließen">
+    <span class="icon-wrap">
+      <span class="icon-open" aria-hidden="true">
+        <span class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+      </span>
+      <span class="icon-close" aria-hidden="true">✕</span>
+    </span>
+  </button>
+
+  <nav id="navigation">
+    <div class="nav-top">KI im Bildungssektor: Chancen, Notwendigkeit und Praxis</div>
+    <ul>
+      <li class="nav-item active" data-slide="0"><span class="nav-icon">📚</span><span class="nav-label">Einleitung</span></li>
+      <li class="nav-item" data-slide="1"><span class="nav-icon">⏳</span><span class="nav-label">Historische Meilensteine</span></li>
+      <li class="nav-item" data-slide="2"><span class="nav-icon">📈</span><span class="nav-label">KI: Verbreitung und Notwendigkeit</span></li>
+      <li class="nav-item" data-slide="3"><span class="nav-icon">👩‍🏫</span><span class="nav-label">Veränderte Rolle der Lehrkraft</span></li>
+      <li class="nav-item" data-slide="4"><span class="nav-icon">🛠️</span><span class="nav-label">Praktische Umsetzung: telli</span></li>
+      <li class="nav-item" data-slide="5"><span class="nav-icon">💡</span><span class="nav-label">Zentrale Botschaften</span></li>
+    </ul>
+  </nav>
+
+  <div id="content">
+    <div class="page-indicator">1/6</div>
+    <div class="date">5. Mai 2026</div>
+    <div class="title">KI im Bildungssektor: Chancen, Notwendigkeit und Praxis</div>
+
+    <!-- Slide 1: Einleitung -->
+    <section class="slide active" data-slide="0">
+      <div class="center-box">
+        <div class="slide-kicker">EINLEITUNG</div>
+        <div class="slide-hero-title">KI im Bildungssektor:<br>Chancen, Notwendigkeit und Praxis</div>
+        <div class="slide-hero-subtitle">
+          Ein positiver Blick auf die Möglichkeiten von KI – nicht nur als Herausforderung, sondern als Werkzeug, das Bildung revolutionieren kann.
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>Ziel dieses Vortrags:</strong> Aufzeigen, wie KI den Bildungssektor bereichern kann – von der Unterstützung von Lehrkräften bis hin zur Förderung individuellen Lernens.
+      </div>
+    </section>
+
+    <!-- Slide 2: Historische Meilensteine -->
+    <section class="slide" data-slide="1">
+      <div class="center-box">
+        <div class="slide-kicker">HISTORISCHE MEILENSTEINE</div>
+        <div class="slide-hero-title">Vergleich: Wie Technologien<br>die Bildung prägten</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-value orange">1450</div>
+          <div class="stat-label">Buchdruck (Gutenberg)</div>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #7b8088;">Jahrhunderte bis zur vollen Wirkung – Grundstein für modernes Bildungssystem.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value red">1991</div>
+          <div class="stat-label">World Wide Web</div>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #7b8088;">Öffentlich zugänglich – Jahre bis zur Breitennutzung in Schulen.</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value gray">1971</div>
+          <div class="stat-label">Erste E-Mail</div>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #7b8088;">Ray Tomlinson verschickt erste E-Mail über ARPANET.</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Gemeinsamkeit:</strong> Jede dieser Erfindungen hat die Art und Weise, wie Wissen vermittelt und zugänglich gemacht wird, grundlegend verändert.
+      </div>
+    </section>
+
+    <!-- Slide 3: KI: Verbreitung und Notwendigkeit -->
+    <section class="slide" data-slide="2">
+      <div class="center-box">
+        <div class="slide-kicker">KI: VERBREITUNG UND NOTWENDIGKEIT</div>
+        <div class="slide-hero-title">Warum KI eine Notwendigkeit ist</div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-title">Geschwindigkeit der Verbreitung</div>
+          <div class="feature-text">
+            KI hat sich <strong>innerhalb von Wochen</strong> etabliert – nicht Jahrhunderte wie der Buchdruck oder Jahrzehnte wie das Internet.
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Aktuelle Nutzung</div>
+          <div class="feature-text">
+            <strong>74–75 % der Schüler:innen</strong> (12–19 Jahre) nutzen KI für Hausaufgaben oder zum Lernen (JIM-Studie 2025, Schulbarometer 2025).
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-title">ChatGPT als Game Changer</div>
+          <div class="feature-text">
+            Veröffentlicht im <strong>November 2022</strong> – seit dem rasante Entwicklung in Text-, Bild- und Datenverarbeitung.
+          </div>
+        </article>
+      </div>
+
+      <div class="info-box">
+        <strong>Fazit:</strong> KI ist kein Zukunftsthema, sondern bereits Realität in Schulen. Die Frage ist nicht <em>ob</em>, sondern <em>wie</em> wir sie sinnvoll einsetzen.
+      </div>
+    </section>
+
+    <!-- Slide 4: Veränderte Rolle der Lehrkraft -->
+    <section class="slide" data-slide="3">
+      <div class="center-box">
+        <div class="slide-kicker">VERÄNDERTE ROLLE DER LEHRKRAFT</div>
+        <div class="slide-hero-title">Vom Frontalunterricht<br>zum Lernbegleiter</div>
+      </div>
+
+      <div class="list-container">
+        <h2>Die neue Rolle der Lehrkräfte:</h2>
+        <ul>
+          <li><strong>Lernbegleiter statt Wissensvermittler:</strong> Wissenschaftlich belegt, dass selbstgesteuertes Lernen zu tieferem Verständnis führt. Lehrkräfte unterstützen diesen Prozess.</li>
+          <li><strong>Individuelles Feedback:</strong> KI kann Lehrkräfte entlasten, indem sie individuelle Rückmeldungen für Schüler:innen generiert – z. B. durch Analyse von Fehlermustern oder Lernfortschritten.</li>
+          <li><strong>Vermittlung von KI-Kompetenz:</strong> Schüler:innen lernen, KI als <em>Tool für Verständnis und Kreativität</em> zu nutzen – nicht zum Abschreiben von Hausaufgaben.</li>
+          <li><strong>Förderung kritischen Denkens:</strong> Lehrkräfte zeigen, wie KI sinnvoll eingesetzt wird, um Denkprozesse zu vertiefen (z. B. Erklärungen anfordern, Übungen generieren, Ideen entwickeln).</li>
+          <li><strong>KI als Coach:</strong> KI kann als „Allrounder“ fungieren, der Schüler:innen durch Lernprozesse begleitet – z. B. als Projektbegleiter oder Mathe-Tutor.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <strong>Zentrale Aufgabe:</strong> Den Schüler:innen beibringen, KI so zu nutzen, dass sie ihren <em>eigenen kreativen Denkprozess</em> stärken – nicht ersetzen.
+      </div>
+    </section>
+
+    <!-- Slide 5: Praktische Umsetzung: telli -->
+    <section class="slide" data-slide="4">
+      <div class="center-box">
+        <div class="slide-kicker">PRAKTISCHE UMSETZUNG</div>
+        <div class="slide-hero-title">telli – KI für bayerische Schulen</div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🏫</div>
+          <div class="feature-title">Bundesländerübergreifend</div>
+          <div class="feature-text">
+            Erstes gemeinsames KI-Projekt aller deutschen Bundesländer – Integration in die <strong>BayernCloud Schule</strong> über VIDIS-Login.
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">📅</div>
+          <div class="feature-title">Verfügbarkeit</div>
+          <div class="feature-text">
+            Ab <strong>15. Dezember 2025</strong> für alle bayerischen Schulen nutzbar.
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <div class="feature-title">Schulungspflicht</div>
+          <div class="feature-text">
+            Lehrkräfte müssen eine <strong>KI-Schulung</strong> absolvieren (EU-Vorgabe, Artikel 4 der KI-Verordnung, ab Februar 2025).
+          </div>
+        </article>
+      </div>
+
+      <div class="info-box">
+        <strong>Voraussetzungen:</strong>
+        <ol style="text-align: left; padding-left: 1.5rem;">
+          <li>Lehrkräfte: Schulung über die <strong>ALP Dillingen</strong> (Dauer: 15 Min.–2 Std.).</li>
+          <li>Schulleitung: <strong>telli in VIDIS aktivieren</strong>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Slide 6: Zentrale Botschaften -->
+    <section class="slide" data-slide="5">
+      <div class="center-box">
+        <div class="slide-kicker">ZENTRALE BOTSCHAFTEN</div>
+        <div class="slide-hero-title">KI ist da – wir müssen sie gestalten!</div>
+      </div>
+
+      <div class="list-container">
+        <ul>
+          <li><strong>KI ist Realität:</strong> Sie wird bereits flächendeckend von Schüler:innen genutzt – wir müssen sie aktiv in den Unterricht einbinden.</li>
+          <li><strong>Lehrkräfte als Multiplikator:innen:</strong> Vermittlung von <em>kritischer und kreativer KI-Nutzung</em> ist unsere zentrale Aufgabe.</li>
+          <li><strong>telli als Chance:</strong> Datenschutzkonforme, bundesländerübergreifende Lösung für Schulen – nutzbar ab Dezember 2025.</li>
+          <li><strong>Handlungsaufforderung:</strong> Schulungen machen, Schulleitungen einbinden, telli ausprobieren!</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <strong>Abschlussfrage:</strong> Wie sehen Sie die Rolle von KI in Ihrem Unterricht? Welche Tools würden Sie gerne testen?
+      </div>
+    </section>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <script>
+    const toggleMenu = document.getElementById('toggle-menu');
+    const navigation = document.getElementById('navigation');
+    const content = document.getElementById('content');
+    const title = document.querySelector('.title');
+    const pageIndicator = document.querySelector('.page-indicator');
+    const progressBar = document.getElementById('progress-bar');
+    const slides = document.querySelectorAll('.slide');
+    const navItems = document.querySelectorAll('.nav-item');
+    let isVisible = false;
+
+    function syncMenuState() {
+      navigation.classList.toggle('visible', isVisible);
+      content.classList.toggle('expanded', isVisible && window.innerWidth > 900);
+      title.classList.toggle('expanded', isVisible && window.innerWidth > 900);
+      toggleMenu.classList.toggle('active', isVisible);
+    }
+
+    toggleMenu.addEventListener('click', () => {
+      isVisible = !isVisible;
+      syncMenuState();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        isVisible = !isVisible;
+        syncMenuState();
+      }
+
+      let currentSlideIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+      if (e.key === 'ArrowRight' && currentSlideIndex < slides.length - 1) {
+        updateSlide(currentSlideIndex + 1);
+      } else if (e.key === 'ArrowLeft' && currentSlideIndex > 0) {
+        updateSlide(currentSlideIndex - 1);
+      }
+    });
+
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
+        updateSlide(slideIndex);
+      });
+    });
+
+    function updateSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      navItems.forEach(item => item.classList.remove('active'));
+      slides[index].classList.add('active');
+      navItems[index].classList.add('active');
+      pageIndicator.textContent = `${index + 1}/${slides.length}`;
+      const progress = (index / (slides.length - 1)) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    window.addEventListener('resize', syncMenuState);
+    syncMenuState();
+    updateSlide(0);
+  </script>
+</body>
+</html>
