@@ -323,38 +323,11 @@
       margin: 0;
     }
 
-    pre {
-      margin: 0;
-      background-color: #0f172a;
-      color: #e5eefb;
-      padding: 1.25rem 1.4rem;
-      border-radius: 16px;
-      overflow-x: auto;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-      tab-size: 2;
-      white-space: pre;
-    }
-
-    code {
-      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-      font-size: 0.95em;
-    }
-
     .code-block {
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 0.98rem;
       line-height: 1.65;
     }
-
-    .code-comment { color: #94a3b8; }
-    .code-keyword { color: #c084fc; }
-    .code-function { color: #60a5fa; }
-    .code-variable { color: #f8fafc; }
-    .code-string { color: #86efac; }
-    .code-number { color: #fbbf24; }
-    .code-operator { color: #f472b6; }
-    .code-property { color: #67e8f9; }
 
     .progress-container {
       position: fixed;
@@ -371,20 +344,6 @@
       background: var(--nav-active-color);
       width: 0%;
       transition: width 0.3s ease;
-    }
-
-    .placeholder-box {
-      background-color: #e9ecef;
-      border: 1px dashed #ced4da;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      color: #6c757d;
-      margin: 1rem 0;
-      min-height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .slide-kicker {
@@ -418,19 +377,9 @@
       font-weight: 400;
     }
 
-    .hero-number {
-      text-align: center;
-      font-size: clamp(4.2rem, 11vw, 8.5rem);
-      line-height: 0.95;
-      font-weight: 800;
-      color: #1772de;
-      letter-spacing: -0.04em;
-      margin: 0 auto 1.25rem;
-    }
-
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       max-width: 1320px;
       margin: 2.2rem auto 2rem;
@@ -451,7 +400,6 @@
 
     .stat-value.orange { color: #fb8c00; }
     .stat-value.red { color: #e53935; }
-    .stat-value.gray { color: #8a8d93; }
 
     .stat-label {
       font-size: clamp(1rem, 1.8vw, 1.5rem);
@@ -517,140 +465,6 @@
       font-weight: 400;
     }
 
-    .stack-list {
-      display: grid;
-      gap: 1.7rem;
-      max-width: 1500px;
-      margin: 2.4rem auto 0;
-    }
-
-    .stack-card {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      align-items: center;
-      gap: 1.7rem;
-      border-radius: 30px;
-      padding: 1.7rem 2rem;
-      border: 2px solid transparent;
-      background: rgba(255,255,255,0.4);
-    }
-
-    .stack-card.blue {
-      background: #edf4ff;
-      border-color: #bcd5fb;
-    }
-
-    .stack-card.purple {
-      background: #f4eff9;
-      border-color: #dbc8ea;
-    }
-
-    .stack-card.green {
-      background: #eef8f0;
-      border-color: #c4e2c9;
-    }
-
-    .stack-icon {
-      width: 92px;
-      height: 92px;
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-    }
-
-    .stack-card.blue .stack-icon { background: #dce9fb; }
-    .stack-card.purple .stack-icon { background: #eadff2; }
-    .stack-card.green .stack-icon { background: #dceedd; }
-
-    .stack-title {
-      font-size: clamp(1.25rem, 1.7vw, 1.6rem);
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-    }
-
-    .stack-card.blue .stack-title { color: #1666d2; }
-    .stack-card.purple .stack-title { color: #9757c1; }
-    .stack-card.green .stack-title { color: #2ea54b; }
-
-    .stack-text {
-      font-size: clamp(1rem, 1.4vw, 1.24rem);
-      color: #454b54;
-      line-height: 1.45;
-      font-weight: 400;
-    }
-
-    .tone-note {
-      max-width: 1380px;
-      margin: 2.2rem auto 0;
-      text-align: center;
-      color: #8a8d93;
-      font-size: clamp(1rem, 1.4vw, 1.22rem);
-      line-height: 1.5;
-      font-weight: 400;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(700px, 1.6fr) minmax(320px, 0.8fr);
-      gap: 1.6rem;
-      align-items: start;
-      max-width: 1540px;
-      margin: 2.3rem auto 0;
-    }
-
-    .code-panel,
-    .explain-panel {
-      background: rgba(255,255,255,0.5);
-      border: 1px solid #d8dbe1;
-      border-radius: 28px;
-      padding: 1.4rem;
-    }
-
-    .panel-label {
-      display: inline-block;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #1b6fe3;
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-      font-family: var(--font-main);
-    }
-
-    .explain-list {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .explain-item {
-      border-radius: 18px;
-      background: #f3f6fb;
-      padding: 1rem 1.1rem;
-      border: 1px solid #d7e3f8;
-    }
-
-    .explain-item strong {
-      display: block;
-      margin-bottom: 0.2rem;
-      color: #1a1d23;
-    }
-
-    .example-caption {
-      margin-top: 1rem;
-      color: #6b7280;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .center-box {
-      max-width: var(--hero-max-width);
-      margin: 0 auto;
-    }
-
     .list-container {
       max-width: 1200px;
       margin: 1.5rem auto;
@@ -677,13 +491,23 @@
       left: 0;
     }
 
+    .highlight-box {
+      max-width: 1400px;
+      margin: 1.8rem auto 0;
+      border: 2px solid #1f6fe5;
+      border-radius: 28px;
+      background: rgba(234, 242, 255, 0.6);
+      padding: 1.5rem 2rem;
+      color: #17191e;
+      font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+      line-height: 1.45;
+      font-weight: 500;
+      text-align: center;
+    }
+
     @media (max-width: 1200px) {
       .feature-grid,
       .stats-row {
-        grid-template-columns: 1fr;
-      }
-
-      .two-col {
         grid-template-columns: 1fr;
       }
     }
@@ -709,14 +533,8 @@
       }
 
       .feature-grid,
-      .stats-row,
-      .two-col {
+      .stats-row {
         gap: 1.2rem;
-      }
-
-      .stack-card {
-        grid-template-columns: 1fr;
-        text-align: left;
       }
     }
   </style>
@@ -742,7 +560,7 @@
       <li class="nav-item" data-slide="1"><span class="nav-icon">⏳</span><span class="nav-label">Historische Meilensteine</span></li>
       <li class="nav-item" data-slide="2"><span class="nav-icon">📈</span><span class="nav-label">KI: Verbreitung und Notwendigkeit</span></li>
       <li class="nav-item" data-slide="3"><span class="nav-icon">👩‍🏫</span><span class="nav-label">Veränderte Rolle der Lehrkraft</span></li>
-      <li class="nav-item" data-slide="4"><span class="nav-icon">🛠️</span><span class="nav-label">Praktische Umsetzung: telli</span></li>
+      <li class="nav-item" data-slide="4"><span class="nav-icon">🛠️</span><span class="nav-label">Praktische Umsetzung</span></li>
       <li class="nav-item" data-slide="5"><span class="nav-icon">💡</span><span class="nav-label">Zentrale Botschaften</span></li>
     </ul>
   </nav>
@@ -782,12 +600,7 @@
         <div class="stat-card">
           <div class="stat-value red">1991</div>
           <div class="stat-label">World Wide Web</div>
-          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #7b8088;">Öffentlich zugänglich – Jahre bis zur Breitennutzung in Schulen.</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value gray">1971</div>
-          <div class="stat-label">Erste E-Mail</div>
-          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #7b8088;">Ray Tomlinson verschickt erste E-Mail über ARPANET.</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #7b8088;">Öffentlich zugänglich – <strong>mehrere Jahre</strong> bis zur Breitennutzung in Schulen.</p>
         </div>
       </div>
 
@@ -808,7 +621,7 @@
           <div class="feature-icon">🚀</div>
           <div class="feature-title">Geschwindigkeit der Verbreitung</div>
           <div class="feature-text">
-            KI hat sich <strong>innerhalb von Wochen</strong> etabliert – nicht Jahrhunderte wie der Buchdruck oder Jahrzehnte wie das Internet.
+            KI hat sich <strong>innerhalb von Wochen</strong> etabliert – nicht Jahrhunderte wie der Buchdruck oder Jahre wie das Internet.
           </div>
         </article>
         <article class="feature-card">
@@ -822,7 +635,7 @@
           <div class="feature-icon">🤖</div>
           <div class="feature-title">ChatGPT als Game Changer</div>
           <div class="feature-text">
-            Veröffentlicht im <strong>November 2022</strong> – seit dem rasante Entwicklung in Text-, Bild- und Datenverarbeitung.
+            Veröffentlicht im <strong>November 2022</strong> – seit dem rasante Entwicklung in Text-, Bild- und Datenverarbeitung. Heute gibt es <strong>viele Anbieter</strong> wie Mistral, Claude oder Google Gemini.
           </div>
         </article>
       </div>
@@ -836,58 +649,63 @@
     <section class="slide" data-slide="3">
       <div class="center-box">
         <div class="slide-kicker">VERÄNDERTE ROLLE DER LEHRKRAFT</div>
-        <div class="slide-hero-title">Vom Frontalunterricht<br>zum Lernbegleiter</div>
+        <div class="slide-hero-title">Von der Wissensvermittlung<br>zur Lernbegleitung</div>
       </div>
 
       <div class="list-container">
-        <h2>Die neue Rolle der Lehrkräfte:</h2>
         <ul>
-          <li><strong>Lernbegleiter statt Wissensvermittler:</strong> Wissenschaftlich belegt, dass selbstgesteuertes Lernen zu tieferem Verständnis führt. Lehrkräfte unterstützen diesen Prozess.</li>
+          <li><strong>Lernbegleitung und Förderung:</strong> Wissenschaftlich belegt, dass selbstgesteuertes Lernen zu tieferem Verständnis führt. Lehrkräfte unterstützen und fördern diesen Prozess.</li>
+
           <li><strong>Individuelles Feedback:</strong> KI kann Lehrkräfte entlasten, indem sie individuelle Rückmeldungen für Schüler:innen generiert – z. B. durch Analyse von Fehlermustern oder Lernfortschritten.</li>
+
           <li><strong>Vermittlung von KI-Kompetenz:</strong> Schüler:innen lernen, KI als <em>Tool für Verständnis und Kreativität</em> zu nutzen – nicht zum Abschreiben von Hausaufgaben.</li>
+
           <li><strong>Förderung kritischen Denkens:</strong> Lehrkräfte zeigen, wie KI sinnvoll eingesetzt wird, um Denkprozesse zu vertiefen (z. B. Erklärungen anfordern, Übungen generieren, Ideen entwickeln).</li>
+
           <li><strong>KI als Coach:</strong> KI kann als „Allrounder“ fungieren, der Schüler:innen durch Lernprozesse begleitet – z. B. als Projektbegleiter oder Mathe-Tutor.</li>
+
+          <li><strong>Vorbereitung auf die Lebensrealität:</strong> Wir müssen Schüler:innen auf ihre Zukunft in Beruf und Privatleben vorbereiten und sie auf ihrem Weg zu <em>mündigen, kritisch reflektierten Menschen</em> begleiten.</li>
         </ul>
       </div>
 
-      <div class="info-box">
+      <div class="highlight-box">
         <strong>Zentrale Aufgabe:</strong> Den Schüler:innen beibringen, KI so zu nutzen, dass sie ihren <em>eigenen kreativen Denkprozess</em> stärken – nicht ersetzen.
       </div>
     </section>
 
-    <!-- Slide 5: Praktische Umsetzung: telli -->
+    <!-- Slide 5: Praktische Umsetzung -->
     <section class="slide" data-slide="4">
       <div class="center-box">
         <div class="slide-kicker">PRAKTISCHE UMSETZUNG</div>
-        <div class="slide-hero-title">telli – KI für bayerische Schulen</div>
+        <div class="slide-hero-title">Tools für den Unterricht</div>
       </div>
 
       <div class="feature-grid">
         <article class="feature-card">
           <div class="feature-icon">🏫</div>
-          <div class="feature-title">Bundesländerübergreifend</div>
+          <div class="feature-title">telli</div>
           <div class="feature-text">
-            Erstes gemeinsames KI-Projekt aller deutschen Bundesländer – Integration in die <strong>BayernCloud Schule</strong> über VIDIS-Login.
+            Bundesländerübergreifendes KI-Projekt – Integration in die <strong>BayernCloud Schule</strong> über VIDIS-Login. <strong>Eine Chance</strong> für datenschutzkonformen KI-Einsatz.
           </div>
         </article>
         <article class="feature-card">
-          <div class="feature-icon">📅</div>
-          <div class="feature-title">Verfügbarkeit</div>
+          <div class="feature-icon">🌍</div>
+          <div class="feature-title">fobizz</div>
           <div class="feature-text">
-            Ab <strong>15. Dezember 2025</strong> für alle bayerischen Schulen nutzbar.
+            Plattform für Lehrkräfte mit Fortbildungen und Materialien zum Einsatz von KI im Unterricht.
           </div>
         </article>
         <article class="feature-card">
-          <div class="feature-icon">🎓</div>
-          <div class="feature-title">Schulungspflicht</div>
+          <div class="feature-icon">🤖</div>
+          <div class="feature-title">Brian KI</div>
           <div class="feature-text">
-            Lehrkräfte müssen eine <strong>KI-Schulung</strong> absolvieren (EU-Vorgabe, Artikel 4 der KI-Verordnung, ab Februar 2025).
+            KI-gestützter Lernbegleiter, z. B. für Mathe oder Projektarbeiten.
           </div>
         </article>
       </div>
 
       <div class="info-box">
-        <strong>Voraussetzungen:</strong>
+        <strong>Voraussetzungen für telli:</strong>
         <ol style="text-align: left; padding-left: 1.5rem;">
           <li>Lehrkräfte: Schulung über die <strong>ALP Dillingen</strong> (Dauer: 15 Min.–2 Std.).</li>
           <li>Schulleitung: <strong>telli in VIDIS aktivieren</strong>.</li>
@@ -906,13 +724,14 @@
         <ul>
           <li><strong>KI ist Realität:</strong> Sie wird bereits flächendeckend von Schüler:innen genutzt – wir müssen sie aktiv in den Unterricht einbinden.</li>
           <li><strong>Lehrkräfte als Multiplikator:innen:</strong> Vermittlung von <em>kritischer und kreativer KI-Nutzung</em> ist unsere zentrale Aufgabe.</li>
-          <li><strong>telli als Chance:</strong> Datenschutzkonforme, bundesländerübergreifende Lösung für Schulen – nutzbar ab Dezember 2025.</li>
-          <li><strong>Handlungsaufforderung:</strong> Schulungen machen, Schulleitungen einbinden, telli ausprobieren!</li>
+          <li><strong>Vielfalt an Tools:</strong> Es gibt <strong>viele Chancen</strong> wie telli, fobizz oder Brian KI – wir sollten sie nutzen, um den Unterricht zu bereichern.</li>
+          <li><strong>Handlungsaufforderung:</strong> Schulungen machen, Schulleitungen einbinden, Tools ausprobieren!</li>
         </ul>
       </div>
 
-      <div class="info-box">
-        <strong>Abschlussfrage:</strong> Wie sehen Sie die Rolle von KI in Ihrem Unterricht? Welche Tools würden Sie gerne testen?
+      <div class="highlight-box">
+        <strong>Frage zum Mitnehmen:</strong><br>
+        Wie sehen Sie die Rolle von KI in Ihrem Unterricht? Was ist meine Aufgabe als Lehrkraft?
       </div>
     </section>
   </div>
