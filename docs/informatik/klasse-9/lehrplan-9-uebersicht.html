@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatik 9 – LehrplanPLUS Gymnasium Bayern</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      /* Ergänzung: linke Navigations-Sidebar (nutzt die vorhandene animation.js-Steuerung) */
+      .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(15, 15, 35, 0.92); backdrop-filter: blur(10px); border-right: 1px solid rgba(255,255,255,0.12); padding: 24px 0; z-index: 1000; overflow-y: auto; }
+      .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 20px 14px; border-bottom: 1px solid rgba(255,255,255,0.12); margin: 0 0 10px; font-family: 'Poppins', sans-serif; }
+      .sidebar a { display: block; padding: 9px 20px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; cursor: pointer; border-left: 3px solid transparent; transition: all .2s; }
+      .sidebar a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+      .sidebar a.active { color: #fff; background: rgba(255,255,255,0.1); border-left-color: #667eea; }
+      .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+      body.has-sidebar .slide-content { margin-left: 125px; }
+      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } }
+    </style>
+</head>
+<body class="has-sidebar">
+    <!-- Linke Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <h3><i class="fas fa-graduation-cap"></i> Informatik 9 · Bayern</h3>
+        <a data-slide="0"><i class="fas fa-home"></i> Überblick</a>
+        <a data-slide="1"><i class="fas fa-cubes"></i> OOP: Klassen &amp; Objekte</a>
+        <a data-slide="2"><i class="fas fa-sitemap"></i> OOP: Vererbung</a>
+        <a data-slide="3"><i class="fas fa-recycle"></i> Rekursion</a>
+        <a data-slide="4"><i class="fas fa-link"></i> Verkettete Listen</a>
+        <a data-slide="5"><i class="fas fa-project-diagram"></i> Graphen</a>
+        <a data-slide="6"><i class="fas fa-shield-alt"></i> Sicherheit &amp; Datenschutz</a>
+        <a data-slide="7"><i class="fas fa-laptop-code"></i> Softwareentwicklung</a>
+        <a data-slide="8"><i class="fas fa-check-double"></i> Zusammenfassung</a>
+        <a class="back" href="../index.html"><i class="fas fa-arrow-left"></i> zur Übersicht</a>
+    </nav>
+
+    <div class="presentation-container">
+
+        <!-- FOLIE 1: Titelfolie -->
+        <section class="slide active gradient-slide">
+            <div class="slide-content">
+                <h1 class="gradient-text animated">Informatik in der 9. Klasse</h1>
+                <p class="subtitle animated">LehrplanPLUS Gymnasium Bayern – Überblick über alle Lernbereiche</p>
+                <p class="author animated">Fach Informatik</p>
+                <div class="date animated">Schuljahr 2026/27</div>
+                <div class="decorative-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 2: Agenda (6 Lernbereiche) -->
+        <section class="slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated"><i class="fas fa-list-ul"></i> Die sechs Lernbereiche</h2>
+                <div class="four-column-grid">
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-cubes"></i></div>
+                        <h3>OOP</h3>
+                        <p>Klassen, Objekte, Vererbung, Polymorphismus</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-recycle"></i></div>
+                        <h3>Rekursion</h3>
+                        <p>Abbruchbedingung, ggT, Türme von Hanoi</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-link"></i></div>
+                        <h3>Listen</h3>
+                        <p>Einfach verkettete Listen als rekursive Struktur</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h3>Graphen</h3>
+                        <p>Adjazenzmatrix, Tiefensuche, Dijkstra</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Sicherheit</h3>
+                        <p>Schutzziele, Datenschutz, Gefährdungen</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Software</h3>
+                        <p>Wasserfall vs. agil, Teamprojekt</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 3: OOP I -->
+        <section class="slide three-column-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">1 · Objektorientierte Programmierung</h2>
+                <div class="three-column-grid">
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-cube"></i></div>
+                        <h3>Objekt &amp; Klasse</h3>
+                        <p>Objekte nach Attributen und Methoden analysieren, zu Klassen abstrahieren und in Klassendiagrammen darstellen.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Methoden</h3>
+                        <p>Methodenkopf und -rumpf, Parameter und Rückgabewert, Konstruktor, getter/setter – Implementierung in einer OOP-Sprache.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                        <h3>Beziehungen &amp; Kapselung</h3>
+                        <p>Objektbeziehungen (z. B. Mitgliederverwaltung eines Vereins) durch Referenzen umsetzen, Datenkapselung und Sequenzdiagramm, Array/Feld nutzen.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 4: OOP II Vererbung -->
+        <section class="slide three-column-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">1 · Vererbung &amp; Polymorphismus</h2>
+                <div class="three-column-grid">
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
+                        <h3>Generalisierung</h3>
+                        <p>Generalisierungshierarchien aus der Erfahrungswelt in Klassendiagrammen modellieren: Ober- und Unterklasse.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-level-up-alt"></i></div>
+                        <h3>Vererbung</h3>
+                        <p>Attribute und Methoden werden an Unterklassen vererbt; Methoden können überschrieben werden.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-shapes"></i></div>
+                        <h3>Polymorphismus</h3>
+                        <p>Verschiedene Verhaltensweisen implementieren, z. B. spartenabhängige Berechnung von Mitgliedsbeiträgen eines Sportvereins.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 95%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 5: Rekursion (Vergleichstabelle) -->
+        <section class="slide comparison-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">2 · Rekursion – iterativ vs. rekursiv</h2>
+                <div class="comparison-table animated">
+                    <div class="comparison-header">
+                        <div class="header-cell"></div>
+                        <div class="header-cell">Iterativ</div>
+                        <div class="header-cell">Rekursiv</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Prinzip</div>
+                        <div class="row-value old">Schleife wiederholt Schritte</div>
+                        <div class="row-value new">Methode ruft sich selbst auf</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Abbruch</div>
+                        <div class="row-value old">Schleifenbedingung</div>
+                        <div class="row-value new">Abbruchbedingung (Basisfall)</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Arten</div>
+                        <div class="row-value old">zählend / bedingungsprüfend</div>
+                        <div class="row-value new">lineare &amp; verzweigte Rekursion</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Beispiele</div>
+                        <div class="row-value old">Summe, Maximum</div>
+                        <div class="row-value new">ggT, Türme von Hanoi, selbstähnliche Figuren</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 6: Verkettete Listen (2-Spalten) -->
+        <section class="slide two-column-layout">
+            <div class="slide-content">
+                <div class="column-left animated">
+                    <h2 class="gradient-text">3 · Einfach verkettete Listen</h2>
+                    <p>Lineare Datenstrukturen aus dem Lebensumfeld – z. B. eine Playlist – werden als rekursive Struktur modelliert und implementiert.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Einfach verkettete Liste als rekursive Struktur</li>
+                        <li><i class="fas fa-check"></i> Einfügen, Entfernen und Suchen von Elementen</li>
+                        <li><i class="fas fa-check"></i> Bestimmung der Listenlänge (rekursiv)</li>
+                        <li><i class="fas fa-check"></i> Trennung von Struktur und Daten</li>
+                        <li><i class="fas fa-check"></i> Implementierung mit einer OOP-Sprache</li>
+                    </ul>
+                </div>
+                <div class="column-right animated">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Verkettete Strukturen">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 7: Graphen (4 Karten) -->
+        <section class="slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">4 · Graphen</h2>
+                <div class="four-column-grid">
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-circle-nodes"></i></div>
+                        <h3>Knoten &amp; Kanten</h3>
+                        <p>Vernetzte Strukturen modellieren: Pfad, Erreichbarkeit, Zyklus; gerichtet, gewichtet, zusammenhängend</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-table-cells"></i></div>
+                        <h3>Adjazenzmatrix</h3>
+                        <p>Graphen mit einer Adjazenzmatrix implementieren</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-route"></i></div>
+                        <h3>Tiefensuche</h3>
+                        <p>Algorithmus erläutern, implementieren und je nach Anwendungskontext modifizieren</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>Dijkstra</h3>
+                        <p>Kürzeste Wege – Alltagsrelevanz z. B. in Navigations-systemen erläutern</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 8: Sicherheit (4 Schutzziele + FAQ) -->
+        <section class="slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">5 · Informationssicherheit &amp; Datenschutz</h2>
+                <div class="four-column-grid">
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-user-secret"></i></div>
+                        <h3>Vertraulichkeit</h3>
+                        <p>Nur Berechtigte haben Zugriff</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-check-double"></i></div>
+                        <h3>Integrität</h3>
+                        <p>Daten sind vollständig und unverändert</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-server"></i></div>
+                        <h3>Verfügbarkeit</h3>
+                        <p>Systeme funktionieren zuverlässig</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-fingerprint"></i></div>
+                        <h3>Authentizität</h3>
+                        <p>Identität ist nachweisbar</p>
+                    </div>
+                </div>
+                <ul style="margin-top:30px; color:#b8c1ec; font-size:1.05rem;" class="animated">
+                    <li><i class="fas fa-gavel"></i> <b>Datenschutzgesetze:</b> Zweck, Grundsätze (Verbotsprinzip mit Erlaubnisvorbehalt), Rechte Betroffener</li>
+                    <li style="margin-top:8px"><i class="fas fa-triangle-exclamation"></i> <b>Gefährdungen:</b> höhere Gewalt, organisatorische Mängel, Fehlhandlungen, technisches Versagen, vorsätzliche Handlungen (Schadprogramme, DDoS)</li>
+                    <li style="margin-top:8px"><i class="fas fa-toolbox"></i> <b>Maßnahmen:</b> organisatorisch (Passwortregel), technisch (Firewall, Verschlüsselung, Sandbox), physisch (Zugangskontrolle)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FOLIE 9: Softwareentwicklung (Vergleich) -->
+        <section class="slide comparison-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">6 · Softwareentwicklung: Wasserfall vs. agil</h2>
+                <div class="comparison-table animated">
+                    <div class="comparison-header">
+                        <div class="header-cell"></div>
+                        <div class="header-cell">Wasserfallmodell</div>
+                        <div class="header-cell">Agile Entwicklung</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Ablauf</div>
+                        <div class="row-value old">Analyse → Entwurf → Implementierung → Test → Abnahme → Betrieb</div>
+                        <div class="row-value new">iterativ-inkrementell in Sprints</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Planung</div>
+                        <div class="row-value old">Zielsetzung, Arbeitsteilung, Schnittstellen, Meilensteine</div>
+                        <div class="row-value new">User Stories, Tasks, Project Board, Retrospektive</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Flexibilität</div>
+                        <div class="row-value old">starr, phasenorientiert</div>
+                        <div class="row-value new">agiles Manifest, anpassungsfähig</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Praxis</div>
+                        <div class="row-value old">klassisches Vorgehensmodell</div>
+                        <div class="row-value new">Teamprojekt aus der Praxis (z. B. Mitgliederverwaltung, einfaches Spiel)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 10: Zusammenfassung -->
+        <section class="slide cta-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">Zusammenfassung</h2>
+                <div style="text-align:left; max-width:760px; margin:0 auto; color:#b8c1ec; line-height:2;" class="animated">
+                    <p><i class="fas fa-cubes"></i> <b>OOP:</b> Klassen, Objekte, Referenzen, Vererbung, Polymorphismus</p>
+                    <p><i class="fas fa-recycle"></i> <b>Rekursion:</b> Abbruchbedingung, lineare &amp; verzweigte Rekursion</p>
+                    <p><i class="fas fa-link"></i> <b>Listen:</b> rekursive Datenstruktur, Trennung von Struktur und Daten</p>
+                    <p><i class="fas fa-project-diagram"></i> <b>Graphen:</b> Adjazenzmatrix, Tiefensuche, Dijkstra</p>
+                    <p><i class="fas fa-shield-alt"></i> <b>Sicherheit:</b> Schutzziele, Datenschutz, Gefährdungen, Maßnahmen</p>
+                    <p><i class="fas fa-laptop-code"></i> <b>Softwareentwicklung:</b> Wasserfall vs. agil, Teamprojekt</p>
+                </div>
+                <p style="margin-top:24px; color:#8892b0; font-size:0.9rem;" class="animated">Quelle: LehrplanPLUS Bayern, Informatik, Jahrgangsstufe 9, Gymnasium (lehrplanplus.bayern.de)</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button id="prev" aria-label="Zurück"><i class="fas fa-chevron-left"></i></button>
+        <span class="slide-counter">1 / 10</span>
+        <button id="next" aria-label="Vor"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Vorlagen-Engine -->
+    <script src="../animation.js"></script>
+    <script>
+      // Linke Sidebar: springt zu Folien, indem die vorhandene Tastatursteuerung der animation.js genutzt wird
+      window.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.getElementById('sidebar');
+        if (!sidebar) return;
+        const links = Array.from(sidebar.querySelectorAll('a[data-slide]'));
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const currentIdx = () => slides.findIndex(s => s.classList.contains('active'));
+        function sync() {
+          const cur = currentIdx();
+          links.forEach(l => l.classList.toggle('active', +l.dataset.slide === cur));
+        }
+        links.forEach(l => l.addEventListener('click', () => {
+          const target = +l.dataset.slide;
+          const steps = (target - currentIdx() + slides.length) % slides.length;
+          for (let i = 0; i < steps; i++) {
+            document.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
+          }
+        }));
+        new MutationObserver(sync).observe(document.querySelector('.presentation-container'), { subtree: true, attributes: true, attributeFilter: ['class'] });
+        sync();
+      });
+    </script>
+</body>
+</html>
