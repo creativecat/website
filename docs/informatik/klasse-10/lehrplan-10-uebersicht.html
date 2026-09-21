@@ -18,8 +18,7 @@
       .code-box { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 18px 22px; font-family: 'Courier New', monospace; font-size: 1rem; color: #c3cae8; text-align: left; line-height: 1.7; margin-top: 18px; }
       .code-box .kw { color: #c792ea; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #c3e88d; } .code-box .cm { color: #5f6b8a; font-style: italic; }
       .teaser { font-size: 1.15rem; color: #b8c1ec; line-height: 1.7; }
-      
-.teaser b { color: #fff; }
+      .teaser b { color: #fff; }
       .tool-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(102,126,234,0.18); border: 1px solid rgba(102,126,234,0.5); border-radius: 30px; padding: 8px 18px; margin: 6px 6px 0 0; font-size: 0.95rem; color: #dcdcff; }
       .tool-badge i { color: #667eea; }
       @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } }
@@ -57,11 +56,15 @@
         </section>
 
         <!-- FOLIE 2: Agenda als Reise -->
-        <sec
-tion class="slide">
+        <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-map"></i> Deine Reise durch das Schuljahr</h2>
                 <div class="four-column-grid">
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-rotate-left"></i></div>
+                        <h3>Warm-up</h3>
+                        <p>Java aus Klasse 9 auffrischen – mit Kurzarbeit</p>
+                    </div>
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-database"></i></div>
                         <h3>Datenbanken 2.0</h3>
@@ -78,11 +81,11 @@ tion class="slide">
                         <p>Im Team ein eigenes Programm oder eine Datenbank entwickeln</p>
                     </div>
                 </div>
-                <p class="teaser animated" style="margin-top:30px; text-align:center;">Wir starten mit einem <b>Java-Warm-up</b> inklusive Kurzarbeit – dann gehen es mit <b>SQL-Island, dem Online-Shop und deinem Java-Wissen</b> weiter auf Fundament aus Klasse 9.</p>
+                <p class="teaser animated" style="margin-top:30px; text-align:center;">Du knüpfst direkt an Klasse 9 an: <b>dein Java-Wissen, SQL-Island und der Online-Shop</b> werden zum Fundament für Neues.</p>
             </div>
         </section>
 
-        <!-- FOLIE 3: Wiederholung Java -->
+        <!-- FOLIE 3: Warm-up Java-Wiederholung -->
         <section class="slide two-column-layout">
             <div class="slide-content">
                 <div class="column-left animated">
@@ -118,18 +121,17 @@ tion class="slide">
             </div>
         </section>
 
-        <!-- FOLIE 3: Datenbanken Level 2 -->
+        <!-- FOLIE 4: Datenbanken Level 2 -->
         <section class="slide two-column-layout">
             <div class="slide-content">
                 <div class="column-left animated">
                     <h2 class="gradient-text"><i class="fas fa-database"></i> Datenbanken: Level 2</h2>
                     <p class="teaser">In Klasse 9 hast du eine Tabelle abgefragt. Jetzt wird's richtig interessant: <b>Echte Datenbanken bestehen aus vielen verknüpften Tabellen</b> – Kunden, Bestellungen, Produkte gehören zusammen.</p>
                     <ul>
-                       
- <li><i class="fas fa-check"></i> Datenmodelle mit mehreren Klassen entwerfen (Klassendiagramm)</li>
+                        <li><i class="fas fa-check"></i> Datenmodelle mit mehreren Klassen entwerfen (Klassendiagramm)</li>
                         <li><i class="fas fa-check"></i> Tabellen geschickt verknüpfen: Primär- und Fremdschlüssel</li>
                         <li><i class="fas fa-check"></i> Abfragen über mehrere Tabellen – z. B. „Was hat welcher Kunde bestellt?"</li>
-                        <li><i class="fas fa-check"></i> finden, warum doppelte Daten Probleme machen (Anomalien)</li>
+                        <li><i class="fas fa-check"></i> Finden, warum doppelte Daten Probleme machen (Anomalien)</li>
                     </ul>
                     <p style="margin-top:18px;" class="animated">
                         <span class="tool-badge"><i class="fas fa-store"></i> Online-Shop</span>
@@ -149,14 +151,13 @@ tion class="slide">
             </div>
         </section>
 
-        <!-- FOLIE 4: Java: Das große Ganze -->
+        <!-- FOLIE 5: Java -->
         <section class="slide two-column-layout">
             <div class="slide-content">
                 <div class="column-left animated">
                     <h2 class="gradient-text"><i class="fab fa-java"></i> Java: Das große Ganze</h2>
                     <p class="teaser">Deine Objekte aus Klasse 9 waren Einzelkämpfer. Jetzt lernst du, <b>ganze Systeme daraus zu bauen</b>, in denen Objekte miteinander sprechen – z. B. ein Fahrradverleih oder die Mitgliederverwaltung eines Vereins.</p>
-             
-       <ul>
+                    <ul>
                         <li><i class="fas fa-check"></i> Viele gleichartige Objekte verwalten – mit Arrays</li>
                         <li><i class="fas fa-check"></i> Objekte per Referenz miteinander verbinden und Methoden aufrufen lassen</li>
                         <li><i class="fas fa-check"></i> Vererbung und Polymorphismus: gleiche Nachricht, anderes Verhalten</li>
@@ -181,7 +182,7 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
             </div>
         </section>
 
-        <!-- FOLIE 5: Projekt -->
+        <!-- FOLIE 6: Projekt -->
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-diagram-project"></i> Das Herzstück: Dein eigenes Projekt</h2>
@@ -189,8 +190,7 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>Idee &amp; Plan</h3>
-               
-         <p>Im Team ein Szenario wählen: Buchungssystem, Verwaltung oder ein einfaches Spiel</p>
+                        <p>Im Team ein Szenario wählen: Buchungssystem, Verwaltung oder ein einfaches Spiel</p>
                     </div>
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-pen-ruler"></i></div>
@@ -212,15 +212,15 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
             </div>
         </section>
 
-        <!-- FOLIE 6: Abschluss -->
+        <!-- FOLIE 7: Abschluss -->
         <section class="slide cta-slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated">Das nimmst du mit</h2>
                 <div style="text-align:left; max-width:740px; margin:0 auto; color:#b8c1ec; line-height:2.1;" class="animated">
+                    <p><i class="fas fa-rotate-left"></i> <b>Fundament:</b> Dein Java-Wissen aus Klasse 9 ist gefestigt – Kurzarbeit geschafft!</p>
                     <p><i class="fas fa-database"></i> <b>Datenbanken:</b> Du modellierst und verknüpfst mehrere Tabellen wie ein Profi</p>
                     <p><i class="fab fa-java"></i> <b>Java:</b> Du baust Systeme aus zusammenarbeitenden Objekten – mit Vererbung und Polymorphismus</p>
-                    <p><i class="fas fa-diagram-project"></i> 
-<b>Projektarbeit:</b> Du planst, implementierst und präsentierst ein eigenes Teamprojekt</p>
+                    <p><i class="fas fa-diagram-project"></i> <b>Projektarbeit:</b> Du planst, implementierst und präsentierst ein eigenes Teamprojekt</p>
                 </div>
                 <div class="cta-buttons animated" style="margin-top:26px;">
                     <button class="cta-button primary"><i class="fas fa-rocket"></i> Los geht's!</button>
@@ -259,8 +259,7 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
         }));
         new MutationObserver(sync).observe(document.querySelector('.presentation-container'), { subtree: true, attributes: true, attributeFilter: ['class'] });
         sync();
-   
-   });
+      });
     </script>
 </body>
 </html>
