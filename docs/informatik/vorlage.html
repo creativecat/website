@@ -3,71 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Präsentation</title>
+    <title>Moderne Präsentation</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="presentation-container">
-        <!-- Titelfolie -->
-        <section class="slide active">
+        
+        <!-- Folie 1: Titelfolie mit Gradienten-Hintergrund -->
+        <section class="slide active gradient-slide">
             <div class="slide-content">
                 <h1 class="animated">Willkommen zur Präsentation</h1>
-                <p class="subtitle animated">Ein modernes und ansprechendes Design</p>
+                <p class="subtitle animated">Innovation & Kreativität im Fokus</p>
                 <p class="author animated">Matthias Glienke</p>
+                <div class="date animated">21. September 2026</div>
             </div>
         </section>
 
-        <!-- Inhaltsfolie -->
+        <!-- Folie 2: Inhaltsfolie mit Icons -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="animated">Inhalt</h2>
-                <ul>
-                    <li class="animated">Einleitung</li>
-                    <li class="animated">Hauptteil</li>
-                    <li class="animated">Zusammenfassung</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Bildfolie -->
-        <section class="slide">
-            <div class="slide-content">
-                <h2 class="animated">Beispielbild</h2>
-                <div class="image-container animated">
-                    <img src="https://via.placeholder.com/800x450?text=Beispielbild" alt="Beispielbild">
-                </div>
-                <p class="caption animated">Ein Beispielbild zur Veranschaulichung</p>
-            </div>
-        </section>
-
-        <!-- Textfolie mit Animation -->
-        <section class="slide">
-            <div class="slide-content">
-                <h2 class="animated">Hauptteil</h2>
-                <p class="animated">Dies ist ein Beispieltext mit Animation.</p>
-                <p class="animated">Hier können Sie Ihre Inhalte einfügen.</p>
-                <div class="highlight-box animated">
-                    <p>Ein hervorgehobener Kasten für wichtige Informationen!</p>
+                <h2 class="animated"><i class="fas fa-list-ul"></i> Agenda</h2>
+                <div class="agenda-grid">
+                    <div class="agenda-item animated">
+                        <div class="agenda-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Einleitung</h3>
+                        <p>Grundlagen und Ziele</p>
+                    </div>
+                    <div class="agenda-item animated">
+                        <div class="agenda-icon"><i class="fas fa-cog"></i></div>
+                        <h3>Hauptteil</h3>
+                        <p>Details und Vertiefung</p>
+                    </div>
+                    <div class="agenda-item animated">
+                        <div class="agenda-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Analyse</h3>
+                        <p>Daten und Fakten</p>
+                    </div>
+                    <div class="agenda-item animated">
+                        <div class="agenda-icon"><i class="fas fa-question-circle"></i></div>
+                        <h3>Fragen & Antworten</h3>
+                        <p>Interaktiver Austausch</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Abschlussfolie -->
-        <section class="slide">
+        <!-- Folie 3: Bildfolie mit Overlay -->
+        <section class="slide image-slide">
+            <div class="image-background" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
             <div class="slide-content">
-                <h2 class="animated">Zusammenfassung</h2>
-                <p class="animated large-text">Vielen Dank für Ihre Aufmerksamkeit!</p>
-                <p class="animated">Fragen?</p>
+                <h2 class="animated">Visuelle Darstellungen</h2>
+                <p class="animated">Bilder sagen mehr als tausend Worte.</p>
+                <div class="image-caption animated">
+                    <span>Beispiel: Datenvisualisierung</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folie 4: Textfolie mit zwei Spalten -->
+        <section class="slide two-column-slide">
+            <div class="slide-content">
+                <h2 class="animated">Zwei Spalten Layout</h2>
+                <div class="columns">
+                    <div class="column animated">
+                        <h3><i class="fas fa-check-circle"></i> Vorteile</h3>
+                        <ul>
+                            <li>Effiziente Darstellung</li>
+                            <li>Klare Struktur</li>
+                            <li>Leicht verständlich</li>
+                        </ul>
+                    </div>
+                    <div class="column animated">
+                        <h3><i class="fas fa-times-circle"></i> Nachteile</h3>
+                        <ul>
+                            <li>Komplexere Erstellung</li>
+                            <li>Mehr Platzbedarf</li>
+                            <li>Anpassung nötig</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folie 5: Zitatfolie -->
+        <section class="slide quote-slide">
+            <div class="slide-content">
+                <div class="quote-container animated">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <blockquote>
+                        "Kreativität ist Intelligenz, die Spaß hat."
+                    </blockquote>
+                    <footer class="quote-author animated">– Albert Einstein</footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folie 6: Vergleichsfolie mit Diagrammen -->
+        <section class="slide comparison-slide">
+            <div class="slide-content">
+                <h2 class="animated">Vergleich: Traditionell vs. Modern</h2>
+                <div class="comparison-container">
+                    <div class="comparison-item animated">
+                        <h3>Traditionell</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                        <p>40% Effizienz</p>
+                    </div>
+                    <div class="comparison-item animated">
+                        <h3>Modern</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill modern" style="width: 90%;"></div>
+                        </div>
+                        <p>90% Effizienz</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folie 7: Timeline-Folie -->
+        <section class="slide timeline-slide">
+            <div class="slide-content">
+                <h2 class="animated">Zeitstrahl: Entwicklung</h2>
+                <div class="timeline">
+                    <div class="timeline-item animated">
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-content">
+                            <h4>Start des Projekts</h4>
+                            <p>Erste Ideen und Konzepte</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animated">
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h4>Erste Umsetzung</h4>
+                            <p>Prototyp entwickelt</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animated">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h4>Optimierung</h4>
+                            <p>Feinabstimmung und Tests</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animated">
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-content">
+                            <h4>Fertigstellung</h4>
+                            <p>Präsentation der Ergebnisse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folie 8: Abschlussfolie mit Call-to-Action -->
+        <section class="slide cta-slide">
+            <div class="slide-content">
+                <h2 class="animated">Vielen Dank!</h2>
+                <p class="animated large-text">Bereit für den nächsten Schritt?</p>
+                <div class="cta-buttons animated">
+                    <button class="cta-button primary"><i class="fas fa-download"></i> Material herunterladen</button>
+                    <button class="cta-button secondary"><i class="fas fa-envelope"></i> Kontakt aufnehmen</button>
+                </div>
+                <p class="animated contact-info">
+                    <i class="fas fa-phone"></i> +49 123 456789 |
+                    <i class="fas fa-envelope"></i> info@beispiel.de
+                </p>
             </div>
         </section>
     </div>
 
     <!-- Navigation -->
     <div class="navigation">
-        <button id="prev" aria-label="Zurück">❮</button>
-        <span class="slide-counter">1 / 5</span>
-        <button id="next" aria-label="Vor">❯</button>
+        <button id="prev" aria-label="Zurück"><i class="fas fa-chevron-left"></i></button>
+        <span class="slide-counter">1 / 8</span>
+        <button id="next" aria-label="Vor"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <script src="animation.js"></script>
