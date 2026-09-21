@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informatik 9 – LehrplanPLUS Gymnasium Bayern</title>
+    <title>Informatik 9 – Was dich dieses Jahr erwartet</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      /* Ergänzung: linke Navigations-Sidebar (nutzt die vorhandene animation.js-Steuerung) */
       .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(15, 15, 35, 0.92); backdrop-filter: blur(10px); border-right: 1px solid rgba(255,255,255,0.12); padding: 24px 0; z-index: 1000; overflow-y: auto; }
       .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 20px 14px; border-bottom: 1px solid rgba(255,255,255,0.12); margin: 0 0 10px; font-family: 'Poppins', sans-serif; }
       .sidebar a { display: block; padding: 9px 20px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; cursor: pointer; border-left: 3px solid transparent; transition: all .2s; }
@@ -16,25 +15,27 @@
       .sidebar a.active { color: #fff; background: rgba(255,255,255,0.1); border-left-color: #667eea; }
       .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
       body.has-sidebar .slide-content { margin-left: 125px; }
-      .code-box { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 18px 22px; font-family: 'Courier New', monospace; font-size: 0.95rem; color: #c3cae8; text-align: left; line-height: 1.6; margin-top: 18px; }
-      .code-box .kw { color: #c792ea; } .code-box .ty { color: #ffcb6b; } .code-box .cm { color: #5f6b8a; font-style: italic; }
+      .code-box { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 18px 22px; font-family: 'Courier New', monospace; font-size: 1rem; color: #c3cae8; text-align: left; line-height: 1.7; margin-top: 18px; }
+      .code-box .kw { color: #c792ea; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #c3e88d; } .code-box .cm { color: #5f6b8a; font-style: italic; }
+      .teaser { font-size: 1.15rem; color: #b8c1ec; line-height: 1.7; }
+      .teaser b { color: #fff; }
+      .tool-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(102,126,234,0.18); border: 1px solid rgba(102,126,234,0.5); border-radius: 30px; padding: 8px 18px; margin: 6px 6px 0 0; font-size: 0.95rem; color: #dcdcff; }
+      .tool-badge i { color: #667eea; }
       @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } }
     </style>
 </head>
 <body class="has-sidebar">
     <!-- Linke Navigation -->
     <nav class="sidebar" id="sidebar">
-        <h3><i class="fas fa-graduation-cap"></i> Informatik 9 · Bayern</h3>
-        <a data-slide="0"><i class="fas fa-home"></i> Überblick</a>
-        <a data-slide="1"><i class="fas fa-project-diagram"></i> Funktionale Modellierung</a>
-        <a data-slide="2"><i class="fas fa-table"></i> Tabellenkalkulation</a>
-        <a data-slide="3"><i class="fas fa-database"></i> Datenmodellierung &amp; Datenbanken</a>
-        <a data-slide="4"><i class="fas fa-database"></i> SQL-Abfragen</a>
-        <a data-slide="5"><i class="fas fa-cubes"></i> Objektorientierte Modellierung</a>
-        <a data-slide="6"><i class="fab fa-java"></i> OOP mit Java</a>
-        <a data-slide="7"><i class="fas fa-cubes"></i> Vererbung</a>
-        <a data-slide="8"><i class="fas fa-user-shield"></i> Datenschutz</a>
-        <a data-slide="9"><i class="fas fa-check-double"></i> Zusammenfassung</a>
+        <h3><i class="fas fa-graduation-cap"></i> Informatik 9</h3>
+        <a data-slide="0"><i class="fas fa-rocket"></i> Willkommen!</a>
+        <a data-slide="1"><i class="fas fa-map"></i> Deine Reise durchs Jahr</a>
+        <a data-slide="2"><i class="fas fa-wand-magic-sparkles"></i> Excel: Rechnen mit Zauberkraft</a>
+        <a data-slide="3"><i class="fas fa-store"></i> SQL: Deine eigene Datenbank</a>
+        <a data-slide="4"><i class="fas fa-cubes"></i> Java: Dein erstes eigenes Programm</a>
+        <a data-slide="5"><i class="fas fa-sitemap"></i> Java: Vererbung</a>
+        <a data-slide="6"><i class="fas fa-user-shield"></i> Deine Daten, deine Rechte</a>
+        <a data-slide="7"><i class="fas fa-star"></i> Das lernst du dabei</a>
         <a class="back" href="../index.html"><i class="fas fa-arrow-left"></i> zur Übersicht</a>
     </nav>
 
@@ -43,9 +44,9 @@
         <!-- FOLIE 1: Titelfolie -->
         <section class="slide active gradient-slide">
             <div class="slide-content">
-                <h1 class="gradient-text animated">Informatik in der 9. Klasse</h1>
-                <p class="subtitle animated">LehrplanPLUS Gymnasium Bayern (Basiskurs) – Überblick über alle Lernbereiche</p>
-                <p class="author animated">Peter-Fischer-Schule · Programmieren in Java</p>
+                <h1 class="gradient-text animated">Informatik 9</h1>
+                <p class="subtitle animated">Was dich dieses Schuljahr erwartet</p>
+                <p class="author animated">Peter-Fischer-Schule</p>
                 <div class="date animated">Schuljahr 2026/27</div>
                 <div class="decorative-shapes">
                     <div class="shape shape-1"></div>
@@ -55,282 +56,192 @@
             </div>
         </section>
 
-        <!-- FOLIE 2: Agenda (4 Lernbereiche) -->
+        <!-- FOLIE 2: Agenda als Reise -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated"><i class="fas fa-list-ul"></i> Die vier Lernbereiche</h2>
+                <h2 class="gradient-text animated"><i class="fas fa-map"></i> Deine Reise durch das Schuljahr</h2>
                 <div class="four-column-grid">
                     <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-project-diagram"></i></div>
-                        <h3>Funktionale Modellierung</h3>
-                        <p>Datenflussdiagramme und Tabellenkalkulation</p>
+                        <div class="column-icon"><i class="fas fa-table"></i></div>
+                        <h3>Excel</h3>
+                        <p>Tabellen, die von selbst rechnen</p>
                     </div>
                     <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-database"></i></div>
-                        <h3>Datenmodellierung</h3>
-                        <p>Objektorientierte Datenmodelle, Datenbanken und SQL</p>
+                        <div class="column-icon"><i class="fas fa-store"></i></div>
+                        <h3>Datenbanken &amp; SQL</h3>
+                        <p>Daten wie die Profis verwalten – am Beispiel eines Shops</p>
                     </div>
                     <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-cubes"></i></div>
-                        <h3>Objektorientierung</h3>
-                        <p>Klassen, Objekte, Vererbung – Programmieren in Java</p>
+                        <div class="column-icon"><i class="fab fa-java"></i></div>
+                        <h3>Java</h3>
+                        <p>Deine eigenen Programme schreiben</p>
                     </div>
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-user-shield"></i></div>
                         <h3>Datenschutz</h3>
-                        <p>Persönliche Daten schützen, Data-Mining bewerten</p>
+                        <p>Wer darf eigentlich was über dich wissen?</p>
                     </div>
                 </div>
+                <p class="teaser animated" style="margin-top:30px; text-align:center;">Und das Beste: <b>du programmierst und bastelst selbst</b> – fast jede Einheit hat einen praktischen Teil am Computer.</p>
             </div>
         </section>
 
-        <!-- FOLIE 3: Funktionale Modellierung -->
-        <section class="slide three-column-slide">
-            <div class="slide-content">
-                <h2 class="gradient-text animated">1 · Funktionale Modellierung</h2>
-                <div class="three-column-grid">
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-arrows-turn-to-dots"></i></div>
-                        <h3>Funktionen</h3>
-                        <p>Daten verarbeitende Prozesse mit mehreren Eingaben und einer Ausgabe werden zu Funktionen abstrahiert – auch als Verkettung gegebener Funktionen.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-diagram-project"></i></div>
-                        <h3>Datenflussdiagramme</h3>
-                        <p>Datenflüsse werden mithilfe von Datenflussdiagrammen modelliert: Ein- und Ausgabe, Verteiler, Repräsentation einer Funktion.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 85%;"></div></div>
-                    </div>
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-code"></i></div>
-                        <h3>Automatisierung</h3>
-                        <p>Datenflussdiagramme und Funktionen werden in Formeln eines Tabellenkalkulationssystems umgesetzt – Modell und Umsetzung werden durch geeignete Eingaben überprüft.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 95%;"></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOLIE 4: Tabellenkalkulation (2-Spalten) -->
+        <!-- FOLIE 3: Excel -->
         <section class="slide two-column-layout">
             <div class="slide-content">
                 <div class="column-left animated">
-                    <h2 class="gradient-text">1 · Tabellenkalkulation</h2>
-                    <p>Praxisnahe Aufgabenstellungen (z. B. aus dem kaufmännischen Bereich oder der Mathematik) werden funktional gelöst und mit einem Tabellenkalkulationsprogramm realisiert.</p>
+                    <h2 class="gradient-text"><i class="fas fa-wand-magic-sparkles"></i> Excel: Tabellen mit Zauberkraft</h2>
+                    <p class="teaser">Stell dir vor, du tippst eine Zahl ein – und <b>hunderte Berechnungen aktualisieren sich von selbst</b>. Genau das lernst du mit Formeln und Funktionen in Excel.</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Tabellenblatt, Zelle, Formel, Funktion</li>
-                        <li><i class="fas fa-check"></i> Vordefinierte Funktionen, auch bedingte Funktionen (z. B. WENN)</li>
-                        <li><i class="fas fa-check"></i> Zellbezug: relative und absolute Adressierung</li>
-                        <li><i class="fas fa-check"></i> Verkettung von Funktionen, Parameter</li>
-                        <li><i class="fas fa-check"></i> Sinnvolle Nutzung von Adressierung und passende Gestaltung</li>
+                        <li><i class="fas fa-check"></i> Den Taschengeld-Kalkulator bauen, der automatisch rechnet</li>
+                        <li><i class="fas fa-check"></i> WENN-Funktionen: Tabellen, die selbstständig Entscheidungen treffen</li>
+                        <li><i class="fas fa-check"></i> Aus Zahlen richtig schicke Diagramme machen</li>
                     </ul>
+                    <p style="margin-top:18px;" class="animated">
+                        <span class="tool-badge"><i class="fas fa-file-excel"></i> Microsoft Excel</span>
+                    </p>
                 </div>
                 <div class="column-right animated">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Tabellenkalkulation">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Excel Tabellenkalkulation">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FOLIE 5: Datenmodellierung & Datenbanken -->
-        <section class="slide three-column-slide">
-            <div class="slide-content">
-                <h2 class="gradient-text animated">2 · Datenmodellierung &amp; Datenbanken</h2>
-                <div class="three-column-grid">
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-sitemap"></i></div>
-                        <h3>OO-Datenmodell</h3>
-                        <p>Datenbestände aus der Praxis (z. B. Mitgliederverzeichnis) objektorientiert modellieren: Objekt, Klasse, Attribut.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 80%;"></div></div>
-                    </div>
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-table"></i></div>
-                        <h3>Relationales Modell</h3>
-                        <p>OO-Datenmodelle werden in Tabellenschemata überführt und in einem Datenbanksystem umgesetzt: Tabellenschema, Primärschlüssel, Datentyp, Datensatz.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-server"></i></div>
-                        <h3>Datenbanksystem</h3>
-                        <p>Relationale Datenbank, Datenbankmanagementsystem (DBMS), Mehrbenutzerbetrieb – Abfragen als Funktionen, Ergebnistabellen als Ergebnis einer Abfrage.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 85%;"></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOLIE 6: SQL -->
-        <section class="slide">
-            <div class="slide-content">
-                <h2 class="gradient-text animated">2 · SQL-Abfragen</h2>
-                <div class="four-column-grid">
-                    <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-hand-pointer"></i></div>
-                        <h3>SELECT</h3>
-                        <p>Auswahl der Spalten, die angezeigt werden sollen</p>
-                    </div>
-                    <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-table"></i></div>
-                        <h3>FROM</h3>
-                        <p>Festlegung der Tabelle, aus der gelesen wird</p>
-                    </div>
-                    <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-filter"></i></div>
-                        <h3>WHERE</h3>
-                        <p>Bedingungen zum Filtern der Datensätze – auch verknüpft (AND, OR)</p>
-                    </div>
-                    <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h3>Ziel</h3>
-                        <p>Zielgerichtet Informationen aus einer Datenbanktabelle gewinnen</p>
-                    </div>
-                </div>
-                <div class="code-box animated"><span class="cm">// Beispiel: alle Mitglieder aus Nürnberg</span>
-<span class="kw">SELECT</span> name, vorname <span class="kw">FROM</span> Mitglied
-<span class="kw">WHERE</span> ort = 'Nürnberg' <span class="kw">AND</span> beitragBezahlt = true;</div>
-            </div>
-        </section>
-
-        <!-- FOLIE 7: Objektorientierte Modellierung -->
-        <section class="slide three-column-slide">
-            <div class="slide-content">
-                <h2 class="gradient-text animated">3 · Objektorientierte Modellierung</h2>
-                <div class="three-column-grid">
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-cube"></i></div>
-                        <h3>Objekt &amp; Klasse</h3>
-                        <p>Objekte aus der Erfahrungswelt (z. B. Fahrzeuge, Personen) werden hinsichtlich Eigenschaften (Attribute) und Fähigkeiten (Methoden) analysiert und zu Klassen abstrahiert – grafisch als Klassendiagramm dargestellt.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 100%;"></div></div>
-                    </div>
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
-                        <h3>Algorithmen &amp; Zustände</h3>
-                        <p>Kontrollstrukturen, Algorithmen in grafischer Darstellung und Pseudocode, Wertzuweisungen als Zustandsänderung eines Objekts; Datentypen: ganze Zahlen, Gleitkommazahlen, Wahrheitswerte, Zeichen, Zeichenketten.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-arrows-rotate"></i></div>
-                        <h3>Methoden</h3>
-                        <p>Methodendefinition vs. Methodenaufruf, Parameter und Übergabewerte, Rückgabewert, Konstruktor als spezielle Methode, getter-/setter-Methoden – auch fremde Algorithmen analysieren, interpretieren und modifizieren.</p>
-                        <div class="feature-bar"><div class="fill" style="width: 85%;"></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOLIE 8: OOP mit Java (2-Spalten mit Code) -->
+        <!-- FOLIE 4: SQL -->
         <section class="slide two-column-layout">
             <div class="slide-content">
                 <div class="column-left animated">
-                    <h2 class="gradient-text">3 · Programmieren in Java</h2>
-                    <p>An der Peter-Fischer-Schule wird die objektorientierte Programmierung in <b>Java</b> umgesetzt: Klassen deklarieren, Attribute und Methoden implementieren, Objekte erzeugen.</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Klassendeklaration mit Attributen und Methoden</li>
-                        <li><i class="fas fa-check"></i> Konstruktor zum Erzeugen von Objekten</li>
-                        <li><i class="fas fa-check"></i> Wertzuweisung als Zustandsänderung</li>
-                        <li><i class="fas fa-check"></i> Methoden anderer Klassen nutzen</li>
+                    <h2 class="gradient-text"><i class="fas fa-store"></i> SQL: Sprich mit einer Datenbank</h2>
+                    <p class="teaser">Amazon, Spotify, WhatsApp – dahinter stecken <b>Datenbanken</b>. Mit SQL, der Sprache der Datenbanken, stellst du Fragen und bekommst sofort Antworten:</p>
+                    <div class="code-box" style="margin-top:14px;"><span class="cm">-- Welche Spiele kosten unter 30 €?</span>
+<span class="kw">SELECT</span> name, preis
+<span class="kw">FROM</span> produkte
+<span class="kw">WHERE</span> preis &lt; 30;</div>
+                </div>
+                <div class="column-right animated">
+                    <ul style="margin-top:10px;">
+                        <li><i class="fas fa-check"></i> Wir bauen uns einen <b>eigenen Online-Shop</b> mit Kunden, Produkten und Bestellungen</li>
+                        <li><i class="fas fa-check"></i> Du schreibst echte SQL-Abfragen – ganz praxisnah</li>
+                        <li><i class="fas fa-check"></i> Du verstehst, wie Apps deine Daten speichern</li>
                     </ul>
+                    <p style="margin-top:18px;" class="animated">
+                        <span class="tool-badge"><i class="fas fa-store"></i> Praxisnaher Beispiel-Shop</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOLIE 5: Java -->
+        <section class="slide two-column-layout">
+            <div class="slide-content">
+                <div class="column-left animated">
+                    <h2 class="gradient-text"><i class="fab fa-java"></i> Java: Schreib dein eigenes Programm</h2>
+                    <p class="teaser">Hier wirst du zum echten Entwickler: Du entwirfst <b>deine eigenen Klassen und Objekte</b> und bringst den Computer dazu, genau das zu tun, was du willst.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Vom Objekt aus dem Alltag zur eigenen Klasse</li>
+                        <li><i class="fas fa-check"></i> Methoden schreiben, die dein Programm zum Leben erwecken</li>
+                        <li><i class="fas fa-check"></i> Direkt im Browser starten – ohne komplizierte Installation</li>
+                    </ul>
+                    <p style="margin-top:18px;" class="animated">
+                        <span class="tool-badge"><i class="fas fa-globe"></i> Online IDE</span>
+                        <span class="tool-badge"><i class="fab fa-java"></i> Java</span>
+                    </p>
                 </div>
                 <div class="column-right animated">
                     <div class="code-box" style="margin-top:0;">
-<span class="kw">public class</span> <span class="ty">Fahrzeug</span> {
-    <span class="kw">private</span> <span class="ty">String</span> kennzeichen;
-    <span class="kw">private</span> <span class="ty">double</span> geschwindigkeit;
+<span class="cm">// Dein erstes eigenes Haustier 🐶</span>
+<span class="kw">public class</span> <span class="ty">Haustier</span> {
+    <span class="kw">private</span> <span class="ty">String</span> name;
 
-    <span class="kw">public</span> <span class="ty">Fahrzeug</span>(<span class="ty">String</span> kz) {
-        <span class="kw">this</span>.kennzeichen = kz;
-        <span class="kw">this</span>.geschwindigkeit = 0;
+    <span class="kw">public</span> <span class="ty">Haustier</span>(<span class="ty">String</span> name) {
+        <span class="kw">this</span>.name = name;
     }
 
-    <span class="kw">public void</span> beschleunigen(<span class="ty">double</span> delta) {
-        geschwindigkeit = geschwindigkeit + delta;
+    <span class="kw">public void</span> gibLaut() {
+        System.out.println(name +
+            <span class="st">" sagt: Wuff!"</span>);
     }
 }</div>
                 </div>
             </div>
         </section>
 
-        <!-- FOLIE 9: Vererbung (Vergleich) -->
+        <!-- FOLIE 6: Vererbung -->
         <section class="slide comparison-slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated">3 · Generalisierung &amp; Vererbung</h2>
+                <h2 class="gradient-text animated"><i class="fas fa-sitemap"></i> Java: Der Trick mit der Vererbung</h2>
                 <div class="comparison-table animated">
                     <div class="comparison-header">
                         <div class="header-cell"></div>
-                        <div class="header-cell">Oberklasse (Generalisierung)</div>
-                        <div class="header-cell">Unterklasse (Spezialisierung)</div>
+                        <div class="header-cell">Oberklasse</div>
+                        <div class="header-cell">Unterklasse</div>
                     </div>
                     <div class="comparison-row">
                         <div class="row-label">Idee</div>
-                        <div class="row-value old">Gemeinsame Eigenschaften mehrerer Klassen zusammenfassen</div>
-                        <div class="row-value new">Erbt Attribute und Methoden, ergänzt eigene</div>
+                        <div class="row-value old">Was alle gemeinsam haben</div>
+                        <div class="row-value new">... plus die eigenen Spezialfähigkeiten</div>
                     </div>
                     <div class="comparison-row">
                         <div class="row-label">Beispiel</div>
-                        <div class="row-value old">Fahrzeug: kennzeichen, geschwindigkeit</div>
-                        <div class="row-value new">PKW: sitzplätze · LKW: ladefläche</div>
-                    </div>
-                    <div class="comparison-row">
-                        <div class="row-label">Methoden</div>
-                        <div class="row-value old">Allgemeines Verhalten definieren</div>
-                        <div class="row-value new">Methoden überschreiben für eigenes Verhalten</div>
+                        <div class="row-value old">Haustier: name, füttern()</div>
+                        <div class="row-value new">Hund: aportieren() · Katze: schnurren()</div>
                     </div>
                     <div class="comparison-row">
                         <div class="row-label">Java</div>
-                        <div class="row-value old">class Fahrzeug { ... }</div>
-                        <div class="row-value new">class PKW extends Fahrzeug { ... }</div>
+                        <div class="row-value old">class Haustier { ... }</div>
+                        <div class="row-value new">class Hund extends Haustier { ... }</div>
                     </div>
                 </div>
-                <p style="margin-top:22px; color:#b8c1ec;" class="animated">Klassendiagramme einfacher Generalisierungshierarchien aus der Erfahrungswelt modellieren und in Java umsetzen.</p>
+                <p class="teaser animated" style="margin-top:22px; text-align:center;">Programmierer nennen das <b>„Don't repeat yourself"</b> – einmal schreiben, überall nutzen. <i class="fas fa-recycle"></i></p>
             </div>
         </section>
 
-        <!-- FOLIE 10: Datenschutz (Karten) -->
+        <!-- FOLIE 7: Datenschutz -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated">4 · Datenschutz</h2>
+                <h2 class="gradient-text animated"><i class="fas fa-user-shield"></i> Deine Daten, deine Rechte</h2>
                 <div class="four-column-grid">
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-gavel"></i></div>
                         <h3>Datenschutzgesetze</h3>
-                        <p>Zweck, Grundsätze (z. B. Verbotsprinzip mit Erlaubnisvorbehalt), Rechte von Betroffenen</p>
+                        <p>Was darf mit deinen Daten passieren – und was nicht?</p>
                     </div>
                     <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-user-lock"></i></div>
-                        <h3>Persönliche Daten</h3>
-                        <p>Schutz personenbezogener Daten – insbesondere bei der Mehrbenutzerproblematik von Datenbanken</p>
-                    </div>
-                    <div class="column-item animated">
-                        <div class="column-icon"><i class="fas fa-triangle-exclamation"></i></div>
+                        <div class="column-icon"><i class="fas fa-mask"></i></div>
                         <h3>Datenmissbrauch</h3>
-                        <p>Z. B. Identitätsdiebstahl; Schutz persönlicher Daten erhöhen, Gefahr des Missbrauchs minimieren</p>
+                        <p>Identitätsdiebstahl: Wie schützt du dich davor?</p>
                     </div>
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
                         <h3>Data-Mining</h3>
-                        <p>Chancen und Risiken automatisierter Analyse großer Datenbestände gesellschaftlich bewerten</p>
+                        <p>Was Firmen aus deinen Daten alles herauslesen können</p>
+                    </div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-comments"></i></div>
+                        <h3>Soziale Netzwerke</h3>
+                        <p>Messenger, WhatsApp &amp; Co. – klug statt ahnungslos nutzen</p>
                     </div>
                 </div>
-                <ul style="margin-top:26px; color:#b8c1ec; font-size:1.05rem;" class="animated">
-                    <li><i class="fas fa-scale-balanced"></i> Datenschutz im Spannungsfeld zwischen Persönlichkeitsrechten und wirtschaftlichen sowie öffentlichen Interessen (z. B. Fahndung nach Straftätern) bewerten</li>
-                    <li style="margin-top:8px"><i class="fas fa-globe"></i> Internet verantwortungsvoll nutzen: datenbankgestützte Dienste und Portale kriteriengeleitet abwägen, Medienwirkung (Messenger, soziale Netzwerke) reflektieren</li>
-                </ul>
+                <p class="teaser animated" style="margin-top:26px; text-align:center;">Du wirst Datenbanken bauen – und genau deshalb verstehen, <b>warum Datenschutz so wichtig ist</b>.</p>
             </div>
         </section>
 
-        <!-- FOLIE 11: Zusammenfassung -->
+        <!-- FOLIE 8: Abschluss -->
         <section class="slide cta-slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated">Zusammenfassung</h2>
-                <div style="text-align:left; max-width:760px; margin:0 auto; color:#b8c1ec; line-height:2;" class="animated">
-                    <p><i class="fas fa-project-diagram"></i> <b>Funktionale Modellierung:</b> Funktionen, Datenflussdiagramme, Verkettung – umgesetzt in der Tabellenkalkulation (relative/absolute Adressierung)</p>
-                    <p><i class="fas fa-database"></i> <b>Datenmodellierung:</b> OO-Datenmodell → Tabellenschema → Datenbank; SQL-Abfragen mit SELECT, FROM, WHERE</p>
-                    <p><i class="fas fa-cubes"></i> <b>Objektorientierung:</b> Klassen, Attribute, Methoden, Konstruktoren – implementiert in Java</p>
-                    <p><i class="fas fa-sitemap"></i> <b>Vererbung:</b> Generalisierung/Spezialisierung, Ober-/Unterklasse, Methoden überschreiben</p>
-                    <p><i class="fas fa-user-shield"></i> <b>Datenschutz:</b> Gesetze, personenbezogene Daten, Datenmissbrauch, Data-Mining bewerten</p>
+                <h2 class="gradient-text animated">Das nimmst du mit</h2>
+                <div style="text-align:left; max-width:740px; margin:0 auto; color:#b8c1ec; line-height:2.1;" class="animated">
+                    <p><i class="fas fa-table"></i> <b>Excel:</b> Du automatisierst Rechnungen und machst aus Zahlen Diagramme</p>
+                    <p><i class="fas fa-store"></i> <b>SQL &amp; Datenbanken:</b> Du verwaltest Daten wie ein echter Shop-Betreiber</p>
+                    <p><i class="fab fa-java"></i> <b>Java:</b> Du schreibst deine eigenen Programme – im Team und allein</p>
+                    <p><i class="fas fa-user-shield"></i> <b>Datenschutz:</b> Du weißt, was mit deinen Daten passiert, und wie du sie schützt</p>
                 </div>
-                <p style="margin-top:24px; color:#8892b0; font-size:0.9rem;" class="animated">Quelle: LehrplanPLUS Bayern, Informatik, Jahrgangsstufe 9, Gymnasium (lehrplanplus.bayern.de)</p>
+                <div class="cta-buttons animated" style="margin-top:26px;">
+                    <button class="cta-button primary"><i class="fas fa-rocket"></i> Los geht's!</button>
+                </div>
+                <p style="margin-top:20px; color:#8892b0; font-size:0.9rem;" class="animated">Grundlage: LehrplanPLUS Bayern, Informatik, Jahrgangsstufe 9, Gymnasium</p>
             </div>
         </section>
     </div>
@@ -338,14 +249,13 @@
     <!-- Navigation -->
     <div class="navigation">
         <button id="prev" aria-label="Zurück"><i class="fas fa-chevron-left"></i></button>
-        <span class="slide-counter">1 / 11</span>
+        <span class="slide-counter">1 / 8</span>
         <button id="next" aria-label="Vor"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <!-- Vorlagen-Engine -->
     <script src="../animation.js"></script>
     <script>
-      // Linke Sidebar: springt zu Folien, indem die vorhandene Tastatursteuerung der animation.js genutzt wird
       window.addEventListener('DOMContentLoaded', function() {
         const sidebar = document.getElementById('sidebar');
         if (!sidebar) return;
