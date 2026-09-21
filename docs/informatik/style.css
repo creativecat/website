@@ -71,7 +71,8 @@ body {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
-    background: var(--bg-dark);
+    background
+: var(--bg-dark);
     position: relative;
 }
 
@@ -172,6 +173,7 @@ body {
    ============================================ */
 .four-column-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-top: 40px;
@@ -279,7 +281,8 @@ body {
 .image-container {
     width: 100%;
     max-width: 500px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radiu
+s);
     overflow: hidden;
     box-shadow: var(--shadow-md);
 }
@@ -377,7 +380,8 @@ body {
     z-index: 1;
 }
 
-.image-slide .slide-content {
+.
+image-slide .slide-content {
     position: relative;
     z-index: 2;
     width: 100%;
@@ -480,7 +484,8 @@ body {
 /* ============================================
    VERGLEICHSTABELLE
    ============================================ */
-.comparison-slide {
+.compar
+ison-slide {
     background: var(--bg-dark);
 }
 
@@ -576,7 +581,8 @@ body {
 
 .team-member:hover {
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255
+, 255, 0.1);
     border-color: var(--primary-start);
     box-shadow: var(--shadow-md);
 }
@@ -685,7 +691,8 @@ body {
    STATISTIK-SLIDE
    ============================================ */
 .stats-slide {
-    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    background: line
+ar-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
 }
 
 .stats-grid {
@@ -782,7 +789,8 @@ body {
 
 .cta-button.primary {
     background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
-    color: var(--text-light);
+    color: v
+ar(--text-light);
     border: 2px solid transparent;
     box-shadow: 0 4px 15px rgba(74, 107, 255, 0.3);
 }
@@ -874,7 +882,8 @@ h2 {
     font-family: var(--font-primary);
     font-size: 1.2em;
     color: var(--text-muted);
-    font-style: italic;
+    font-style
+: italic;
     margin-bottom: 10px;
 }
 
@@ -966,7 +975,8 @@ p {
 @media (max-width: 1400px) {
     .presentation-container {
         max-width: 95%;
-        margin: 10px;
+       
+ margin: 10px;
     }
     
     .four-column-grid,
@@ -1090,7 +1100,8 @@ p {
         padding: 20px;
     }
     
-    .quote-container blockquote {
+    .quote-container b
+lockquote {
         font-size: 1.5em;
     }
     
@@ -1117,4 +1128,26 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-start);
+}
+
+
+/* ============================================
+   LESBARKEITS-FIX (2026-09-21):
+   Gradient-Text auf der Gradient-Titelfolie war kaum lesbar,
+   da Text-Verlauf und Folien-Hintergrund identisch waren.
+   Abwärtskompatible Ergänzung – betrifft nur die Kombination
+   .gradient-slide + .gradient-text (Titelfolien aller Präsentationen).
+   ============================================ */
+.gradient-slide .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #e8eaff 60%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 3px 10px rgba(15, 15, 45, 0.45));
+    letter-spacing: 0.5px;
+}
+.gradient-slide .subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 6px rgba(15, 15, 45, 0.35);
 }
