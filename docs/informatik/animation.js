@@ -58,11 +58,23 @@ window.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             nextSlide();
         }
+        // Home für erste Folie
+        else if (event.key === 'Home') {
+            event.preventDefault();
+            currentSlide = 0;
+            showSlide(currentSlide);
+        }
+        // End für letzte Folie
+        else if (event.key === 'End') {
+            event.preventDefault();
+            currentSlide = totalSlides - 1;
+            showSlide(currentSlide);
+        }
     });
 
     // Zeige die erste Folie
     showSlide(currentSlide);
 
-    // Optional: Automatisches Vorrücken nach 10 Sekunden (auskommentiert)
-    // setInterval(nextSlide, 10000);
+    // Optional: Automatisches Vorrücken (auskommentiert)
+    // setInterval(nextSlide, 8000);
 });
