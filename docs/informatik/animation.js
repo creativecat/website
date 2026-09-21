@@ -4,8 +4,10 @@ window.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.slide');
     const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
+    const slideCounter = document.querySelector('.slide-counter');
 
     let currentSlide = 0;
+    const totalSlides = slides.length;
 
     // Funktion zum Anzeigen der aktuellen Folie
     function showSlide(index) {
@@ -21,17 +23,22 @@ window.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+        
+        // Aktualisiere den Folienzähler
+        if (slideCounter) {
+            slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+        }
     }
 
     // Nächste Folie
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
+        currentSlide = (currentSlide + 1) % totalSlides;
         showSlide(currentSlide);
     }
 
     // Vorherige Folie
     function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         showSlide(currentSlide);
     }
 
