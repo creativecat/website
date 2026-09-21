@@ -3,176 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moderne Präsentation</title>
+    <title>Premium Präsentation</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="presentation-container">
         
-        <!-- Folie 1: Titelfolie mit Gradienten-Hintergrund -->
+        <!-- ===== FOLIE 1: Titelfolie mit Gradient-Text ==== -->
         <section class="slide active gradient-slide">
             <div class="slide-content">
-                <h1 class="animated">Willkommen zur Präsentation</h1>
-                <p class="subtitle animated">Innovation & Kreativität im Fokus</p>
+                <h1 class="gradient-text animated">Willkommen zur Premium Präsentation</h1>
+                <p class="subtitle animated">Innovation & Exzellenz im Fokus</p>
                 <p class="author animated">Matthias Glienke</p>
                 <div class="date animated">21. September 2026</div>
+                <div class="decorative-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
             </div>
         </section>
 
-        <!-- Folie 2: Inhaltsfolie mit Icons -->
+        <!-- ===== FOLIE 2: 4-Spalten Agenda ==== -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="animated"><i class="fas fa-list-ul"></i> Agenda</h2>
-                <div class="agenda-grid">
-                    <div class="agenda-item animated">
-                        <div class="agenda-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h3>Einleitung</h3>
-                        <p>Grundlagen und Ziele</p>
+                <h2 class="gradient-text animated"><i class="fas fa-list-ul"></i> Unsere Agenda</h2>
+                <div class="four-column-grid">
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Einführung</h3>
+                        <p>Grundlagen und Visionen</p>
                     </div>
-                    <div class="agenda-item animated">
-                        <div class="agenda-icon"><i class="fas fa-cog"></i></div>
-                        <h3>Hauptteil</h3>
-                        <p>Details und Vertiefung</p>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-cogs"></i></div>
+                        <h3>Technologie</h3>
+                        <p>Innovative Lösungen</p>
                     </div>
-                    <div class="agenda-item animated">
-                        <div class="agenda-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-chart-line"></i></div>
                         <h3>Analyse</h3>
                         <p>Daten und Fakten</p>
                     </div>
-                    <div class="agenda-item animated">
-                        <div class="agenda-icon"><i class="fas fa-question-circle"></i></div>
-                        <h3>Fragen & Antworten</h3>
-                        <p>Interaktiver Austausch</p>
+                    <div class="column-item animated">
+                        <div class="column-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Innovation</h3>
+                        <p>Zukunft gestalten</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Folie 3: Bildfolie mit Overlay -->
+        <!-- ===== FOLIE 3: 2-Spalten Layout (Text + Bild) ==== -->
+        <section class="slide two-column-layout">
+            <div class="slide-content">
+                <div class="column-left animated">
+                    <h2 class="gradient-text">Unsere Mission</h2>
+                    <p>Wir schaffen Lösungen, die nicht nur funktionieren, sondern begeistern. Durch innovative Ansätze und kreatives Denken setzen wir neue Maßstäbe.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Kundenzufriedenheit an erster Stelle</li>
+                        <li><i class="fas fa-check"></i> Nachhaltige und skalierbare Lösungen</li>
+                        <li><i class="fas fa-check"></i> Kontinuierliche Weiterentwicklung</li>
+                    </ul>
+                </div>
+                <div class="column-right animated">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team Zusammenarbeit">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOLIE 4: 3-Spalten Features ==== -->
+        <section class="slide three-column-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">Unsere Stärken</h2>
+                <div class="three-column-grid">
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Schnelligkeit</h3>
+                        <p>Blitzschnelle Umsetzung Ihrer Projekte mit modernsten Technologien.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Sicherheit</h3>
+                        <p>Höchste Sicherheitsstandards für Ihre Daten und Systeme.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="feature-card animated">
+                        <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Leidenschaft</h3>
+                        <p>Wir lieben was wir tun und das merkt man an unseren Ergebnissen.</p>
+                        <div class="feature-bar"><div class="fill" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOLIE 5: Bildfolie mit Overlay und Text ==== -->
         <section class="slide image-slide">
-            <div class="image-background" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
+            <div class="image-background" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');"></div>
             <div class="slide-content">
-                <h2 class="animated">Visuelle Darstellungen</h2>
-                <p class="animated">Bilder sagen mehr als tausend Worte.</p>
-                <div class="image-caption animated">
-                    <span>Beispiel: Datenvisualisierung</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Folie 4: Textfolie mit zwei Spalten -->
-        <section class="slide two-column-slide">
-            <div class="slide-content">
-                <h2 class="animated">Zwei Spalten Layout</h2>
-                <div class="columns">
-                    <div class="column animated">
-                        <h3><i class="fas fa-check-circle"></i> Vorteile</h3>
-                        <ul>
-                            <li>Effiziente Darstellung</li>
-                            <li>Klare Struktur</li>
-                            <li>Leicht verständlich</li>
-                        </ul>
-                    </div>
-                    <div class="column animated">
-                        <h3><i class="fas fa-times-circle"></i> Nachteile</h3>
-                        <ul>
-                            <li>Komplexere Erstellung</li>
-                            <li>Mehr Platzbedarf</li>
-                            <li>Anpassung nötig</li>
-                        </ul>
+                <div class="overlay-content animated">
+                    <h2 class="gradient-text">Zusammenarbeit auf höchstem Niveau</h2>
+                    <p>Unser Team arbeitet Hand in Hand, um die besten Ergebnisse für Sie zu erzielen.</p>
+                    <div class="stats animated">
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Projekte</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Zufriedenheit</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Folie 5: Zitatfolie -->
+        <!-- ===== FOLIE 6: Zitatfolie mit special Design ==== -->
         <section class="slide quote-slide">
             <div class="slide-content">
                 <div class="quote-container animated">
                     <i class="fas fa-quote-left quote-icon"></i>
-                    <blockquote>
-                        "Kreativität ist Intelligenz, die Spaß hat."
+                    <blockquote class="gradient-text">
+                        "Die einzige Grenze für unsere Realität von morgen sind unsere Zweifel heute."
                     </blockquote>
-                    <footer class="quote-author animated">– Albert Einstein</footer>
+                    <footer class="quote-author animated">– Franklin D. Roosevelt</footer>
+                    <div class="quote-decoration"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Folie 6: Vergleichsfolie mit Diagrammen -->
+        <!-- ===== FOLIE 7: Vergleichstabelle ==== -->
         <section class="slide comparison-slide">
             <div class="slide-content">
-                <h2 class="animated">Vergleich: Traditionell vs. Modern</h2>
-                <div class="comparison-container">
-                    <div class="comparison-item animated">
-                        <h3>Traditionell</h3>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 40%;"></div>
-                        </div>
-                        <p>40% Effizienz</p>
+                <h2 class="gradient-text animated">Vergleich: Traditionell vs. Modern</h2>
+                <div class="comparison-table animated">
+                    <div class="comparison-header">
+                        <div class="header-cell"></div>
+                        <div class="header-cell">Traditionell</div>
+                        <div class="header-cell">Modern</div>
                     </div>
-                    <div class="comparison-item animated">
-                        <h3>Modern</h3>
-                        <div class="progress-bar">
-                            <div class="progress-fill modern" style="width: 90%;"></div>
-                        </div>
-                        <p>90% Effizienz</p>
+                    <div class="comparison-row">
+                        <div class="row-label">Effizienz</div>
+                        <div class="row-value old">40%</div>
+                        <div class="row-value new">90%</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Kosten</div>
+                        <div class="row-value old">Hoch</div>
+                        <div class="row-value new">Optimiert</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Zeitaufwand</div>
+                        <div class="row-value old">Lang</div>
+                        <div class="row-value new">Schnell</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="row-label">Flexibilität</div>
+                        <div class="row-value old">Eingeschränkt</div>
+                        <div class="row-value new">Maximal</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Folie 7: Timeline-Folie -->
-        <section class="slide timeline-slide">
+        <!-- ===== FOLIE 8: Team-Vorstellung (4-Spalten) ==== -->
+        <section class="slide team-slide">
             <div class="slide-content">
-                <h2 class="animated">Zeitstrahl: Entwicklung</h2>
-                <div class="timeline">
-                    <div class="timeline-item animated">
-                        <div class="timeline-date">2020</div>
-                        <div class="timeline-content">
-                            <h4>Start des Projekts</h4>
-                            <p>Erste Ideen und Konzepte</p>
+                <h2 class="gradient-text animated">Unser Team</h2>
+                <div class="team-grid">
+                    <div class="team-member animated">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80');"></div>
+                        <h4>Max Mustermann</h4>
+                        <p class="member-role">CEO & Gründer</p>
+                        <p class="member-bio">Visionär mit 15+ Jahren Erfahrung</p>
+                    </div>
+                    <div class="team-member animated">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80');"></div>
+                        <h4>Anna Schmidt</h4>
+                        <p class="member-role">CTO</p>
+                        <p class="member-bio">Technologie-Expertin</p>
+                    </div>
+                    <div class="team-member animated">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80');"></div>
+                        <h4>Peter Müller</h4>
+                        <p class="member-role">Lead Developer</p>
+                        <p class="member-bio">Code-Genie</p>
+                    </div>
+                    <div class="team-member animated">
+                        <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80');"></div>
+                        <h4>Lisa Bauer</h4>
+                        <p class="member-role">Design Lead</p>
+                        <p class="member-bio">Kreative Meisterin</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOLIE 9: FAQ / 2-Spalten Fragen ==== -->
+        <section class="slide faq-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">Häufig gestellte Fragen</h2>
+                <div class="faq-container">
+                    <div class="faq-column">
+                        <div class="faq-item animated">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>Wie schnell können Sie liefern?</h4>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Die meisten Projekte liefern wir innerhalb von 2-4 Wochen aus, abhängig von der Komplexität.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item animated">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>Bieten Sie Support an?</h4>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Ja, wir bieten 24/7 Support für alle unsere Kunden und Projekte.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="timeline-item animated">
-                        <div class="timeline-date">2022</div>
-                        <div class="timeline-content">
-                            <h4>Erste Umsetzung</h4>
-                            <p>Prototyp entwickelt</p>
+                    <div class="faq-column">
+                        <div class="faq-item animated">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>Sind Ihre Lösungen skalierbar?</h4>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolut! Alle unsere Lösungen sind von Grund auf skalierbar konzipiert.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="timeline-item animated">
-                        <div class="timeline-date">2024</div>
-                        <div class="timeline-content">
-                            <h4>Optimierung</h4>
-                            <p>Feinabstimmung und Tests</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item animated">
-                        <div class="timeline-date">2026</div>
-                        <div class="timeline-content">
-                            <h4>Fertigstellung</h4>
-                            <p>Präsentation der Ergebnisse</p>
+                        <div class="faq-item animated">
+                            <div class="faq-question">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>Wie sicher sind meine Daten?</h4>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sicherheit hat für uns höchste Priorität. Wir nutzen verschlüsselte Verbindungen und moderne Sicherheitsprotokolle.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Folie 8: Abschlussfolie mit Call-to-Action -->
+        <!-- ===== FOLIE 10: Statistik-Folie ==== -->
+        <section class="slide stats-slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated">Unsere Erfolge in Zahlen</h2>
+                <div class="stats-grid">
+                    <div class="stat-card animated">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-number gradient-text">500+</div>
+                        <div class="stat-label">Zufriedene Kunden</div>
+                    </div>
+                    <div class="stat-card animated">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number gradient-text">1200+</div>
+                        <div class="stat-label">Abgeschlossene Projekte</div>
+                    </div>
+                    <div class="stat-card animated">
+                        <div class="stat-icon"><i class="fas fa-coffee"></i></div>
+                        <div class="stat-number gradient-text">50K+</div>
+                        <div class="stat-label">Tassen Kaffee</div>
+                    </div>
+                    <div class="stat-card animated">
+                        <div class="stat-icon"><i class="fas fa-award"></i></div>
+                        <div class="stat-number gradient-text">25+</div>
+                        <div class="stat-label">Auszeichnungen</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOLIE 11: Kontakt / CTA ==== -->
         <section class="slide cta-slide">
             <div class="slide-content">
-                <h2 class="animated">Vielen Dank!</h2>
-                <p class="animated large-text">Bereit für den nächsten Schritt?</p>
+                <h2 class="gradient-text animated">Bereit für den nächsten Schritt?</h2>
+                <p class="animated">Kontaktieren Sie uns noch heute für eine unverbindliche Beratung.</p>
                 <div class="cta-buttons animated">
-                    <button class="cta-button primary"><i class="fas fa-download"></i> Material herunterladen</button>
-                    <button class="cta-button secondary"><i class="fas fa-envelope"></i> Kontakt aufnehmen</button>
+                    <button class="cta-button primary"><i class="fas fa-paper-plane"></i> Jetzt anfragen</button>
+                    <button class="cta-button secondary"><i class="fas fa-phone"></i> +49 123 456789</button>
+                    <button class="cta-button tertiary"><i class="fas fa-envelope"></i> info@beispiel.de</button>
                 </div>
-                <p class="animated contact-info">
-                    <i class="fas fa-phone"></i> +49 123 456789 |
-                    <i class="fas fa-envelope"></i> info@beispiel.de
-                </p>
+                <div class="social-links animated">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </section>
     </div>
@@ -180,7 +309,7 @@
     <!-- Navigation -->
     <div class="navigation">
         <button id="prev" aria-label="Zurück"><i class="fas fa-chevron-left"></i></button>
-        <span class="slide-counter">1 / 8</span>
+        <span class="slide-counter">1 / 11</span>
         <button id="next" aria-label="Vor"><i class="fas fa-chevron-right"></i></button>
     </div>
 
