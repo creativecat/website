@@ -53,8 +53,16 @@ window.addEventListener('DOMContentLoaded', function() {
         } else if (event.key === 'ArrowLeft') {
             prevSlide();
         }
+        // Space oder Enter für nächste Folie
+        else if (event.key === ' ' || event.key === 'Enter') {
+            event.preventDefault();
+            nextSlide();
+        }
     });
 
     // Zeige die erste Folie
     showSlide(currentSlide);
+
+    // Optional: Automatisches Vorrücken nach 10 Sekunden (auskommentiert)
+    // setInterval(nextSlide, 10000);
 });
