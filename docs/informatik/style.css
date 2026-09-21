@@ -1,72 +1,110 @@
 /* Grundlegende Stile */
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #333333;
+    --accent-color: #ff6b6b;
+    --background-color: #f0f4ff;
+    --slide-background: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
 /* Präsentation Container */
-.presentation {
-    width: 80%;
-    max-width: 1000px;
+.presentation-container {
+    width: 100%;
+    max-width: 1600px;
     position: relative;
+    aspect-ratio: 16 / 9;
+    margin: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--slide-background);
 }
 
 /* Einzelseite */
 .slide {
     display: none;
+    width: 100%;
+    height: 100%;
     padding: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    height: 80vh;
-    overflow-y: auto;
+    position: relative;
+    background-color: var(--slide-background);
+    color: var(--text-color);
+    overflow: hidden;
 }
 
 .slide.active {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
 }
 
 /* Titelstile */
 h1 {
-    color: #2c3e50;
-    font-size: 2.5em;
+    color: var(--primary-color);
+    font-size: 2.8em;
+    font-weight: 700;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .subtitle {
-    font-size: 1.2em;
-    color: #7f8c8d;
-    margin-bottom: 40px;
+    font-size: 1.4em;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
 .author {
-    font-size: 1em;
-    color: #95a5a6;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    font-size: 1.1em;
+    color: #666;
+    font-style: italic;
 }
 
 /* Textstile */
 h2 {
-    color: #2c3e50;
-    font-size: 2em;
+    color: var(--primary-color);
+    font-size: 2.2em;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.2em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.large-text {
+    font-size: 1.8em !important;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 /* Listenstile */
@@ -74,67 +112,112 @@ ul {
     list-style: none;
     padding: 0;
     text-align: left;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 700px;
+    margin: 0 auto 30px;
 }
 
 ul li {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #ecf0f1;
-    border-radius: 5px;
-    font-size: 1.1em;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background-color: rgba(74, 107, 255, 0.1);
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+}
+
+ul li:hover {
+    background-color: rgba(74, 107, 255, 0.2);
+    transform: translateX(5px);
 }
 
 /* Bildstile */
 .image-container {
-    margin: 20px auto;
-    max-width: 80%;
+    margin: 30px auto;
+    max-width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .image-container img {
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .caption {
-    font-size: 0.9em;
-    color: #7f8c8d;
+    font-size: 1em;
+    color: #666;
     font-style: italic;
+    margin-top: 15px;
+}
+
+/* Hervorgehobener Kasten */
+.highlight-box {
+    background-color: rgba(74, 107, 255, 0.15);
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin: 25px auto;
+    border-radius: 0 8px 8px 0;
+    max-width: 800px;
+    text-align: left;
+}
+
+.highlight-box p {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--primary-color);
 }
 
 /* Navigation */
 .navigation {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 20px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .navigation button {
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
+    width: 45px;
+    height: 45px;
+    font-size: 1.4em;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navigation button:hover {
-    background-color: #2980b9;
+    background-color: #3a5bef;
+    transform: scale(1.1);
+}
+
+.slide-counter {
+    font-family: var(--font-family);
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 600;
 }
 
 /* Animationen */
 .animated {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 0.6s ease forwards;
+    animation: fadeIn 0.7s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -145,27 +228,75 @@ ul li {
 }
 
 /* Responsive Anpassungen */
-@media (max-width: 768px) {
-    .slide {
-        padding: 20px;
-        height: 90vh;
+@media (max-width: 1024px) {
+    .presentation-container {
+        max-width: 95%;
+        margin: 10px;
     }
     
     h1 {
-        font-size: 2em;
+        font-size: 2.2em;
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+    
+    p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .presentation-container {
+        aspect-ratio: 16 / 10;
+    }
+    
+    h1 {
+        font-size: 1.8em;
     }
     
     h2 {
         font-size: 1.5em;
     }
     
+    p {
+        font-size: 1em;
+    }
+    
     .navigation {
-        gap: 10px;
+        gap: 15px;
+        padding: 8px 15px;
     }
     
     .navigation button {
         width: 40px;
         height: 40px;
         font-size: 1.2em;
+    }
+    
+    ul li {
+        font-size: 1.1em;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .presentation-container {
+        aspect-ratio: 16 / 12;
+        margin: 5px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+    
+    .navigation button {
+        width: 35px;
+        height: 35px;
     }
 }
