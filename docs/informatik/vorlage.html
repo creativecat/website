@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Präsentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="presentation">
+        <!-- Titelfolie -->
+        <section class="slide active">
+            <h1>Willkommen zur Präsentation</h1>
+            <p class="subtitle">Ein modernes und frisches Design</p>
+            <p class="author">Matthias Glienke</p>
+        </section>
+
+        <!-- Inhaltsfolie -->
+        <section class="slide">
+            <h2>Inhalt</h2>
+            <ul>
+                <li class="animated">Einleitung</li>
+                <li class="animated">Hauptteil</li>
+                <li class="animated">Zusammenfassung</li>
+            </ul>
+        </section>
+
+        <!-- Bildfolie -->
+        <section class="slide">
+            <h2>Beispielbild</h2>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/600x400?text=Beispielbild" alt="Beispielbild" class="animated">
+            </div>
+            <p class="caption animated">Ein Beispielbild zur Veranschaulichung</p>
+        </section>
+
+        <!-- Textfolie mit Animation -->
+        <section class="slide">
+            <h2>Hauptteil</h2>
+            <p class="animated">Dies ist ein Beispieltext mit Animation.</p>
+            <p class="animated">Hier können Sie Ihre Inhalte einfügen.</p>
+        </section>
+
+        <!-- Abschlussfolie -->
+        <section class="slide">
+            <h2>Zusammenfassung</h2>
+            <p class="animated">Vielen Dank für Ihre Aufmerksamkeit!</p>
+            <p class="animated">Fragen?</p>
+        </section>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button id="prev" aria-label="Zurück">❮</button>
+        <button id="next" aria-label="Vor">❯</button>
+    </div>
+
+    <script src="presentation.js"></script>
+</body>
+</html>
