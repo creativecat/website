@@ -18,7 +18,8 @@
       .code-box { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 18px 22px; font-family: 'Courier New', monospace; font-size: 1rem; color: #c3cae8; text-align: left; line-height: 1.7; margin-top: 18px; }
       .code-box .kw { color: #c792ea; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #c3e88d; } .code-box .cm { color: #5f6b8a; font-style: italic; }
       .teaser { font-size: 1.15rem; color: #b8c1ec; line-height: 1.7; }
-      .teaser b { color: #fff; }
+      
+.teaser b { color: #fff; }
       .tool-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(102,126,234,0.18); border: 1px solid rgba(102,126,234,0.5); border-radius: 30px; padding: 8px 18px; margin: 6px 6px 0 0; font-size: 0.95rem; color: #dcdcff; }
       .tool-badge i { color: #667eea; }
       @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } }
@@ -30,10 +31,11 @@
         <h3><i class="fas fa-graduation-cap"></i> Informatik 10</h3>
         <a data-slide="0"><i class="fas fa-rocket"></i> Willkommen!</a>
         <a data-slide="1"><i class="fas fa-map"></i> Deine Reise durchs Jahr</a>
-        <a data-slide="2"><i class="fas fa-database"></i> Datenbanken: Level 2</a>
-        <a data-slide="3"><i class="fab fa-java"></i> Java: Das große Ganze</a>
-        <a data-slide="4"><i class="fas fa-diagram-project"></i> Dein eigenes Projekt</a>
-        <a data-slide="5"><i class="fas fa-star"></i> Das lernst du dabei</a>
+        <a data-slide="2"><i class="fas fa-rotate-left"></i> Warm-up: Java-Wiederholung</a>
+        <a data-slide="3"><i class="fas fa-database"></i> Datenbanken: Level 2</a>
+        <a data-slide="4"><i class="fab fa-java"></i> Java: Das große Ganze</a>
+        <a data-slide="5"><i class="fas fa-diagram-project"></i> Dein eigenes Projekt</a>
+        <a data-slide="6"><i class="fas fa-star"></i> Das lernst du dabei</a>
         <a class="back" href="../index.html"><i class="fas fa-arrow-left"></i> zur Übersicht</a>
     </nav>
 
@@ -55,7 +57,8 @@
         </section>
 
         <!-- FOLIE 2: Agenda als Reise -->
-        <section class="slide">
+        <sec
+tion class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-map"></i> Deine Reise durch das Schuljahr</h2>
                 <div class="four-column-grid">
@@ -75,7 +78,43 @@
                         <p>Im Team ein eigenes Programm oder eine Datenbank entwickeln</p>
                     </div>
                 </div>
-                <p class="teaser animated" style="margin-top:30px; text-align:center;">Du knüpfst direkt an Klasse 9 an: <b>SQL-Island, der Online-Shop und dein Java-Wissen</b> werden zum Fundament für Neues.</p>
+                <p class="teaser animated" style="margin-top:30px; text-align:center;">Wir starten mit einem <b>Java-Warm-up</b> inklusive Kurzarbeit – dann gehen es mit <b>SQL-Island, dem Online-Shop und deinem Java-Wissen</b> weiter auf Fundament aus Klasse 9.</p>
+            </div>
+        </section>
+
+        <!-- FOLIE 3: Wiederholung Java -->
+        <section class="slide two-column-layout">
+            <div class="slide-content">
+                <div class="column-left animated">
+                    <h2 class="gradient-text"><i class="fas fa-rotate-left"></i> Warm-up: Dein Java aus Klasse 9</h2>
+                    <p class="teaser">Bevor wir in neue Abenteuer starten, holen wir dein Java-Wissen zurück auf den Schirm: <b>Klassen, Objekte und Methoden</b> – die Bausteine, die du letztes Jahr gebaut hast.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Klasse, Objekt, Attribut und Methode – sprichst du noch fließend?</li>
+                        <li><i class="fas fa-check"></i> Konstruktoren, Parameter und Rückgabewerte</li>
+                        <li><i class="fas fa-check"></i> Kontrollstrukturen: if-Abfragen und Schleifen</li>
+                        <li><i class="fas fa-check"></i> Eigene kleine Programme schreiben und testen</li>
+                    </ul>
+                    <p style="margin-top:18px;" class="animated">
+                        <span class="tool-badge"><i class="fas fa-file-pen"></i> Kurzarbeit</span>
+                        <span class="tool-badge"><i class="fas fa-globe"></i> Online IDE</span>
+                    </p>
+                </div>
+                <div class="column-right animated">
+                    <div class="code-box" style="margin-top:0;">
+<span class="cm">// Nochmal warmfahren: das kennst du!</span>
+<span class="kw">public class</span> <span class="ty">Haustier</span> {
+    <span class="kw">private</span> <span class="ty">String</span> name;
+
+    <span class="kw">public</span> <span class="ty">Haustier</span>(<span class="ty">String</span> name) {
+        <span class="kw">this</span>.name = name;
+    }
+
+    <span class="kw">public void</span> gibLaut() {
+        System.out.println(name + <span class="st">" sagt: Wuff!"</span>);
+    }
+}</div>
+                    <p style="text-align:center; margin-top:14px; color:#8892b0; font-size:0.9rem;">Danach folgt eine <b style="color:#b8c1ec;">Kurzarbeit</b> – und dann: <b style="color:#b8c1ec;">Level 2</b>!</p>
+                </div>
             </div>
         </section>
 
@@ -86,7 +125,8 @@
                     <h2 class="gradient-text"><i class="fas fa-database"></i> Datenbanken: Level 2</h2>
                     <p class="teaser">In Klasse 9 hast du eine Tabelle abgefragt. Jetzt wird's richtig interessant: <b>Echte Datenbanken bestehen aus vielen verknüpften Tabellen</b> – Kunden, Bestellungen, Produkte gehören zusammen.</p>
                     <ul>
-                        <li><i class="fas fa-check"></i> Datenmodelle mit mehreren Klassen entwerfen (Klassendiagramm)</li>
+                       
+ <li><i class="fas fa-check"></i> Datenmodelle mit mehreren Klassen entwerfen (Klassendiagramm)</li>
                         <li><i class="fas fa-check"></i> Tabellen geschickt verknüpfen: Primär- und Fremdschlüssel</li>
                         <li><i class="fas fa-check"></i> Abfragen über mehrere Tabellen – z. B. „Was hat welcher Kunde bestellt?"</li>
                         <li><i class="fas fa-check"></i> finden, warum doppelte Daten Probleme machen (Anomalien)</li>
@@ -109,13 +149,14 @@
             </div>
         </section>
 
-        <!-- FOLIE 4: Java -->
+        <!-- FOLIE 4: Java: Das große Ganze -->
         <section class="slide two-column-layout">
             <div class="slide-content">
                 <div class="column-left animated">
                     <h2 class="gradient-text"><i class="fab fa-java"></i> Java: Das große Ganze</h2>
                     <p class="teaser">Deine Objekte aus Klasse 9 waren Einzelkämpfer. Jetzt lernst du, <b>ganze Systeme daraus zu bauen</b>, in denen Objekte miteinander sprechen – z. B. ein Fahrradverleih oder die Mitgliederverwaltung eines Vereins.</p>
-                    <ul>
+             
+       <ul>
                         <li><i class="fas fa-check"></i> Viele gleichartige Objekte verwalten – mit Arrays</li>
                         <li><i class="fas fa-check"></i> Objekte per Referenz miteinander verbinden und Methoden aufrufen lassen</li>
                         <li><i class="fas fa-check"></i> Vererbung und Polymorphismus: gleiche Nachricht, anderes Verhalten</li>
@@ -148,7 +189,8 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>Idee &amp; Plan</h3>
-                        <p>Im Team ein Szenario wählen: Buchungssystem, Verwaltung oder ein einfaches Spiel</p>
+               
+         <p>Im Team ein Szenario wählen: Buchungssystem, Verwaltung oder ein einfaches Spiel</p>
                     </div>
                     <div class="column-item animated">
                         <div class="column-icon"><i class="fas fa-pen-ruler"></i></div>
@@ -177,7 +219,8 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
                 <div style="text-align:left; max-width:740px; margin:0 auto; color:#b8c1ec; line-height:2.1;" class="animated">
                     <p><i class="fas fa-database"></i> <b>Datenbanken:</b> Du modellierst und verknüpfst mehrere Tabellen wie ein Profi</p>
                     <p><i class="fab fa-java"></i> <b>Java:</b> Du baust Systeme aus zusammenarbeitenden Objekten – mit Vererbung und Polymorphismus</p>
-                    <p><i class="fas fa-diagram-project"></i> <b>Projektarbeit:</b> Du planst, implementierst und präsentierst ein eigenes Teamprojekt</p>
+                    <p><i class="fas fa-diagram-project"></i> 
+<b>Projektarbeit:</b> Du planst, implementierst und präsentierst ein eigenes Teamprojekt</p>
                 </div>
                 <div class="cta-buttons animated" style="margin-top:26px;">
                     <button class="cta-button primary"><i class="fas fa-rocket"></i> Los geht's!</button>
@@ -190,7 +233,7 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
     <!-- Navigation -->
     <div class="navigation">
         <button id="prev" aria-label="Zurück"><i class="fas fa-chevron-left"></i></button>
-        <span class="slide-counter">1 / 6</span>
+        <span class="slide-counter">1 / 7</span>
         <button id="next" aria-label="Vor"><i class="fas fa-chevron-right"></i></button>
     </div>
 
@@ -216,7 +259,8 @@ verleih.aufnehmen(<span class="kw">new</span> <span class="ty">E-Bike</span>(<sp
         }));
         new MutationObserver(sync).observe(document.querySelector('.presentation-container'), { subtree: true, attributes: true, attributeFilter: ['class'] });
         sync();
-      });
+   
+   });
     </script>
 </body>
 </html>
