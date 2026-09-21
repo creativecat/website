@@ -1,0 +1,171 @@
+/* Grundlegende Stile */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Präsentation Container */
+.presentation {
+    width: 80%;
+    max-width: 1000px;
+    position: relative;
+}
+
+/* Einzelseite */
+.slide {
+    display: none;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Titelstile */
+h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+}
+
+.author {
+    font-size: 1em;
+    color: #95a5a6;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Textstile */
+h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Listenstile */
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+/* Bildstile */
+.image-container {
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Navigation */
+.navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.navigation button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navigation button:hover {
+    background-color: #2980b9;
+}
+
+/* Animationen */
+.animated {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .slide {
+        padding: 20px;
+        height: 90vh;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .navigation {
+        gap: 10px;
+    }
+    
+    .navigation button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+}
