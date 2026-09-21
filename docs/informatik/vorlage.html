@@ -5,53 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Präsentation</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="presentation">
+    <div class="presentation-container">
         <!-- Titelfolie -->
         <section class="slide active">
-            <h1>Willkommen zur Präsentation</h1>
-            <p class="subtitle">Ein modernes und frisches Design</p>
-            <p class="author">Matthias Glienke</p>
+            <div class="slide-content">
+                <h1 class="animated">Willkommen zur Präsentation</h1>
+                <p class="subtitle animated">Ein modernes und ansprechendes Design</p>
+                <p class="author animated">Matthias Glienke</p>
+            </div>
         </section>
 
         <!-- Inhaltsfolie -->
         <section class="slide">
-            <h2>Inhalt</h2>
-            <ul>
-                <li class="animated">Einleitung</li>
-                <li class="animated">Hauptteil</li>
-                <li class="animated">Zusammenfassung</li>
-            </ul>
+            <div class="slide-content">
+                <h2 class="animated">Inhalt</h2>
+                <ul>
+                    <li class="animated">Einleitung</li>
+                    <li class="animated">Hauptteil</li>
+                    <li class="animated">Zusammenfassung</li>
+                </ul>
+            </div>
         </section>
 
         <!-- Bildfolie -->
         <section class="slide">
-            <h2>Beispielbild</h2>
-            <div class="image-container">
-                <img src="https://via.placeholder.com/600x400?text=Beispielbild" alt="Beispielbild" class="animated">
+            <div class="slide-content">
+                <h2 class="animated">Beispielbild</h2>
+                <div class="image-container animated">
+                    <img src="https://via.placeholder.com/800x450?text=Beispielbild" alt="Beispielbild">
+                </div>
+                <p class="caption animated">Ein Beispielbild zur Veranschaulichung</p>
             </div>
-            <p class="caption animated">Ein Beispielbild zur Veranschaulichung</p>
         </section>
 
         <!-- Textfolie mit Animation -->
         <section class="slide">
-            <h2>Hauptteil</h2>
-            <p class="animated">Dies ist ein Beispieltext mit Animation.</p>
-            <p class="animated">Hier können Sie Ihre Inhalte einfügen.</p>
+            <div class="slide-content">
+                <h2 class="animated">Hauptteil</h2>
+                <p class="animated">Dies ist ein Beispieltext mit Animation.</p>
+                <p class="animated">Hier können Sie Ihre Inhalte einfügen.</p>
+                <div class="highlight-box animated">
+                    <p>Ein hervorgehobener Kasten für wichtige Informationen!</p>
+                </div>
+            </div>
         </section>
 
         <!-- Abschlussfolie -->
         <section class="slide">
-            <h2>Zusammenfassung</h2>
-            <p class="animated">Vielen Dank für Ihre Aufmerksamkeit!</p>
-            <p class="animated">Fragen?</p>
+            <div class="slide-content">
+                <h2 class="animated">Zusammenfassung</h2>
+                <p class="animated large-text">Vielen Dank für Ihre Aufmerksamkeit!</p>
+                <p class="animated">Fragen?</p>
+            </div>
         </section>
     </div>
 
     <!-- Navigation -->
     <div class="navigation">
         <button id="prev" aria-label="Zurück">❮</button>
+        <span class="slide-counter">1 / 5</span>
         <button id="next" aria-label="Vor">❯</button>
     </div>
 
