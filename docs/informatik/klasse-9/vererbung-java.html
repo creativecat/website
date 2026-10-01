@@ -8,44 +8,61 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(15, 15, 35, 0.92); backdrop-filter: blur(10px); border-right: 1px solid rgba(255,255,255,0.12); padding: 24px 0; z-index: 1000; overflow-y: auto; }
-      .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 20px 14px; border-bottom: 1px solid rgba(255,255,255,0.12); margin: 0 0 10px; font-family: 'Poppins', sans-serif; }
-      .sidebar a { display: block; padding: 9px 20px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; cursor: pointer; border-left: 3px solid transparent; transition: all .2s; }
-      .sidebar a:hover { color: #fff; background: rgba(255,255,255,0.06); }
-      .sidebar a.active { color: #fff; background: rgba(255,255,255,0.1); border-left-color: #667eea; }
-      .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.45); }
-      body.has-sidebar .slide-content { margin-left: 125px; }
-
-      /* Größere Schrift */
-      .slide-content { font-size: 1.1em; }
-      .lead { font-size: 1.3em; color: #b8c1ec; margin-bottom: 16px; }
-      .slide-content p, .callout, .comparison-table { font-size: 1.15em; }
-      .feature-card p { font-size: 1.1em; }
-      .feature-card h3 { font-size: 1.5em; }
-      .column-item p { font-size: 1.05em; }
-
-      .code-box { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 1.05rem; color: #c3cae8; text-align: left; line-height: 1.6; margin-top: 18px; }
-      .code-box .kw { color: #c792ea; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #c3e88d; } .code-box .cm { color: #5f6b8a; font-style: italic; }
-      .code-box .hl { color: #ff8e53; font-weight: 700; }
-      .code-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 18px; align-items: start; }
-      .code-duo .code-box { margin-top: 0; }
-
-      .duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 26px; }
-
-      .callout { background: rgba(102,126,234,0.15); border-left: 5px solid #667eea; border-radius: 0 12px 12px 0; padding: 18px 26px; margin-top: 26px; color: #dcdcff; text-align: left; }
+      /* ===== HELLER + MEHR KONTRAST (nur diese Präsentation) ===== */
+      .presentation-container {
+        --bg-dark: #22224a;
+        --bg-darker: #12122b;
+        --text-muted: rgba(255, 255, 255, 0.88);
+        --border-color: rgba(255, 255, 255, 0.22);
+        --bg-card: rgba(255, 255, 255, 0.09);
+        background: linear-gradient(160deg, #26265a 0%, #1a1a3e 55%, #141434 100%);
+        box-shadow: 0 0 70px rgba(102, 126, 234, 0.35), var(--shadow-lg);
+      }
+      .slide { background: transparent; }
+      .slide-content p { color: var(--text-muted); }
+      .feature-card:hover, .column-item:hover { border-color: #8fa2ff; background: rgba(255,255,255,0.14); }
+      .lead { color: #dfe4ff; }
+      .callout { color: #eef0ff; }
       .callout b { color: #fff; }
-      .callout.orange { background: rgba(255,142,83,0.12); border-left-color: #ff8e53; }
-      .callout.orange b { color: #ffb08c; }
 
-      /* UML-Diagramme */
-      .uml-wrap { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 16px 20px; margin-top: 18px; }
+      /* ===== MacBook 16:9/16:10 Optimierung ===== */
+      .slide-content { font-size: 1.08em; max-height: 100%; }
+      .lead { font-size: 1.25em; margin-bottom: 14px; }
+
+      /* ===== Linke Sidebar ===== */
+      .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(15, 15, 35, 0.95); backdrop-filter: blur(10px); border-right: 1px solid rgba(255,255,255,0.14); padding: 24px 0; z-index: 1000; overflow-y: auto; }
+      .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 20px 14px; border-bottom: 1px solid rgba(255,255,255,0.14); margin: 0 0 10px; font-family: 'Poppins', sans-serif; }
+      .sidebar a { display: block; padding: 8px 20px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.84rem; cursor: pointer; border-left: 3px solid transparent; transition: all .2s; }
+      .sidebar a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+      .sidebar a.active { color: #fff; background: rgba(255,255,255,0.12); border-left-color: #667eea; }
+      .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+      body.has-sidebar .slide-content { margin-left: 120px; }
+
+      /* ===== Code: sauber, kommentiert, mit Einrückung ===== */
+      .code-box { background: rgba(5, 5, 20, 0.75); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 18px 26px; font-family: 'Courier New', monospace; font-size: 1.02rem; color: #d6dbf5; text-align: left; line-height: 1.55; margin-top: 16px; white-space: pre; overflow-x: auto; }
+      .code-box .kw { color: #c792ea; font-weight: 700; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #a5e88d; } .code-box .cm { color: #7a89b8; font-style: italic; } .code-box .hl { color: #ff8e53; font-weight: 700; }
+      .code-hint { background: rgba(102,126,234,0.18); border: 1px solid rgba(143,162,255,0.5); border-radius: 10px; padding: 10px 20px; margin-top: 12px; color: #eef0ff; font-size: 1.02em; }
+      .code-hint b { color: #ffd93d; }
+
+      .duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 22px; }
+      .feature-card p { font-size: 1.05em; }
+      .feature-card h3 { font-size: 1.45em; }
+
+      .callout { background: rgba(102,126,234,0.22); border-left: 5px solid #8fa2ff; border-radius: 0 12px 12px 0; padding: 16px 24px; margin-top: 22px; font-size: 1.08em; }
+      .callout.orange { background: rgba(255,142,83,0.16); border-left-color: #ff8e53; }
+      .callout.orange b { color: #ffc9a3; }
+
+      /* ===== UML ===== */
+      .uml-wrap { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 12px 18px; margin-top: 14px; }
       .uml-svg { width: 100%; height: auto; display: block; }
+      .uml-legend { margin-top: 8px; font-size: 0.98em; color: #dfe4ff; text-align: center; }
+      .uml-legend .gold { color: #ffd93d; font-weight: 700; }
 
-      /* Schrittweises Einblenden (Fragmente) */
+      /* ===== Fragmente (schrittweises Einblenden) ===== */
       .frag { opacity: 0; transition: opacity 0.6s ease; }
       .frag-visible { opacity: 1; }
 
-      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .code-duo { grid-template-columns: 1fr; } }
+      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .duo-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body class="has-sidebar">
@@ -57,11 +74,12 @@
         <a data-slide="2"><i class="fas fa-diagram-project"></i> Zwei Klassen modellieren</a>
         <a data-slide="3"><i class="fas fa-magnifying-glass"></i> Gemeinsamkeiten entdecken</a>
         <a data-slide="4"><i class="fas fa-sitemap"></i> Die Superklasse</a>
-        <a data-slide="5"><i class="fas fa-code"></i> Vom Diagramm zum Code</a>
-        <a data-slide="6"><i class="fas fa-flask"></i> Erben im Test</a>
-        <a data-slide="7"><i class="fas fa-pen-ruler"></i> Methoden überschreiben</a>
-        <a data-slide="8"><i class="fas fa-star"></i> Check dein Können</a>
-        <a data-slide="9"><i class="fas fa-flag-checkered"></i> Zusammenfassung</a>
+        <a data-slide="5"><i class="fas fa-code"></i> Code: Die Superklasse</a>
+        <a data-slide="6"><i class="fas fa-code-branch"></i> Code: Die Subklasse</a>
+        <a data-slide="7"><i class="fas fa-flask"></i> Erben im Test</a>
+        <a data-slide="8"><i class="fas fa-pen-ruler"></i> Methoden überschreiben</a>
+        <a data-slide="9"><i class="fas fa-star"></i> Check dein Können</a>
+        <a data-slide="10"><i class="fas fa-flag-checkered"></i> Zusammenfassung</a>
         <a class="back" href="../index.html"><i class="fas fa-arrow-left"></i> zur Übersicht</a>
     </nav>
 
@@ -109,28 +127,30 @@
                 <h2 class="gradient-text animated"><i class="fas fa-diagram-project"></i> Schritt 1: Zwei Klassen modellieren</h2>
                 <p class="lead animated">Jedes Tier wird als eigene Klasse dargestellt – mit Attributen und Methoden:</p>
                 <div class="uml-wrap animated">
-                    <svg class="uml-svg" viewBox="0 0 800 265" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="uml-svg" viewBox="0 0 840 250" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Hund -->
                         <g class="animated">
-                            <rect x="50" y="15" width="300" height="230" fill="#ffffff" stroke="#4a6bff" stroke-width="2.5"/>
-                            <rect x="50" y="15" width="300" height="52" fill="#4a6bff"/>
-                            <text x="200" y="50" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700" font-family="Poppins, sans-serif">Hund</text>
-                            <text x="66" y="94" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">name: String</text>
-                            <text x="66" y="122" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">rasse: String</text>
-                            <text x="66" y="150" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">alter: int</text>
-                            <line x1="50" y1="164" x2="350" y2="164" stroke="#8892b0" stroke-width="1.5"/>
-                            <text x="66" y="192" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">bellen(): void</text>
-                            <text x="66" y="220" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">fressen(): void</text>
+                            <rect x="55" y="12" width="330" height="226" fill="#ffffff" stroke="#4a6bff" stroke-width="3"/>
+                            <rect x="55" y="12" width="330" height="50" fill="#4a6bff"/>
+                            <text x="220" y="46" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700" font-family="Poppins, sans-serif">Hund</text>
+                            <text x="75" y="90" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">name: String</text>
+                            <text x="75" y="120" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">rasse: String</text>
+                            <text x="75" y="150" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">alter: int</text>
+                            <line x1="55" y1="166" x2="385" y2="166" stroke="#4a6bff" stroke-width="2"/>
+                            <text x="75" y="196" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">bellen(): void</text>
+                            <text x="75" y="226" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">fressen(): void</text>
                         </g>
+                        <!-- Katze -->
                         <g class="frag">
-                            <rect x="450" y="15" width="300" height="230" fill="#ffffff" stroke="#4a6bff" stroke-width="2.5"/>
-                            <rect x="450" y="15" width="300" height="52" fill="#4a6bff"/>
-                            <text x="600" y="50" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="700" font-family="Poppins, sans-serif">Katze</text>
-                            <text x="466" y="94" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">name: String</text>
-                            <text x="466" y="122" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">rasse: String</text>
-                            <text x="466" y="150" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">alter: int</text>
-                            <line x1="450" y1="164" x2="750" y2="164" stroke="#8892b0" stroke-width="1.5"/>
-                            <text x="466" y="192" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">miauen(): void</text>
-                            <text x="466" y="220" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">fressen(): void</text>
+                            <rect x="455" y="12" width="330" height="226" fill="#ffffff" stroke="#4a6bff" stroke-width="3"/>
+                            <rect x="455" y="12" width="330" height="50" fill="#4a6bff"/>
+                            <text x="620" y="46" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700" font-family="Poppins, sans-serif">Katze</text>
+                            <text x="475" y="90" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">name: String</text>
+                            <text x="475" y="120" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">rasse: String</text>
+                            <text x="475" y="150" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">alter: int</text>
+                            <line x1="455" y1="166" x2="785" y2="166" stroke="#4a6bff" stroke-width="2"/>
+                            <text x="475" y="196" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">miauen(): void</text>
+                            <text x="475" y="226" font-size="20" font-family="'Courier New', monospace" fill="#1a1a2e">fressen(): void</text>
                         </g>
                     </svg>
                 </div>
@@ -166,161 +186,159 @@
                     </div>
                 </div>
                 <div class="callout frag"><b>Erkenntnis:</b> Die Attribute und <b>fressen()</b> sind komplett doppelt. Bei 20 Tierarten wäre das 20-mal derselbe Code – mühsam, fehleranfällig und schwer zu pflegen!</div>
-                <p class="frag" style="margin-top:14px; color:#8892b0; font-size:1em;">💡 Profis nennen das <b style="color:#b8c1ec;">Redundanz</b> – und es gilt: <i>„Don't repeat yourself!“</i></p>
+                <p class="frag" style="margin-top:14px; color:#dfe4ff;">💡 Profis nennen das <b>Redundanz</b> – und es gilt: <i>„Don't repeat yourself!“</i></p>
             </div>
         </section>
 
-        <!-- FOLIE 5: Superklasse (UML Generalisierung) -->
+        <!-- FOLIE 5: Superklasse (UML Generalisierung, kompakt) -->
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-sitemap"></i> Schritt 3: Die Lösung – eine Superklasse!</h2>
-                <p class="lead animated">Alles Gemeinsame wandert in <b>eine</b> Eltern-Klasse. Die Subklassen erben von ihr:</p>
                 <div class="uml-wrap animated">
-                    <svg class="uml-svg" viewBox="0 0 900 470" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="uml-svg" viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Tier (Superklasse) -->
                         <g class="frag">
-                            <rect x="300" y="10" width="300" height="175" fill="#ffffff" stroke="#4a6bff" stroke-width="2.5"/>
-                            <rect x="300" y="10" width="300" height="48" fill="#4a6bff"/>
-                            <text x="450" y="43" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="700" font-family="Poppins, sans-serif">Tier</text>
-                            <text x="316" y="86" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">name: String</text>
-                            <text x="316" y="114" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">rasse: String</text>
-                            <text x="316" y="142" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">alter: int</text>
-                            <line x1="300" y1="152" x2="600" y2="152" stroke="#8892b0" stroke-width="1.5"/>
-                            <text x="316" y="176" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">fressen(): void</text>
+                            <rect x="265" y="10" width="310" height="170" fill="#ffffff" stroke="#ffd93d" stroke-width="3.5"/>
+                            <rect x="265" y="10" width="310" height="44" fill="#ffd93d"/>
+                            <text x="420" y="41" text-anchor="middle" fill="#1a1a2e" font-size="25" font-weight="700" font-family="Poppins, sans-serif">Tier</text>
+                            <text x="285" y="80" font-size="19" font-family="'Courier New', monospace" fill="#b8860b" font-weight="700">name: String</text>
+                            <text x="285" y="108" font-size="19" font-family="'Courier New', monospace" fill="#b8860b" font-weight="700">rasse: String</text>
+                            <text x="285" y="136" font-size="19" font-family="'Courier New', monospace" fill="#b8860b" font-weight="700">alter: int</text>
+                            <line x1="265" y1="148" x2="575" y2="148" stroke="#4a6bff" stroke-width="2"/>
+                            <text x="285" y="172" font-size="19" font-family="'Courier New', monospace" fill="#b8860b" font-weight="700">fressen(): void</text>
                         </g>
+                        <!-- Pfeil: Hund -> Tier -->
                         <g class="frag">
-                            <polygon points="450,185 430,209 470,209" fill="#1a1a2e" stroke="#c3cae8" stroke-width="2.5"/>
-                            <path d="M450,209 V250 M230,250 H670 M230,250 V285 M670,250 V285" stroke="#c3cae8" stroke-width="2.5" fill="none"/>
+                            <path d="M 220,240 L 220,215 L 375,215 L 375,183" stroke="#ffffff" stroke-width="3" fill="none"/>
+                            <polygon points="375,180 361,194 389,194" fill="#141434" stroke="#ffffff" stroke-width="3"/>
                         </g>
+                        <!-- Pfeil: Katze -> Tier -->
                         <g class="frag">
-                            <rect x="90" y="285" width="280" height="175" fill="#ffffff" stroke="#4a6bff" stroke-width="2.5"/>
-                            <rect x="90" y="285" width="280" height="48" fill="#4a6bff"/>
-                            <text x="230" y="318" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="700" font-family="Poppins, sans-serif">Hund</text>
-                            <text x="106" y="361" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">erbt von Tier:</text>
-                            <text x="106" y="389" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">name, rasse, alter,</text>
-                            <text x="106" y="417" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">fressen()</text>
-                            <line x1="90" y1="427" x2="370" y2="427" stroke="#8892b0" stroke-width="1.5"/>
-                            <text x="106" y="451" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">bellen(): void</text>
+                            <path d="M 620,240 L 620,215 L 465,215 L 465,183" stroke="#ffffff" stroke-width="3" fill="none"/>
+                            <polygon points="465,180 451,194 479,194" fill="#141434" stroke="#ffffff" stroke-width="3"/>
                         </g>
+                        <!-- Hund -->
                         <g class="frag">
-                            <rect x="530" y="285" width="280" height="175" fill="#ffffff" stroke="#4a6bff" stroke-width="2.5"/>
-                            <rect x="530" y="285" width="280" height="48" fill="#4a6bff"/>
-                            <text x="670" y="318" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="700" font-family="Poppins, sans-serif">Katze</text>
-                            <text x="546" y="361" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">erbt von Tier:</text>
-                            <text x="546" y="389" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">name, rasse, alter,</text>
-                            <text x="546" y="417" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">fressen()</text>
-                            <line x1="530" y1="427" x2="810" y2="427" stroke="#8892b0" stroke-width="1.5"/>
-                            <text x="546" y="451" font-size="19" font-family="'Courier New', monospace" fill="#1a1a2e">miauen(): void</text>
+                            <rect x="80" y="240" width="280" height="128" fill="#ffffff" stroke="#4a6bff" stroke-width="3"/>
+                            <rect x="80" y="240" width="280" height="44" fill="#4a6bff"/>
+                            <text x="220" y="270" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="700" font-family="Poppins, sans-serif">Hund</text>
+                            <text x="100" y="308" font-size="18" font-family="'Courier New', monospace" fill="#b8860b" font-style="italic">erbt von Tier:</text>
+                            <text x="100" y="332" font-size="18" font-family="'Courier New', monospace" fill="#b8860b" font-style="italic">Attribute + fressen()</text>
+                            <line x1="80" y1="342" x2="360" y2="342" stroke="#4a6bff" stroke-width="2"/>
+                            <text x="100" y="362" font-size="18" font-family="'Courier New', monospace" fill="#1a1a2e">bellen(): void</text>
+                        </g>
+                        <!-- Katze -->
+                        <g class="frag">
+                            <rect x="480" y="240" width="280" height="128" fill="#ffffff" stroke="#4a6bff" stroke-width="3"/>
+                            <rect x="480" y="240" width="280" height="44" fill="#4a6bff"/>
+                            <text x="620" y="270" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="700" font-family="Poppins, sans-serif">Katze</text>
+                            <text x="500" y="308" font-size="18" font-family="'Courier New', monospace" fill="#b8860b" font-style="italic">erbt von Tier:</text>
+                            <text x="500" y="332" font-size="18" font-family="'Courier New', monospace" fill="#b8860b" font-style="italic">Attribute + fressen()</text>
+                            <line x1="480" y1="342" x2="760" y2="342" stroke="#4a6bff" stroke-width="2"/>
+                            <text x="500" y="362" font-size="18" font-family="'Courier New', monospace" fill="#1a1a2e">miauen(): void</text>
                         </g>
                     </svg>
+                    <p class="uml-legend frag"><span class="gold">Gold</span> = gemeinsam in <b>Tier</b> zusammengefasst → wird an <b>Hund</b> und <b>Katze</b> vererbt. Jede Subklasse hat ihren <b>eigenen Pfeil</b> mit hohlem Dreieck zur Superklasse.</p>
                 </div>
-                <div class="callout frag"><b>Fachbegriffe:</b> <b>Tier</b> = Superklasse (Elternklasse) · <b>Hund, Katze</b> = Subklassen (Kindklassen). Der Pfeil mit dem <b>hohlen Dreieck</b> zeigt in UML immer von der Subklasse zur Superklasse.</div>
+                <div class="callout frag"><b>Fachbegriffe:</b> <b>Tier</b> = Superklasse (Elternklasse) · <b>Hund, Katze</b> = Subklassen (Kindklassen). Der Pfeil zeigt in UML immer <b>von der Subklasse zur Superklasse</b>.</div>
             </div>
         </section>
 
-        <!-- FOLIE 6: Vom Diagramm zum Code -->
+        <!-- FOLIE 6: Code Superklasse -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated"><i class="fas fa-code"></i> Schritt 4: Vom Diagramm zum Code</h2>
-                <p class="lead animated">Erst die Superklasse – dann die Subklasse mit <b>extends</b>:</p>
-                <div class="code-duo">
-                    <div class="code-box animated"><span class="cm">// Die Superklasse</span>
+                <h2 class="gradient-text animated"><i class="fas fa-code"></i> Schritt 4: Die Superklasse programmieren</h2>
+                <div class="code-box animated"><span class="cm">// Tier.java – die Superklasse mit allem Gemeinsamen</span>
 <span class="kw">public class</span> <span class="ty">Tier</span> {
+
+    <span class="cm">// Attribute</span>
     <span class="kw">private</span> <span class="ty">String</span> name;
     <span class="kw">private</span> <span class="ty">String</span> rasse;
     <span class="kw">private</span> <span class="kw">int</span> alter;
 
-    <span class="kw">public</span> <span class="ty">Tier</span>(<span class="ty">String</span> nameStart,
-               <span class="ty">String</span> rasseStart,
-               <span class="kw">int</span> alterStart) {
+    <span class="cm">// Konstruktor</span>
+    <span class="kw">public</span> <span class="ty">Tier</span>(<span class="ty">String</span> nameStart, <span class="ty">String</span> rasseStart, <span class="kw">int</span> alterStart) {
         name = nameStart;
         rasse = rasseStart;
         alter = alterStart;
     }
 
+    <span class="cm">// gemeinsame Methode für alle Tiere</span>
     <span class="kw">public void</span> fressen() {
-        System.out.println(name +
-            <span class="st">" frisst. Lecker!"</span>);
+        System.out.println(name + <span class="st">" frisst. Lecker!"</span>);
     }
 }</div>
-                    <div class="code-box frag"><span class="cm">// Die Subklasse – Hund IST EIN Tier</span>
-<span class="kw">public class</span> <span class="ty">Hund</span> <span class="hl">extends</span> <span class="ty">Tier</span> {
-
-    <span class="kw">public</span> <span class="ty">Hund</span>(<span class="ty">String</span> nameStart,
-               <span class="ty">String</span> rasseStart,
-               <span class="kw">int</span> alterStart) {
-        <span class="hl">super</span>(nameStart, rasseStart,
-              alterStart);
-    }
-
-    <span class="kw">public void</span> bellen() {
-        System.out.println(<span class="st">"Wuff!"</span>);
-    }
-}</div>
-                </div>
-                <p class="frag" style="margin-top:14px; color:#b8c1ec; font-size:1em;">Achte auf zwei Neuerungen: <b>extends Tier</b> in der Kopfzeile und <b>super(...)</b> im Konstruktor – es ruft den Konstruktor der Superklasse auf.</p>
+                <div class="code-hint frag">💡 <b>nameStart, rasseStart, alterStart:</b> Die Parameter tragen den Zusatz „Start“ – so siehst du sofort, dass sie im Konstruktor an die <b>Objektvariablen</b> name, rasse, alter übergeben werden.</div>
             </div>
         </section>
 
-        <!-- FOLIE 7: Erben im Test -->
+        <!-- FOLIE 7: Code Subklasse -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated"><i class="fas fa-flask"></i> Die Katze – und der erste Test</h2>
-                <div class="code-duo">
-                    <div class="code-box animated"><span class="kw">public class</span> <span class="ty">Katze</span> <span class="hl">extends</span> <span class="ty">Tier</span> {
+                <h2 class="gradient-text animated"><i class="fas fa-code-branch"></i> Die Subklasse: Hund IST EIN Tier</h2>
+                <div class="code-box animated"><span class="cm">// Hund.java – erbt mit extends alles von Tier</span>
+<span class="kw">public class</span> <span class="ty">Hund</span> <span class="hl">extends</span> <span class="ty">Tier</span> {
 
-    <span class="kw">public</span> <span class="ty">Katze</span>(<span class="ty">String</span> nameStart,
-               <span class="ty">String</span> rasseStart,
-               <span class="kw">int</span> alterStart) {
-        <span class="hl">super</span>(nameStart, rasseStart,
-              alterStart);
+    <span class="cm">// Konstruktor: reicht die Werte an Tier weiter</span>
+    <span class="kw">public</span> <span class="ty">Hund</span>(<span class="ty">String</span> nameStart, <span class="ty">String</span> rasseStart, <span class="kw">int</span> alterStart) {
+        <span class="hl">super</span>(nameStart, rasseStart, alterStart);
+    }
+
+    <span class="cm">// eigene Methode – nur der Hund kann das</span>
+    <span class="kw">public void</span> bellen() {
+        System.out.println(<span class="st">"Wuff! Wuff!"</span>);
+    }
+}</div>
+                <div class="code-hint frag">💡 <b>extends Tier:</b> Hund erbt alle Attribute und Methoden von Tier. &nbsp;·&nbsp; <b>super(...):</b> ruft den Konstruktor der Superklasse auf – die Attribute werden also in Tier verwaltet.</div>
+            </div>
+        </section>
+
+        <!-- FOLIE 8: Erben im Test -->
+        <section class="slide">
+            <div class="slide-content">
+                <h2 class="gradient-text animated"><i class="fas fa-flask"></i> Der erste Test</h2>
+                <div class="code-box animated"><span class="cm">// Katze.java – auch die Katze erbt von Tier</span>
+<span class="kw">public class</span> <span class="ty">Katze</span> <span class="hl">extends</span> <span class="ty">Tier</span> {
+
+    <span class="kw">public</span> <span class="ty">Katze</span>(<span class="ty">String</span> nameStart, <span class="ty">String</span> rasseStart, <span class="kw">int</span> alterStart) {
+        <span class="hl">super</span>(nameStart, rasseStart, alterStart);
     }
 
     <span class="kw">public void</span> miauen() {
         System.out.println(<span class="st">"Miau!"</span>);
     }
 }</div>
-                    <div class="code-box frag"><span class="cm">// In der main-Methode:</span>
-<span class="ty">Hund</span> bello = <span class="kw">new</span> <span class="ty">Hund</span>(
-    <span class="st">"Bello"</span>, <span class="st">"Labrador"</span>, 3);
-<span class="ty">Katze</span> mimi = <span class="kw">new</span> <span class="ty">Katze</span>(
-    <span class="st">"Mimi"</span>, <span class="st">"Europäisch"</span>, 2);
+                <div class="code-box frag"><span class="cm">// Test in der main-Methode</span>
+<span class="ty">Hund</span> bello = <span class="kw">new</span> <span class="ty">Hund</span>(<span class="st">"Bello"</span>, <span class="st">"Labrador"</span>, 3);
+<span class="ty">Katze</span> mimi = <span class="kw">new</span> <span class="ty">Katze</span>(<span class="st">"Mimi"</span>, <span class="st">"Europäisch"</span>, 2);
 
-bello.fressen();  <span class="cm">// geerbt!</span>
-bello.bellen();
-mimi.fressen();   <span class="cm">// auch geerbt!</span>
-mimi.miauen();</div>
-                </div>
-                <div class="callout frag"><b>Genial:</b> <b>fressen()</b> haben wir nur <b>einmal</b> geschrieben – beide Tiere können es trotzdem!</div>
+bello.fressen();   <span class="cm">// "Bello frisst. Lecker!" → geerbt!</span>
+bello.bellen();    <span class="cm">// "Wuff! Wuff!"</span>
+mimi.fressen();    <span class="cm">// "Mimi frisst. Lecker!" → auch geerbt!</span>
+mimi.miauen();     <span class="cm">// "Miau!"</span></div>
+                <div class="callout frag"><b>Genial:</b> <b>fressen()</b> haben wir nur <b>einmal</b> in Tier geschrieben – beide Tiere können es trotzdem!</div>
             </div>
         </section>
 
-        <!-- FOLIE 8: Methoden überschreiben -->
+        <!-- FOLIE 9: Methoden überschreiben -->
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-pen-ruler"></i> Bonus: Methoden überschreiben</h2>
-                <p class="lead animated">Alle Tiere sollen <b>lautGeben()</b> können – aber jedes anders! In der Superklasse allgemein definieren, in den Subklassen überschreiben:</p>
-                <div class="code-duo">
-                    <div class="code-box animated"><span class="cm">// In der Superklasse Tier</span>
-<span class="kw">public void</span> setName(<span class="ty">String</span> nameNeu) {
-    name = nameNeu;
-}
-
+                <p class="lead animated">Alle Tiere sollen <b>lautGeben()</b> können – aber jedes anders!</p>
+                <div class="code-box animated"><span class="cm">// In der Superklasse Tier: allgemein definieren</span>
 <span class="kw">public void</span> lautGeben() {
     System.out.println(<span class="st">"..."</span>);
-    <span class="cm">// allgemein</span>
 }</div>
-                    <div class="code-box frag"><span class="cm">// In der Subklasse Hund</span>
+                <div class="code-box frag"><span class="cm">// In der Subklasse Hund: neu überschreiben</span>
 <span class="hl">@Override</span>
 <span class="kw">public void</span> lautGeben() {
-    System.out.println(
-        <span class="st">"Wuff! Wuff!"</span>);
+    System.out.println(<span class="st">"Wuff! Wuff!"</span>);
 }</div>
-                </div>
                 <div class="callout orange frag"><b>Regel:</b> Gleicher Methodenname, gleiche Parameter – aber <b>neuer Inhalt</b> in der Subklasse. <b>@Override</b> kennzeichnet das Überschreiben.</div>
             </div>
         </section>
 
-        <!-- FOLIE 9: Check -->
+        <!-- FOLIE 10: Check -->
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-star"></i> Check dein Können</h2>
@@ -346,17 +364,17 @@ mimi.miauen();</div>
             </div>
         </section>
 
-        <!-- FOLIE 10: Abschluss -->
+        <!-- FOLIE 11: Abschluss -->
         <section class="slide cta-slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated">Du hast es geschafft!</h2>
-                <div style="text-align:left; max-width:760px; margin:0 auto; color:#b8c1ec; line-height:2;" class="animated">
+                <div style="text-align:left; max-width:760px; margin:0 auto; color:#dfe4ff; line-height:2;" class="animated">
                     <p><i class="fas fa-magnifying-glass"></i> <b>Gemeinsamkeiten erkannt</b> – Attribute und Methoden, die doppelt waren</p>
-                    <p><i class="fas fa-sitemap"></i> <b>Superklasse gebaut</b> – und mit dem richtigen UML-Pfeil dargestellt</p>
+                    <p><i class="fas fa-sitemap"></i> <b>Superklasse gebaut</b> – dargestellt mit korrektem UML-Pfeil</p>
                     <p><i class="fas fa-code"></i> <b>extends &amp; super(...)</b> – die Vererbung in Java umgesetzt</p>
                     <p><i class="fas fa-pen-ruler"></i> <b>@Override</b> – Methoden gezielt überschrieben</p>
                 </div>
-                <p class="frag" style="margin-top:22px; color:#8892b0;">Nächste Stunde: Was ist „Polymorphismus“ – und warum kann ein Tier-Platzhalter plötzlich miauen? 🐈</p>
+                <p class="frag" style="margin-top:22px; color:#dfe4ff;">Nächste Stunde: Was ist „Polymorphismus“ – und warum kann ein Tier-Platzhalter plötzlich miauen? 🐈</p>
             </div>
         </section>
     </div>
@@ -364,7 +382,7 @@ mimi.miauen();</div>
     <!-- Navigation (wie in allen Präsentationen) -->
     <div class="navigation">
         <button id="prev" aria-label="Zurück"><i class="fas fa-chevron-left"></i></button>
-        <span class="slide-counter">1 / 10</span>
+        <span class="slide-counter">1 / 11</span>
         <button id="next" aria-label="Vor"><i class="fas fa-chevron-right"></i></button>
     </div>
 
@@ -376,8 +394,6 @@ mimi.miauen();</div>
         function fragsOf(slide) { return Array.prototype.slice.call(slide.querySelectorAll('.frag')); }
         function isVisible(f) { return f.classList.contains('frag-visible'); }
 
-        // Fragmente: Erst sichtbar, wenn die Pfeiltaste gedrückt wird.
-        // Synthetische Events (Sidebar) ignorieren, damit die Sprungnavigation funktioniert.
         document.addEventListener('keydown', function(e) {
           if (!e.isTrusted) return;
           var slide = document.querySelector('.slide.active');
@@ -397,7 +413,6 @@ mimi.miauen();</div>
           }
         }, true);
 
-        // Auch die Navigations-Buttons blenden Fragmente schrittweise ein
         var nav = document.querySelector('.navigation');
         if (nav) {
           nav.addEventListener('click', function(e) {
@@ -421,7 +436,6 @@ mimi.miauen();</div>
           }, true);
         }
 
-        // Beim Verlassen einer Folie: Fragmente zurücksetzen
         new MutationObserver(function() {
           document.querySelectorAll('.slide').forEach(function(s) {
             if (!s.classList.contains('active')) {
@@ -432,7 +446,6 @@ mimi.miauen();</div>
           });
         }).observe(document.querySelector('.presentation-container'), { subtree: true, attributes: true, attributeFilter: ['class'] });
 
-        // Sidebar (wie in den anderen Präsentationen)
         var sidebar = document.getElementById('sidebar');
         if (!sidebar) return;
         var links = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-slide]'));
