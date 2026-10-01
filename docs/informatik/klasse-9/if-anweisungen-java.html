@@ -12,7 +12,7 @@
       .presentation-container {
         --bg-dark: #23234e;
         --bg-darker: #141432;
-        --text-muted: rgba(255, 255, 255, 0.88);
+        --text-muted: #ffffff;
         --border-color: rgba(255, 255, 255, 0.22);
         --bg-card: rgba(255, 255, 255, 0.09);
         background:
@@ -22,40 +22,40 @@
         box-shadow: 0 0 70px rgba(102, 126, 234, 0.35), var(--shadow-lg);
       }
       .slide { background: transparent; }
-      .slide-content p { color: var(--text-muted); }
-      .lead { color: #e3e7ff; }
-      .callout { color: #eef0ff; }
+      .slide-content p { color: #eef1ff; }
+      .lead { color: #f2f4ff; }
+      .callout { color: #ffffff; }
       .callout b { color: #fff; }
 
       .slide-content { font-size: 1.08em; max-height: 100%; }
       .lead { font-size: 1.22em; margin-bottom: 14px; }
       h2.gradient-text { letter-spacing: 0.2px; }
 
-      /* ===== Sidebar (modern, Pill-Aktiv-Markierung) ===== */
+      /* ===== Sidebar ===== */
       .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(12, 12, 30, 0.92); backdrop-filter: blur(14px); border-right: 1px solid rgba(255,255,255,0.10); padding: 24px 12px; z-index: 1000; overflow-y: auto; }
       .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 14px 14px; border-bottom: 1px solid rgba(255,255,255,0.12); margin: 0 0 12px; font-family: 'Poppins', sans-serif; }
-      .sidebar a { display: block; padding: 9px 14px; color: rgba(255,255,255,0.70); text-decoration: none; font-size: 0.84rem; cursor: pointer; border-radius: 10px; margin: 2px 0; transition: all .2s; }
+      .sidebar a { display: block; padding: 9px 14px; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.84rem; cursor: pointer; border-radius: 10px; margin: 2px 0; transition: all .2s; }
       .sidebar a:hover { color: #fff; background: rgba(255,255,255,0.08); }
       .sidebar a.active { color: #fff; background: linear-gradient(90deg, #667eea, #8b5cf6); box-shadow: 0 4px 14px rgba(102, 126, 234, 0.45); }
-      .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+      .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
       body.has-sidebar .slide-content { margin-left: 120px; }
 
       /* ===== Code (Mac-Fenster-Optik) ===== */
-      .code-box { position: relative; background: #101024; border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 34px 26px 16px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.95rem; color: #dbe1fb; text-align: left; line-height: 1.5; margin-top: 14px; white-space: pre; overflow-x: auto; box-shadow: 0 10px 26px rgba(0,0,0,0.30); }
+      .code-box { position: relative; background: #101024; border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 34px 26px 16px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.95rem; color: #e6eaff; text-align: left; line-height: 1.5; margin-top: 14px; white-space: pre; overflow-x: auto; box-shadow: 0 10px 26px rgba(0,0,0,0.30); }
       .code-box::before { content: ''; position: absolute; top: 13px; left: 18px; width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; box-shadow: 18px 0 0 #febc2e, 36px 0 0 #28c840; }
-      .code-box .kw { color: #c792ea; font-weight: 700; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #a5e88d; } .code-box .cm { color: #7a89b8; font-style: italic; } .code-box .hl { color: #ff8e53; font-weight: 700; }
-      .code-hint { background: rgba(102,126,234,0.16); border: 1px solid rgba(143,162,255,0.45); border-radius: 12px; padding: 11px 20px; margin-top: 12px; color: #eef0ff; font-size: 1.0em; backdrop-filter: blur(6px); }
+      .code-box .kw { color: #c792ea; font-weight: 700; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #a5e88d; } .code-box .cm { color: #9aa5cc; font-style: italic; } .code-box .hl { color: #ff8e53; font-weight: 700; }
+      .code-hint { background: rgba(102,126,234,0.16); border: 1px solid rgba(143,162,255,0.45); border-radius: 12px; padding: 11px 20px; margin-top: 12px; color: #ffffff; font-size: 1.0em; }
       .code-hint b { color: #ffd93d; }
 
       .duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
-      .feature-card { border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); backdrop-filter: blur(8px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
-      .feature-card p { font-size: 1.02em; }
+      .feature-card { border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); backdrop-filter: blur(8px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
+      .feature-card p { font-size: 1.02em; color: #ffffff; }
       .feature-card h3 { font-size: 1.4em; }
-      .feature-card .feature-icon { background: linear-gradient(135deg, #667eea, #8b5cf6); box-shadow: 0 8px 18px rgba(102,126,234,0.45); }
+      .feature-card .feature-icon { background: linear-gradient(135deg, #667eea, #8b5cf6); box-shadow: 0 8px 18px rgba(102, 126, 234, 0.45); }
 
-      .callout { background: rgba(102,126,234,0.20); border: none; border-left: 5px solid #8fa2ff; border-radius: 0 14px 14px 0; padding: 14px 22px; margin-top: 18px; font-size: 1.05em; backdrop-filter: blur(6px); }
-      .callout.orange { background: rgba(255,142,83,0.15); border-left-color: #ff8e53; }
-      .callout.orange b { color: #ffc9a3; }
+      .callout { background: rgba(102,126,234,0.22); border: none; border-left: 5px solid #8fa2ff; border-radius: 0 14px 14px 0; padding: 14px 22px; margin-top: 18px; font-size: 1.05em; }
+      .callout.orange { background: rgba(255,142,83,0.16); border-left-color: #ff8e53; }
+      .callout.orange b { color: #ffd9c2; }
 
       /* ===== Struktogramm: klassische weiße Tafel ===== */
       .nassi-board { background: #ffffff; border-radius: 16px; padding: 18px 20px; margin-top: 14px; box-shadow: 0 18px 42px rgba(0,0,0,0.38); border: 1px solid rgba(255,255,255,0.5); }
@@ -68,19 +68,19 @@
 
       /* Info-Chips neben dem Struktogramm */
       .nassi-grid { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 14px; }
-      .chip { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 12px 16px; margin-bottom: 12px; text-align: left; }
+      .chip { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05)); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 12px 16px; margin-bottom: 12px; text-align: left; }
       .chip .n { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #8b5cf6); color: #fff; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-      .chip p { margin: 0; font-size: 0.92em; color: #e3e7ff; }
+      .chip p { margin: 0; font-size: 0.92em; color: #ffffff; }
       .chip b { color: #fff; }
 
       /* ===== Fragmente ===== */
       .frag { opacity: 0; transition: opacity 0.6s ease; }
       .frag-visible { opacity: 1; }
 
-      .table-ops { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 16px; background: rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
-      .table-ops th { background: linear-gradient(90deg, rgba(102,126,234,0.45), rgba(139,92,246,0.45)); color: #fff; padding: 12px 20px; text-align: left; font-size: 1.02em; }
-      .table-ops td { padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.10); color: #eef0ff; font-size: 1.02em; }
-      .table-ops tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+      .table-ops { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 16px; background: rgba(255,255,255,0.07); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+      .table-ops th { background: linear-gradient(90deg, rgba(102,126,234,0.45), rgba(139,92,246,0.45)); color: #ffffff; padding: 12px 20px; text-align: left; font-size: 1.02em; }
+      .table-ops td { padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.10); color: #ffffff; font-size: 1.02em; }
+      .table-ops tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
       .table-ops code { font-family: 'JetBrains Mono', 'Courier New', monospace; color: #ffd93d; font-weight: 700; }
       .table-ops tr:last-child td { border-bottom: none; }
 
@@ -166,36 +166,37 @@
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-table-cells-large"></i> Das Struktogramm macht die Entscheidung sichtbar</h2>
-                <p class="lead animated">Im Struktogramm (nach Nassi-Shneiderman) gibt es keine Pfeile – alles läuft strikt <b>von oben nach unten</b>:</p>
+                <p class="lead animated">Im Struktogramm gibt es keine Pfeile – alles läuft strikt <b>von oben nach unten</b>:</p>
                 <div class="nassi-grid">
                     <div class="nassi-board animated">
                         <svg class="nassi-svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
                             <rect x="100" y="18" width="440" height="324" fill="#ffffff" class="ln"/>
-                            <line x1="100" y1="98" x2="540" y2="98" class="ln"/>
-                            <line x1="100" y1="98" x2="540" y2="18" class="ln"/>
-                            <text x="160" y="54" class="txt" font-size="18" font-weight="700">Bedingung</text>
-                            <text x="160" y="78" class="mono" font-size="15">alter >= 16 ?</text>
-                            <line x1="320" y1="98" x2="320" y2="342" class="ln"/>
-                            <text x="112" y="118" class="lbl-w" font-size="15">wahr</text>
-                            <text x="528" y="118" class="lbl-f" font-size="15" text-anchor="end">falsch</text>
+                            <polygon points="100,18 540,18 320,116" fill="#ffffff" class="ln"/>
+                            <text x="320" y="52" class="txt" font-size="18" font-weight="700" text-anchor="middle">Bedingung</text>
+                            <text x="320" y="78" class="mono" font-size="14" text-anchor="middle">alter >= 16 ?</text>
+                            <line x1="320" y1="116" x2="320" y2="342" class="ln"/>
                             <g class="frag">
-                                <rect x="122" y="150" width="176" height="88" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
-                                <text x="210" y="188" class="txt" font-size="16" font-weight="600" text-anchor="middle">Anweisung(en)</text>
-                                <text x="210" y="212" class="mono" font-size="13" text-anchor="middle">println(...)</text>
+                                <text x="312" y="140" class="lbl-w" font-size="15" text-anchor="end">wahr</text>
+                                <text x="328" y="140" class="lbl-f" font-size="15">falsch</text>
                             </g>
                             <g class="frag">
-                                <text x="430" y="192" class="txt" font-size="15" text-anchor="middle" fill="#9aa0b5" font-style="italic">— hier passiert —</text>
-                                <text x="430" y="214" class="txt" font-size="15" text-anchor="middle" fill="#9aa0b5" font-style="italic">nichts —</text>
+                                <rect x="122" y="162" width="176" height="88" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
+                                <text x="210" y="200" class="txt" font-size="16" font-weight="600" text-anchor="middle">Anweisung(en)</text>
+                                <text x="210" y="224" class="mono" font-size="13" text-anchor="middle">println(...)</text>
+                            </g>
+                            <g class="frag">
+                                <text x="430" y="202" class="txt" font-size="15" text-anchor="middle" fill="#868e9f" font-style="italic">— hier passiert</text>
+                                <text x="430" y="224" class="txt" font-size="15" text-anchor="middle" fill="#868e9f" font-style="italic">nichts —</text>
                             </g>
                         </svg>
                     </div>
                     <div>
-                        <div class="chip animated"><div class="n">1</div><p><b>Kopf:</b> Die Bedingung steht oben – getrennt durch die <b>Diagonale</b>.</p></div>
+                        <div class="chip animated"><div class="n">1</div><p><b>Kopf:</b> Die Bedingung steht im Dreieck ganz oben.</p></div>
                         <div class="chip frag"><div class="n">2</div><p><b>Zweige:</b> Links alles bei <b>wahr</b>, rechts bei <b>falsch</b>.</p></div>
                         <div class="chip frag"><div class="n">3</div><p><b>Ablauf:</b> Keine Pfeile! Das Programm läuft nur von <b>oben nach unten</b>.</p></div>
                     </div>
                 </div>
-                <div class="callout frag"><b>So liest du es:</b> Ist die Bedingung <b>wahr</b>, läuft der linke Zweig. Bei <b>falsch</b> passiert hier nichts – das Programm springt einfach ans Ende des Struktogramms und macht weiter.</div>
+                <div class="callout frag"><b>So liest du es:</b> Ist die Bedingung <b>wahr</b>, läuft der linke Zweig. Bei <b>falsch</b> passiert hier nichts – das Programm läuft am leeren Zweig vorbei und macht einfach weiter.</div>
             </div>
         </section>
 
@@ -255,24 +256,25 @@
                     <div class="nassi-board animated">
                         <svg class="nassi-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
                             <rect x="100" y="18" width="440" height="264" fill="#ffffff" class="ln"/>
-                            <line x1="100" y1="88" x2="540" y2="88" class="ln"/>
-                            <line x1="100" y1="88" x2="540" y2="18" class="ln"/>
-                            <text x="160" y="48" class="txt" font-size="17" font-weight="700">Bedingung</text>
-                            <text x="160" y="70" class="mono" font-size="14">punkte >= 100 ?</text>
-                            <line x1="320" y1="88" x2="320" y2="282" class="ln"/>
-                            <text x="112" y="108" class="lbl-w" font-size="14">wahr</text>
-                            <text x="528" y="108" class="lbl-f" font-size="14" text-anchor="end">falsch</text>
+                            <polygon points="100,18 540,18 320,104" fill="#ffffff" class="ln"/>
+                            <text x="320" y="50" class="txt" font-size="17" font-weight="700" text-anchor="middle">Bedingung</text>
+                            <text x="320" y="74" class="mono" font-size="13" text-anchor="middle">punkte >= 100 ?</text>
+                            <line x1="320" y1="104" x2="320" y2="282" class="ln"/>
                             <g class="frag">
-                                <rect x="122" y="130" width="176" height="118" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
-                                <text x="210" y="172" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 1</text>
-                                <text x="210" y="196" class="mono" font-size="12" text-anchor="middle">println(</text>
-                                <text x="210" y="214" class="mono" font-size="12" text-anchor="middle">"Level geschafft!")</text>
+                                <text x="312" y="128" class="lbl-w" font-size="14" text-anchor="end">wahr</text>
+                                <text x="328" y="128" class="lbl-f" font-size="14">falsch</text>
                             </g>
                             <g class="frag">
-                                <rect x="342" y="130" width="176" height="118" rx="10" fill="#fff4e6" stroke="#e8590c" stroke-width="2.5"/>
-                                <text x="430" y="172" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 2</text>
-                                <text x="430" y="196" class="mono" font-size="12" text-anchor="middle">println(</text>
-                                <text x="430" y="214" class="mono" font-size="12" text-anchor="middle">"Noch ein bisschen …")</text>
+                                <rect x="122" y="146" width="176" height="112" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
+                                <text x="210" y="186" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 1</text>
+                                <text x="210" y="210" class="mono" font-size="11" text-anchor="middle">println(</text>
+                                <text x="210" y="228" class="mono" font-size="11" text-anchor="middle">"Level geschafft!")</text>
+                            </g>
+                            <g class="frag">
+                                <rect x="342" y="146" width="176" height="112" rx="10" fill="#fff4e6" stroke="#e8590c" stroke-width="2.5"/>
+                                <text x="430" y="186" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 2</text>
+                                <text x="430" y="210" class="mono" font-size="11" text-anchor="middle">println(</text>
+                                <text x="430" y="228" class="mono" font-size="11" text-anchor="middle">"Noch ein bisschen …")</text>
                             </g>
                         </svg>
                     </div>
@@ -368,14 +370,14 @@
         <section class="slide cta-slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated">Das nimmst du mit</h2>
-                <div style="text-align:left; max-width:780px; margin:0 auto; color:#dfe4ff; line-height:2;" class="animated">
+                <div style="text-align:left; max-width:780px; margin:0 auto; color:#ffffff; line-height:2;" class="animated">
                     <p><i class="fas fa-code-branch"></i> <b>if (Bedingung) { … }</b> – führt Code nur aus, wenn die Bedingung wahr ist</p>
-                    <p><i class="fas fa-table-cells-large"></i> <b>Struktogramm</b> – Kopf mit Bedingung, darunter die Zweige, alles von oben nach unten</p>
+                    <p><i class="fas fa-table-cells-large"></i> <b>Struktogramm</b> – Bedingung im Dreieck oben, darunter die Zweige, alles von oben nach unten</p>
                     <p><i class="fas fa-toggle-on"></i> <b>else</b> – der sonst-Fall für alles andere</p>
                     <p><i class="fas fa-list-ul"></i> <b>else if</b> – mehrere Fälle, von oben nach unten geprüft</p>
                     <p><i class="fas fa-scale-unbalanced"></i> <b>== != &lt; &gt; &lt;= &gt;=</b> – Vergleichsoperatoren (nicht = verwechseln!)</p>
                 </div>
-                <p class="frag" style="margin-top:22px; color:#dfe4ff;">Nächste Stunde: Logisches UND &amp; ODER – um noch komplexere Bedingungen zu stellen! 🧠</p>
+                <p class="frag" style="margin-top:22px; color:#ffffff;">Nächste Stunde: Logisches UND &amp; ODER – um noch komplexere Bedingungen zu stellen! 🧠</p>
             </div>
         </section>
     </div>
