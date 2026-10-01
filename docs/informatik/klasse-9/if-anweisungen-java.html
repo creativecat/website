@@ -37,7 +37,7 @@
       body.has-sidebar .slide-content { margin-left: 120px; }
 
       /* ===== Code ===== */
-      .code-box { background: rgba(5, 5, 20, 0.75); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 18px 26px; font-family: 'Courier New', monospace; font-size: 1.02rem; color: #d6dbf5; text-align: left; line-height: 1.55; margin-top: 16px; white-space: pre; overflow-x: auto; }
+      .code-box { background: rgba(5, 5, 20, 0.75); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px 26px; font-family: 'Courier New', monospace; font-size: 0.98rem; color: #d6dbf5; text-align: left; line-height: 1.5; margin-top: 14px; white-space: pre; overflow-x: auto; }
       .code-box .kw { color: #c792ea; font-weight: 700; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #a5e88d; } .code-box .cm { color: #7a89b8; font-style: italic; } .code-box .hl { color: #ff8e53; font-weight: 700; }
       .code-hint { background: rgba(102,126,234,0.18); border: 1px solid rgba(143,162,255,0.5); border-radius: 10px; padding: 10px 20px; margin-top: 12px; color: #eef0ff; font-size: 1.02em; }
       .code-hint b { color: #ffd93d; }
@@ -46,11 +46,11 @@
       .feature-card p { font-size: 1.05em; }
       .feature-card h3 { font-size: 1.45em; }
 
-      .callout { background: rgba(102,126,234,0.22); border-left: 5px solid #8fa2ff; border-radius: 0 12px 12px 0; padding: 16px 24px; margin-top: 22px; font-size: 1.08em; }
+      .callout { background: rgba(102,126,234,0.22); border-left: 5px solid #8fa2ff; border-radius: 0 12px 12px 0; padding: 14px 24px; margin-top: 18px; font-size: 1.06em; }
       .callout.orange { background: rgba(255,142,83,0.16); border-left-color: #ff8e53; }
       .callout.orange b { color: #ffc9a3; }
 
-      /* ===== Flussdiagramm ===== */
+      /* ===== Struktogramm (Nassi-Shneiderman) ===== */
       .flow-wrap { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 12px 18px; margin-top: 14px; }
       .flow-svg { width: 100%; height: auto; display: block; }
 
@@ -74,8 +74,8 @@
         <a data-slide="0"><i class="fas fa-rocket"></i> Titel</a>
         <a data-slide="1"><i class="fas fa-code-branch"></i> Entscheidungen im Alltag</a>
         <a data-slide="2"><i class="fas fa-play"></i> Die einfachste if-Anweisung</a>
-        <a data-slide="3"><i class="fas fa-diagram-project"></i> Das Flussdiagramm</a>
-        <a data-slide="4"><i class="fas fa-code"></i> if im Tierheim-Code</a>
+        <a data-slide="3"><i class="fas fa-table-cells-large"></i> Das Struktogramm</a>
+        <a data-slide="4"><i class="fas fa-user-astronaut"></i> Die Klasse Spielcharakter</a>
         <a data-slide="5"><i class="fas fa-scale-unbalanced"></i> Vergleiche</a>
         <a data-slide="6"><i class="fas fa-toggle-on"></i> if – else</a>
         <a data-slide="7"><i class="fas fa-list-ul"></i> else if – mehrere Fälle</a>
@@ -142,59 +142,75 @@
             </div>
         </section>
 
-        <!-- FOLIE 4: Flussdiagramm -->
+        <!-- FOLIE 4: Struktogramm -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated"><i class="fas fa-diagram-project"></i> So fließt das Programm</h2>
-                <p class="lead animated">Ein Flussdiagramm macht die Entscheidung sichtbar – die Raute ist die Weichenstellung:</p>
+                <h2 class="gradient-text animated"><i class="fas fa-table-cells-large"></i> Das Struktogramm macht die Entscheidung sichtbar</h2>
+                <p class="lead animated">Im Struktogramm (Nassi-Shneiderman-Diagramm) gibt es keine Pfeile und keine Rauten – alles läuft von <b>oben nach unten</b>:</p>
                 <div class="flow-wrap animated">
-                    <svg class="flow-svg" viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="flow-svg" viewBox="0 0 860 350" xmlns="http://www.w3.org/2000/svg">
                         <g class="animated">
-                            <polygon points="430,15 500,60 430,105 360,60" fill="#ffd93d" stroke="#b8860b" stroke-width="3"/>
-                            <text x="430" y="55" text-anchor="middle" font-size="19" fill="#1a1a2e" font-weight="700" font-family="Poppins, sans-serif">Bedingung</text>
-                            <text x="430" y="77" text-anchor="middle" font-size="15" fill="#1a1a2e" font-family="'Courier New', monospace">alter >= 16 ?</text>
-                            <line x1="360" y1="60" x2="130" y2="60" stroke="#a5e88d" stroke-width="3"/>
-                            <polygon points="130,60 142,53 142,67" fill="#a5e88d"/>
-                            <line x1="500" y1="60" x2="730" y2="60" stroke="#ff8e53" stroke-width="3"/>
-                            <polygon points="730,60 718,53 718,67" fill="#ff8e53"/>
-                            <text x="240" y="48" font-size="18" fill="#a5e88d" font-weight="700" font-family="Poppins, sans-serif">wahr ✓</text>
-                            <text x="610" y="48" font-size="18" fill="#ff8e53" font-weight="700" font-family="Poppins, sans-serif">falsch ✗</text>
+                            <rect x="230" y="15" width="400" height="80" fill="#ffd93d" stroke="#b8860b" stroke-width="3"/>
+                            <line x1="630" y1="15" x2="230" y2="95" stroke="#b8860b" stroke-width="2"/>
+                            <text x="430" y="52" text-anchor="middle" font-size="19" fill="#1a1a2e" font-weight="700" font-family="Poppins, sans-serif">Bedingung</text>
+                            <text x="430" y="76" text-anchor="middle" font-size="15" fill="#1a1a2e" font-family="'Courier New', monospace">alter >= 16 ?</text>
+                            <rect x="230" y="95" width="400" height="230" fill="rgba(255,255,255,0.03)" stroke="#b8860b" stroke-width="3"/>
+                            <line x1="430" y1="95" x2="430" y2="325" stroke="#b8860b" stroke-width="2"/>
+                            <text x="240" y="115" font-size="16" fill="#a5e88d" font-weight="700" font-family="Poppins, sans-serif">wahr ✓</text>
+                            <text x="620" y="115" text-anchor="end" font-size="16" fill="#ff8e53" font-weight="700" font-family="Poppins, sans-serif">falsch ✗</text>
                         </g>
                         <g class="frag">
-                            <rect x="45" y="130" width="170" height="70" rx="12" fill="#a5e88d" stroke="#4a6bff" stroke-width="3"/>
-                            <text x="130" y="160" text-anchor="middle" font-size="17" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">Anweisung</text>
-                            <text x="130" y="183" text-anchor="middle" font-size="14" fill="#1a1a2e" font-family="'Courier New', monospace">println(...)</text>
-                            <line x1="130" y1="100" x2="130" y2="127" stroke="#a5e88d" stroke-width="3"/>
-                            <polygon points="130,130 123,118 137,118" fill="#a5e88d"/>
+                            <rect x="255" y="145" width="150" height="100" rx="10" fill="#a5e88d" stroke="#4a6bff" stroke-width="3"/>
+                            <text x="330" y="185" text-anchor="middle" font-size="16" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">Anweisung</text>
+                            <text x="330" y="210" text-anchor="middle" font-size="13" fill="#1a1a2e" font-family="'Courier New', monospace">println(...)</text>
+                            <line x1="330" y1="95" x2="330" y2="141" stroke="#a5e88d" stroke-width="3"/>
+                            <polygon points="330,145 324,134 336,134" fill="#a5e88d"/>
                         </g>
                         <g class="frag">
-                            <path d="M 730,65 L 730,280 L 430,280 L 130,280 L 130,203" stroke="#ff8e53" stroke-width="3" fill="none"/>
-                            <polygon points="130,200 123,212 137,212" fill="#ff8e53"/>
-                            <text x="430" y="268" text-anchor="middle" font-size="17" fill="#dfe4ff" font-family="Poppins, sans-serif">Bedingung falsch → Anweisung wird übersprungen</text>
+                            <rect x="460" y="145" width="150" height="100" rx="10" fill="rgba(255,142,83,0.14)" stroke="#ff8e53" stroke-width="2" stroke-dasharray="7 5"/>
+                            <text x="535" y="190" text-anchor="middle" font-size="14" fill="#ffc9a3" font-family="Poppins, sans-serif">leer – hier passiert</text>
+                            <text x="535" y="210" text-anchor="middle" font-size="14" fill="#ffc9a3" font-family="Poppins, sans-serif">nichts!</text>
+                        </g>
+                        <g class="frag">
+                            <text x="690" y="80" font-size="15" fill="#dfe4ff" font-family="Poppins, sans-serif">Kopf: Bedingung</text>
+                            <text x="690" y="100" font-size="15" fill="#dfe4ff" font-family="Poppins, sans-serif">mit Diagonale,</text>
+                            <text x="690" y="120" font-size="15" fill="#dfe4ff" font-family="Poppins, sans-serif">darunter die Zweige</text>
                         </g>
                     </svg>
                 </div>
-                <div class="callout frag"><b>Wichtig:</b> Bei <b>falsch</b> passiert einfach … nichts! Das Programm springt direkt hinter die schließende Klammer und läuft weiter.</div>
+                <div class="callout frag"><b>So liest du es:</b> Kopf-Zeile = Bedingung. Links davon steht alles, was bei <b>wahr</b> passiert. Ist die Bedingung <b>falsch</b>, läuft das Programm einfach am leeren Zweig vorbei und macht weiter.</div>
             </div>
         </section>
 
-        <!-- FOLIE 5: if im Tierheim-Code -->
+        <!-- FOLIE 5: Klasse Spielcharakter -->
         <section class="slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated"><i class="fas fa-code"></i> if im Tierheim: Die Fütterung</h2>
-                <p class="lead animated">Zurück zu unserer Tier-Klasse – die Fütterung soll nur hungrige Tiere füttern:</p>
-                <div class="code-box animated"><span class="cm">// Neue Attribute in der Klasse Tier</span>
-<span class="kw">private</span> <span class="kw">boolean</span> hungrig = <span class="kw">true</span>;
+                <h2 class="gradient-text animated"><i class="fas fa-user-astronaut"></i> Unsere Beispiel-Klasse: Spielcharakter</h2>
+                <p class="lead animated">Wir bauen den Helden für ein Jump'n'Run – und die if-Anweisung steckt in der Methode <b>trefferErleiden()</b>:</p>
+                <div class="code-box animated"><span class="kw">public class</span> <span class="ty">Spielcharakter</span> {
 
-<span class="cm">// Die Methode fressen wird schlauer</span>
-<span class="kw">public void</span> fressen() {
-    <span class="kw">if</span> (hungrig == <span class="kw">true</span>) {
-        System.out.println(name + <span class="st">" frisst. Lecker!"</span>);
-        hungrig = <span class="kw">false</span>;
+    <span class="cm">// Attribute</span>
+    <span class="kw">private</span> <span class="ty">String</span> name;
+    <span class="kw">private</span> <span class="kw">int</span> leben;
+    <span class="kw">private</span> <span class="kw">int</span> punkte;
+
+    <span class="cm">// Konstruktor</span>
+    <span class="kw">public</span> Spielcharakter(<span class="ty">String</span> nameStart, <span class="kw">int</span> lebenStart) {
+        name = nameStart;
+        leben = lebenStart;
+        punkte = 0;
+    }
+
+    <span class="cm">// eigene Methode: nur lebende Helden kassieren den Treffer</span>
+    <span class="kw">public void</span> trefferErleiden() {
+        <span class="kw">if</span> (leben > 0) {
+            leben = leben - 10;
+            System.out.println(name + <span class="st">" hat noch " </span>+ leben + <span class="st">" Leben."</span>);
+        }
     }
 }</div>
-                <div class="code-hint frag">💡 Das Attribut <b>hungrig</b> ist vom Typ <b>boolean</b> – es kann nur <b>true</b> (wahr) oder <b>false</b> (falsch) sein. Nach dem Fressen ist das Tier satt, also wird hungrig auf false gesetzt.</div>
-                <div class="callout frag"><b>Teste dein Verständnis:</b> Was passiert, wenn <code style="color:#ffd93d">mimi.fressen()</code> zweimal hintereinander aufgerufen wird? Warum?</div>
+                <div class="code-hint frag">💡 Vor jedem Treffer prüft das Programm: <b>leben > 0</b> – also „hat der Held noch Leben?“. Nur wenn die Bedingung <b>wahr</b> ist, werden die beiden Anweisungen im Block ausgeführt.</div>
+                <div class="callout frag"><b>Teste dein Verständnis:</b> Was passiert, wenn <code style="color:#ffd93d">held.trefferErleiden()</code> bei <code style="color:#ffd93d">leben = 0</code> aufgerufen wird? Und warum ist das sinnvoll?</div>
             </div>
         </section>
 
@@ -204,12 +220,12 @@
                 <h2 class="gradient-text animated"><i class="fas fa-scale-unbalanced"></i> Welche Bedingungen kannst du stellen?</h2>
                 <table class="table-ops animated">
                     <tr><th>Operator</th><th>Bedeutung</th><th>Beispiel</th><th>wahr, wenn …</th></tr>
-                    <tr><td><code>==</code></td><td>gleich</td><td><code>alter == 16</code></td><td>alter genau 16 ist</td></tr>
-                    <tr><td><code>!=</code></td><td>ungleich</td><td><code>name != "Bello"</code></td><td>der Name nicht Bello ist</td></tr>
-                    <tr><td><code>&lt;</code> <code>&gt;</code></td><td>kleiner / größer</td><td><code>alter &lt; 16</code></td><td>alter kleiner als 16 ist</td></tr>
-                    <tr><td><code>&lt;=</code> <code>&gt;=</code></td><td>kleiner-gleich / größer-gleich</td><td><code>gewicht &gt;= 30</code></td><td>gewicht mindestens 30 ist</td></tr>
+                    <tr><td><code>==</code></td><td>gleich</td><td><code>punkte == 100</code></td><td>punkte genau 100 ist</td></tr>
+                    <tr><td><code>!=</code></td><td>ungleich</td><td><code>name != "Ryu"</code></td><td>der Name nicht Ryu ist</td></tr>
+                    <tr><td><code>&lt;</code> <code>&gt;</code></td><td>kleiner / größer</td><td><code>leben &lt; 3</code></td><td>der Held weniger als 3 Leben hat</td></tr>
+                    <tr><td><code>&lt;=</code> <code>&gt;=</code></td><td>kleiner-gleich / größer-gleich</td><td><code>punkte &gt;= 1000</code></td><td>mindestens 1000 Punkte erreicht sind</td></tr>
                 </table>
-                <div class="callout orange frag"><b>Achtung, Klassiker:</b> <code>=</code> ist eine <b>Zuweisung</b> (nameStart = "Bello"), <code>==</code> ist ein <b>Vergleich</b> (alter == 16). Verwechseln = Lieblingsfehler von Anfängern und Profis! 😉</div>
+                <div class="callout orange frag"><b>Achtung, Klassiker:</b> <code>=</code> ist eine <b>Zuweisung</b> (nameStart = "Ryu"), <code>==</code> ist ein <b>Vergleich</b> (punkte == 100). Verwechseln = Lieblingsfehler von Anfängern und Profis! 😉</div>
             </div>
         </section>
 
@@ -218,14 +234,35 @@
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-toggle-on"></i> if – else: Zwei Wege</h2>
                 <p class="lead animated">Oft soll bei „falsch“ auch etwas passieren – dafür gibt es <b>else</b>:</p>
-                <div class="code-box animated"><span class="cm">// Beispiel: Tierheim-Eintritt</span>
-<span class="kw">int</span> alter = 12;
+                <div class="code-box animated"><span class="cm">// Beispiel: Level-Aufstieg</span>
+<span class="kw">int</span> punkte = 120;
 
-<span class="kw">if</span> (alter >= 14) {
-    System.out.println(<span class="st">"Du darfst allein ins Tierheim."</span>);
+<span class="kw">if</span> (punkte >= 100) {
+    System.out.println(<span class="st">"Level geschafft!"</span>);
 } <span class="hl">else</span> {
-    System.out.println(<span class="st">"Bitte komm mit einer erwachsenen Person."</span>);
+    System.out.println(<span class="st">"Noch ein bisschen weiterspielen!"</span>);
 }</div>
+                <div class="flow-wrap frag">
+                    <svg class="flow-svg" viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="305" y="10" width="250" height="70" fill="#ffd93d" stroke="#b8860b" stroke-width="3"/>
+                        <line x1="555" y1="10" x2="305" y2="80" stroke="#b8860b" stroke-width="2"/>
+                        <text x="430" y="42" text-anchor="middle" font-size="17" fill="#1a1a2e" font-weight="700" font-family="Poppins, sans-serif">Bedingung</text>
+                        <text x="430" y="64" text-anchor="middle" font-size="14" fill="#1a1a2e" font-family="'Courier New', monospace">punkte >= 100 ?</text>
+                        <rect x="305" y="80" width="250" height="120" fill="rgba(255,255,255,0.03)" stroke="#b8860b" stroke-width="3"/>
+                        <line x1="430" y1="80" x2="430" y2="200" stroke="#b8860b" stroke-width="2"/>
+                        <text x="313" y="98" font-size="14" fill="#a5e88d" font-weight="700" font-family="Poppins, sans-serif">wahr ✓</text>
+                        <text x="547" y="98" text-anchor="end" font-size="14" fill="#ff8e53" font-weight="700" font-family="Poppins, sans-serif">falsch ✗</text>
+                        <rect x="318" y="110" width="100" height="70" rx="8" fill="#a5e88d" stroke="#4a6bff" stroke-width="2.5"/>
+                        <text x="368" y="140" text-anchor="middle" font-size="12" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">"Level</text>
+                        <text x="368" y="158" text-anchor="middle" font-size="12" fill="#1a1a2e" font-family="Poppins, sans-serif">geschafft!"</text>
+                        <rect x="442" y="110" width="100" height="70" rx="8" fill="#ff8e53" stroke="#4a6bff" stroke-width="2.5"/>
+                        <text x="492" y="140" text-anchor="middle" font-size="12" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">"Noch ein</text>
+                        <text x="492" y="158" text-anchor="middle" font-size="12" fill="#1a1a2e" font-family="Poppins, sans-serif">bisschen …"</text>
+                        <text x="620" y="55" font-size="14" fill="#dfe4ff" font-family="Poppins, sans-serif">Im Struktogramm:</text>
+                        <text x="620" y="75" font-size="14" fill="#dfe4ff" font-family="Poppins, sans-serif">beide Zweige gefüllt –</text>
+                        <text x="620" y="95" font-size="14" fill="#dfe4ff" font-family="Poppins, sans-serif">genau EINER läuft.</text>
+                    </svg>
+                </div>
                 <div class="code-hint frag">💡 <b>else</b> bekommt keine eigene Bedingung! Es ist einfach der <b>sonst-Fall</b>: Es greift genau dann, wenn die if-Bedingung falsch ist. Genau einer der beiden Blöcke wird immer ausgeführt.</div>
             </div>
         </section>
@@ -234,16 +271,16 @@
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-list-ul"></i> else if: Mehrere Fälle nacheinander</h2>
-                <p class="lead animated">Die Tierheim-Statistik soll die Tiere in Kategorien einteilen:</p>
-                <div class="code-box animated"><span class="cm">// Note für den Gesundheitszustand</span>
-<span class="kw">if</span> (gewicht &lt; 5) {
-    System.out.println(name + <span class="st">" braucht extra Futter."</span>);
-} <span class="hl">else if</span> (gewicht &lt; 15) {
-    System.out.println(name + <span class="st">" ist topfit!"</span>);
-} <span class="hl">else if</span> (gewicht &lt; 25) {
-    System.out.println(name + <span class="st">" sollte mehr Bewegung machen."</span>);
+                <p class="lead animated">Die Spielstatistik soll jedem Helden einen Rang geben:</p>
+                <div class="code-box animated"><span class="cm">// Rang je nach Punktestand</span>
+<span class="kw">if</span> (punkte >= 1000) {
+    System.out.println(<span class="st">"Rang: LEGENDE"</span>);
+} <span class="hl">else if</span> (punkte >= 500) {
+    System.out.println(<span class="st">"Rang: GOLD"</span>);
+} <span class="hl">else if</span> (punkte >= 100) {
+    System.out.println(<span class="st">"Rang: SILBER"</span>);
 } <span class="hl">else</span> {
-    System.out.println(name + <span class="st">" braucht einen Diätplan."</span>);
+    System.out.println(<span class="st">"Rang: BRONZE"</span>);
 }</div>
                 <div class="code-hint frag">💡 Java prüft die Bedingungen <b>von oben nach unten</b> – sobald eine wahr ist, wird ihr Block ausgeführt und alle weiteren werden <b>übersprungen</b>. Das <b>else</b> am Ende fängt alles auf, was vorher nicht gepasst hat.</div>
             </div>
@@ -257,7 +294,7 @@
                     <div class="feature-card animated">
                         <div class="feature-icon"><i class="fas fa-xmark"></i></div>
                         <h3>= statt ==</h3>
-                        <p><code style="color:#ff8e53">if (alter = 16)</code> ❌ &nbsp;→&nbsp; <code style="color:#a5e88d">if (alter == 16)</code> ✓</p>
+                        <p><code style="color:#ff8e53">if (punkte = 100)</code> ❌ &nbsp;→&nbsp; <code style="color:#a5e88d">if (punkte == 100)</code> ✓</p>
                     </div>
                     <div class="feature-card animated">
                         <div class="feature-icon"><i class="fas fa-xmark"></i></div>
@@ -272,7 +309,7 @@
                     <div class="feature-card frag">
                         <div class="feature-icon"><i class="fas fa-xmark"></i></div>
                         <h3>Text vergleichen mit ==</h3>
-                        <p>Für Strings nimmt man <code style="color:#a5e88d">name.equals("Bello")</code> statt <code style="color:#ff8e53">name == "Bello"</code>.</p>
+                        <p>Für Strings nimmt man <code style="color:#a5e88d">name.equals("Ryu")</code> statt <code style="color:#ff8e53">name == "Ryu"</code>.</p>
                     </div>
                 </div>
             </div>
@@ -287,20 +324,21 @@
                         <div class="feature-icon"><i class="fas fa-pen"></i></div>
                         <h3>Vorhersagen</h3>
                         <p>Was gibt dieses Programm aus? Überlege zuerst, dann teste!</p>
-                        <div class="code-box" style="margin-top:12px;"><span class="kw">int</span> punkte = 42;
-<span class="kw">if</span> (punkte &gt;= 50) {
-    System.out.println(<span class="st">"Bestanden!"</span>);
+                        <div class="code-box" style="margin-top:12px;"><span class="kw">int</span> leben = 8;
+
+<span class="kw">if</span> (leben &gt; 5) {
+    System.out.println(<span class="st">"Weiterkämpfen!"</span>);
 } <span class="kw">else</span> {
-    System.out.println(<span class="st">"Nochmal üben."</span>);
+    System.out.println(<span class="st">"Game Over – nochmal!"</span>);
 }</div>
                     </div>
                     <div class="feature-card frag">
                         <div class="feature-icon"><i class="fas fa-pen-ruler"></i></div>
                         <h3>Selber schreiben</h3>
-                        <p>Ergänze in der Klasse <b>Tier</b> eine Methode <b>geburtstagFeiern()</b>: Sie erhöht alter um 1 – und wenn das Tier danach mindestens 10 ist, gibt sie zusätzlich „Jetzt ein Senioren-Tier!“ aus.</p>
+                        <p>Ergänze in der Klasse <b>Spielcharakter</b> eine Methode <b>levelAufsteigen()</b>: Sie erhöht das neue Attribut <b>level</b> um 1 – und wenn level danach mindestens 10 ist, gibt sie zusätzlich „Maximale Stufe erreicht!“ aus.</p>
                     </div>
                 </div>
-                <div class="callout frag"><b>Tipp für Schnelle:</b> Schreibe eine Methode <b>istErwachsen()</b>, die true zurückgibt, wenn alter &gt;= 10 ist. Was bedeutet das <b>return</b> hier?</div>
+                <div class="callout frag"><b>Tipp für Schnelle:</b> Schreibe eine Methode <b>hatGewonnen()</b>, die true zurückgibt, wenn punkte &gt;= 1000 ist. Was bedeutet das <b>return</b> hier?</div>
             </div>
         </section>
 
@@ -310,6 +348,7 @@
                 <h2 class="gradient-text animated">Das nimmst du mit</h2>
                 <div style="text-align:left; max-width:780px; margin:0 auto; color:#dfe4ff; line-height:2;" class="animated">
                     <p><i class="fas fa-code-branch"></i> <b>if (Bedingung) { … }</b> – führt Code nur aus, wenn die Bedingung wahr ist</p>
+                    <p><i class="fas fa-table-cells-large"></i> <b>Struktogramm</b> – Kopf mit Bedingung, darunter die Zweige, alles von oben nach unten</p>
                     <p><i class="fas fa-toggle-on"></i> <b>else</b> – der sonst-Fall für alles andere</p>
                     <p><i class="fas fa-list-ul"></i> <b>else if</b> – mehrere Fälle, von oben nach unten geprüft</p>
                     <p><i class="fas fa-scale-unbalanced"></i> <b>== != &lt; &gt; &lt;= &gt;=</b> – Vergleichsoperatoren (nicht = verwechseln!)</p>
