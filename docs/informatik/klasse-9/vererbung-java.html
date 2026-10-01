@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java: Vererbung – Informatik 9</title>
+<style>
+:root{
+  --blue:#1F5C99; --lightblue:#DCE9F5; --accent:#FF7A00; --dark:#0F2A43;
+  font-family:'Segoe UI',system-ui,sans-serif; color:#222;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f5f7fa}
+.presentation-container{position:relative;width:100%;max-width:1200px;margin:0 auto;min-height:100vh}
+.slide{display:none;padding:56px 90px 90px;min-height:100vh}
+.slide.active{display:block;animation:fadeIn .45s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.animated{opacity:0;transform:translateY(18px);transition:all .5s ease}
+.slide.active .animated{opacity:1;transform:none}
+.slide.active .animated:nth-of-type(1){transition-delay:.05s}
+.slide.active .animated:nth-of-type(2){transition-delay:.2s}
+.slide.active .animated:nth-of-type(3){transition-delay:.35s}
+.slide.active .animated:nth-of-type(4){transition-delay:.5s}
+.slide.active .animated:nth-of-type(5){transition-delay:.65s}
+
+/* Titelfolie */
+.gradient-slide{background:linear-gradient(135deg,#0F2A43 0%,#1F5C99 55%,#3E8EDE 100%);color:#fff}
+.gradient-slide h1{font-size:3.2rem;line-height:1.15;text-shadow:0 3px 10px rgba(0,0,0,.45)}
+.gradient-slide .subtitle{font-size:1.35rem;color:#e8f1fb;text-shadow:0 2px 6px rgba(0,0,0,.4)}
+.gradient-slide .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);
+  padding:.4rem 1.1rem;border-radius:999px;font-size:.95rem;letter-spacing:.05em;margin-bottom:1.6rem}
+.gradient-slide .emoji-row{font-size:3rem;margin-top:2.2rem}
+.gradient-slide code{color:#ffd479}
+
+/* Layouts */
+.slide h2{font-size:2.1rem;color:var(--blue);margin-bottom:.4rem}
+.slide .lead{font-size:1.15rem;color:#555;margin-bottom:1.4rem}
+.two-column-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:1.5rem}
+.three-column-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:1.8rem}
+.feature-card{background:#fff;border-radius:14px;padding:26px;box-shadow:0 4px 18px rgba(31,92,153,.12);border-top:4px solid var(--blue)}
+.feature-card h3{color:var(--blue);margin-bottom:.6rem;font-size:1.15rem}
+.feature-card p{color:#444;line-height:1.5}
+.feature-bar{height:5px;width:64px;background:var(--accent);border-radius:3px;margin-bottom:1rem}
+
+/* UML-Diagramm-Boxen */
+.uml{background:#fff;border:2px solid var(--blue);border-radius:10px;overflow:hidden;
+  box-shadow:0 4px 14px rgba(31,92,153,.15);width:270px;margin:0 auto}
+.uml .uml-head{background:var(--blue);color:#fff;font-weight:700;padding:.5rem 1rem;text-align:center;font-size:1.05rem}
+.uml .uml-sec{padding:.5rem 1rem;border-bottom:1px solid #d8e4f0;font-family:Consolas,monospace;font-size:.9rem;color:#333}
+.uml .uml-sec:last-child{border-bottom:none}
+.uml .empty{color:#999;font-style:italic}
+.uml-grid-3{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.uml-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:start;margin-top:1.2rem}
+.uml-row .arrowcol{text-align:center;align-self:center}
+.arrow{font-size:1.1rem;color:var(--accent);font-weight:700;line-height:1.3}
+
+/* Vergleichstabelle */
+.comparison-table{width:100%;border-collapse:collapse;margin-top:1.4rem;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(31,92,153,.12)}
+.comparison-table th{background:var(--blue);color:#fff;padding:.8rem 1.2rem;text-align:left}
+.comparison-table td{padding:.7rem 1.2rem;border-bottom:1px solid #e6eef7}
+.row-value.old{background:#fdecec;color:#a33}
+.row-value.new{background:#e9f8ee;color:#1c7c33}
+code,pre{font-family:Consolas,'Courier New',monospace}
+.codebox{background:#0F2A43;color:#e8f1fb;border-radius:12px;padding:20px 26px;font-size:.93rem;line-height:1.55;
+  overflow-x:auto;box-shadow:0 6px 20px rgba(15,42,67,.35);margin-top:1.1rem}
+.codebox pre{margin:0}
+.codebox .k{color:#7ec7ff}.codebox .t{color:#ffd479}.codebox .c{color:#8fa8c0;font-style:italic}.codebox .s{color:#a8e6a3}
+.codebox .hl{background:rgba(255,122,0,.28);border-radius:4px;padding:0 2px}
+.slide .small{font-size:.9rem;color:#777;margin-top:1rem}
+.tag{display:inline-block;background:var(--lightblue);color:var(--blue);border-radius:6px;padding:.15rem .6rem;font-weight:600;font-size:.9rem}
+.tag.orange{background:#ffedd9;color:#c05a00}
+
+/* Callout */
+.callout{background:var(--lightblue);border-left:6px solid var(--blue);border-radius:0 10px 10px 0;padding:18px 24px;margin-top:1.5rem;line-height:1.5}
+.callout strong{color:var(--blue)}
+.callout.orange{background:#ffedd9;border-color:var(--accent)}
+.callout.orange strong{color:#c05a00}
+code.inline{background:#eef4fb;color:var(--blue);border-radius:4px;padding:.1rem .35rem}
+
+/* Navigation */
+.nav{position:fixed;bottom:18px;right:26px;display:flex;gap:10px;align-items:center}
+.nav button{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:.55rem 1.1rem;font-size:1rem;cursor:pointer}
+.nav button:hover{background:#2e7ec2}
+.slide-counter{background:#fff;color:var(--blue);font-weight:700;padding:.55rem .9rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+/* Sidebar */
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:210px;background:#fff;border-right:1px solid #e2e9f2;
+  padding:18px 0;overflow-y:auto;z-index:20}
+.sidebar .sb-title{font-weight:700;color:var(--blue);padding:0 20px 10px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+.sidebar a{display:block;padding:.5rem 20px;color:#555;text-decoration:none;font-size:.92rem;cursor:pointer;border-left:4px solid transparent}
+.sidebar a:hover{background:#f2f7fc}
+.sidebar a.active{color:var(--blue);border-left-color:var(--accent);background:#f2f7fc;font-weight:700}
+.slide{padding-left:270px;padding-right:60px}
+@media (max-width:950px){.slide{padding:40px 26px 90px}.two-column-layout,.three-column-grid,.uml-grid-3,.uml-row{grid-template-columns:1fr}.sidebar{display:none}}
+</style>
+</head>
+<body>
+<nav class="sidebar" id="sidebar">
+  <div class="sb-title">Vererbung in Java</div>
+  <a data-slide="0">Titel</a>
+  <a data-slide="1">Das Tierheim</a>
+  <a data-slide="2">Modellierung</a>
+  <a data-slide="3">Gemeinsamkeiten?</a>
+  <a data-slide="4">Die Superklasse</a>
+  <a data-slide="5">Diagramm → Code</a>
+  <a data-slide="6">Erben im Test</a>
+  <a data-slide="7">Überschreiben</a>
+  <a data-slide="8">Check</a>
+  <a data-slide="9">Abschluss</a>
+</nav>
+
+<div class="presentation-container">
+
+<!-- 0 Titel -->
+<section class="slide gradient-slide active">
+  <div style="padding-top:7vh">
+    <span class="badge">INFORMATIK 9 · OBJEKTORIENTIERTE MODELLIERUNG</span>
+    <h1 class="animated">Vererbung in Java</h1>
+    <p class="subtitle animated" style="margin-top:1rem">Gemeinsamkeiten entdecken, bündeln und mit <code>extends</code> programmieren</p>
+    <div class="emoji-row animated">🐕 🐈 ⬅️ 🧬 ⬅️ <b>Tier</b></div>
+  </div>
+</section>
+
+<!-- 1 Einstieg -->
+<section class="slide">
+  <h2 class="animated">Willkommen im Tierheim „Arche Nürnberg" 🏠</h2>
+  <p class="lead animated">Das Tierheim verwaltet seine Tiere künftig digital – und du programmierst die Verwaltung!</p>
+  <div class="two-column-layout">
+    <div class="feature-card animated">
+      <h3>🐕 Der Hund Bello</h3>
+      <p>Bello hat einen <b>Namen</b>, eine <b>Rasse</b> und ein <b>Alter</b>. Er kann <b>bellen</b> und <b>fressen</b>.</p>
+    </div>
+    <div class="feature-card animated">
+      <h3>🐈 Die Katze Mimi</h3>
+      <p>Mimi hat ebenfalls einen <b>Namen</b>, eine <b>Rasse</b> und ein <b>Alter</b>. Sie kann <b>miauen</b> und <b>fressen</b>.</p>
+    </div>
+  </div>
+  <div class="callout orange animated">
+    <strong>Deine Aufgabe:</strong> Modelliere Bello und Mimi als Klassen-Diagramm – und schau genau hin, was dir auffällt … 👀
+  </div>
+</section>
+
+<!-- 2 Modellierung -->
+<section class="slide">
+  <h2 class="animated">Schritt 1: Zwei Klassen modellieren</h2>
+  <p class="lead animated">Jedes Tier wird als eigene Klasse mit Attributen und Methoden dargestellt:</p>
+  <div class="uml-grid-3 animated">
+    <div class="uml">
+      <div class="uml-head">Hund</div>
+      <div class="uml-sec">name: String<br>rasse: String<br>alter: int</div>
+      <div class="uml-sec">bellen(): void<br>fressen(): void</div>
+    </div>
+    <div class="uml">
+      <div class="uml-head">Katze</div>
+      <div class="uml-sec">name: String<br>rasse: String<br>alter: int</div>
+      <div class="uml-sec">miauen(): void<br>fressen(): void</div>
+    </div>
+  </div>
+  <div class="callout animated">
+    <strong>Stop! Sieh dir die beiden Diagramme genau an.</strong> Was fällt dir auf? Diskutiere mit deinem Sitznachbarn bzw. deiner Sitznachbarin.
+  </div>
+</section>
+
+<!-- 3 Gemeinsamkeiten -->
+<section class="slide">
+  <h2 class="animated">Schritt 2: Das Entdeckermuster 🔍</h2>
+  <p class="lead animated">Vergleichen wir die beiden Klassen systematisch:</p>
+  <table class="comparison-table animated">
+    <tr><th></th><th>Hund</th><th>Katze</th></tr>
+    <tr><td><b>Attribute</b></td><td class="row-value old">name, rasse, alter</td><td class="row-value old">name, rasse, alter → doppelt!</td></tr>
+    <tr><td><b>gemeinsame Methode</b></td><td class="row-value new">fressen()</td><td class="row-value new">fressen() → identisch!</td></tr>
+    <tr><td><b>unterschiedliche Methode</b></td><td>bellen()</td><td>miauen()</td></tr>
+  </table>
+  <div class="callout animated">
+    <strong>Erkenntnis:</strong> Die Attribute und <code class="inline">fressen()</code> sind <b>komplett doppelt</b>. Bei 20 Tierarten wäre das 20-mal derselbe Code – mühsam, fehleranfällig und schwer zu pflegen!
+  </div>
+  <p class="small animated">💡 Profis nennen das <b>Redundanz</b> – und es gilt: <i>„Don't repeat yourself!"</i></p>
+</section>
+
+<!-- 4 Superklasse -->
+<section class="slide">
+  <h2 class="animated">Schritt 3: Die Lösung – eine Superklasse!</h2>
+  <p class="lead animated">Alles Gemeinsame wandert in <b>eine</b> Eltern-Klasse: <code class="inline">Tier</code></p>
+  <div class="uml-row animated">
+    <div class="uml">
+      <div class="uml-head">Hund</div>
+      <div class="uml-sec empty">– erbt alles –</div>
+      <div class="uml-sec">bellen(): void</div>
+    </div>
+    <div class="arrowcol">
+      <div class="arrow">◀ &nbsp;extends&nbsp; ▶<br>erbt von</div>
+    </div>
+    <div class="uml">
+      <div class="uml-head">Tier</div>
+      <div class="uml-sec">name: String<br>rasse: String<br>alter: int</div>
+      <div class="uml-sec">fressen(): void</div>
+    </div>
+  </div>
+  <div class="uml animated" style="margin-top:1rem;width:270px">
+    <div class="uml-head">Katze</div>
+    <div class="uml-sec empty">– erbt alles –</div>
+    <div class="uml-sec">miauen(): void</div>
+  </div>
+  <div class="callout animated">
+    <strong>Fachbegriffe:</strong> <span class="tag">Tier = Superklasse / Elternklasse</span>
+    <span class="tag orange">Hund, Katze = Subklassen / Kindklassen</span><br>
+    Die Subklassen <b>erben</b> alle Attribute und Methoden der Superklasse – sie müssen sie nicht noch einmal hinschreiben.
+  </div>
+</section>
+
+<!-- 5 Code Tier + Hund -->
+<section class="slide">
+  <h2 class="animated">Schritt 4: Vom Diagramm zum Code</h2>
+  <p class="lead animated">Erst die Superklasse, dann eine Subklasse mit <span class="tag orange">extends</span>:</p>
+  <div class="codebox animated"><pre><span class="k">public class</span> <span class="t">Tier</span> {
+    <span class="k">private</span> String <span class="hl">name</span>;
+    <span class="k">private</span> String <span class="hl">rasse</span>;
+    <span class="k">private</span> <span class="k">int</span> <span class="hl">alter</span>;
+
+    <span class="k">public</span> <span class="t">Tier</span>(String name, String rasse, <span class="k">int</span> alter) {
+        <span class="k">this</span>.name = name;
+        <span class="k">this</span>.rasse = rasse;
+        <span class="k">this</span>.alter = alter;
+    }
+
+    <span class="k">public void</span> <span class="hl">fressen</span>() {
+        System.out.println(name + <span class="s">" frisst. Lecker!"</span>);
+    }
+}</pre></div>
+  <div class="codebox animated"><pre><span class="k">public class</span> <span class="t">Hund</span> <span class="hl">extends</span> <span class="t">Tier</span> {      <span class="c">// Hund IST EIN Tier</span>
+
+    <span class="k">public</span> <span class="t">Hund</span>(String name, String rasse, <span class="k">int</span> alter) {
+        <span class="hl">super</span>(name, rasse, alter);      <span class="c">// ruft den Konstruktor der Superklasse auf</span>
+    }
+
+    <span class="k">public void</span> bellen() {
+        System.out.println(<span class="s">"Wuff! Wuff!"</span>);
+    }
+}</pre></div>
+  <p class="small animated">Achte auf die zwei Neuerungen: <code class="inline">extends Tier</code> in der Kopfzeile und <code class="inline">super(...)</code> im Konstruktor.</p>
+</section>
+
+<!-- 6 Katze + Test -->
+<section class="slide">
+  <h2 class="animated">Die Katze – und der erste Test</h2>
+  <div class="codebox animated"><pre><span class="k">public class</span> <span class="t">Katze</span> <span class="hl">extends</span> <span class="t">Tier</span> {
+
+    <span class="k">public</span> <span class="t">Katze</span>(String name, String rasse, <span class="k">int</span> alter) {
+        <span class="hl">super</span>(name, rasse, alter);
+    }
+
+    <span class="k">public void</span> miauen() {
+        System.out.println(<span class="s">"Miau!"</span>);
+    }
+}</pre></div>
+  <div class="codebox animated"><pre><span class="c">// In der main-Methode:</span>
+<span class="t">Hund</span> bello = <span class="k">new</span> <span class="t">Hund</span>(<span class="s">"Bello"</span>, <span class="s">"Labrador"</span>, 3);
+<span class="t">Katze</span> mimi = <span class="k">new</span> <span class="t">Katze</span>(<span class="s">"Mimi"</span>, <span class="s">"Europäisch"</span>, 2);
+
+bello.fressen();   <span class="c">// "Bello frisst. Lecker!"  ← geerbt von Tier!</span>
+bello.bellen();    <span class="c">// "Wuff! Wuff!"</span>
+mimi.fressen();    <span class="c">// "Mimi frisst. Lecker!"  ← auch geerbt!</span>
+mimi.miauen();     <span class="c">// "Miau!"</span></pre></div>
+  <div class="callout animated"><strong>Genial:</strong> <code class="inline">fressen()</code> haben wir nur <b>einmal</b> geschrieben – beide Tiere können es trotzdem!</div>
+</section>
+
+<!-- 7 Überschreiben -->
+<section class="slide">
+  <h2 class="animated">Bonus: Methoden überschreiben 🔧</h2>
+  <p class="lead animated">Jedes Tier macht ein anderes Geräusch – aber alle sollen <code class="inline">lautGeben()</code> können! Lösung: in der Superklasse allgemein definieren, in den Subklassen <b>überschreiben</b>.</p>
+  <div class="codebox animated"><pre><span class="k">public class</span> <span class="t">Tier</span> {
+    ...
+    <span class="k">public void</span> <span class="hl">lautGeben</span>() {
+        System.out.println(<span class="s">"..."</span>);            <span class="c">// allgemein</span>
+    }
+}
+
+<span class="k">public class</span> <span class="t">Hund</span> <span class="k">extends</span> <span class="t">Tier</span> {
+    <span class="hl">@Override</span>                            <span class="c">// kennzeichnet das Überschreiben</span>
+    <span class="k">public void</span> lautGeben() {
+        System.out.println(<span class="s">"Wuff! Wuff!"</span>);
+    }
+}</pre></div>
+  <div class="callout orange animated"><strong>Regel:</strong> Gleicher Methodenname, gleiche Parameter – aber <b>neuer Inhalt</b> in der Subklasse. <code class="inline">@Override</code> ist dabei ein hilfreicher Hinweis an den Compiler.</div>
+</section>
+
+<!-- 8 Check -->
+<section class="slide">
+  <h2 class="animated">Check dein Können ✅</h2>
+  <p class="lead animated">Kannst du diese Fragen beantworten?</p>
+  <div class="three-column-grid">
+    <div class="feature-card animated"><div class="feature-bar"></div><h3>Vererbung</h3><p>Warum lohnt sich die Superklasse <code class="inline">Tier</code>? Was bedeutet <code class="inline">extends</code>?</p></div>
+    <div class="feature-card animated"><div class="feature-bar"></div><h3>super(...)</h3><p>Was macht <code class="inline">super(name, rasse, alter)</code> im Konstruktor der Subklasse?</p></div>
+    <div class="feature-card animated"><div class="feature-bar"></div><h3>Überschreiben</h3><p>Wann überschreibt man eine Methode – und woran erkennt man das im Code?</p></div>
+  </div>
+  <div class="callout animated"><strong>Mini-Aufgabe:</strong> Modelliere die Klasse <code class="inline">Papagei</code> (erbt von <code class="inline">Tier</code>, kann <code class="inline">sprechen()</code>) als Diagramm und übersetze sie in Java-Code.</div>
+</section>
+
+<!-- 9 Abschluss -->
+<section class="slide gradient-slide">
+  <div style="padding-top:9vh;text-align:center">
+    <h1 class="animated">Du hast es geschafft! 🎉</h1>
+    <p class="subtitle animated" style="margin-top:1.2rem">Gemeinsamkeiten erkannt → Superklasse gebaut → <code>extends</code> genutzt → Methoden überschrieben.</p>
+    <div class="emoji-row animated">🧬 🐕 🐈 🦜</div>
+    <p class="animated" style="margin-top:2rem;color:#cfe3f7">Nächstes Mal: Was ist „Polymorphismus" – und warum kann ein Tier-Platzhalter plötzlich miauen?</p>
+  </div>
+</section>
+
+</div>
+
+<div class="nav">
+  <button id="prev">←</button>
+  <span class="slide-counter" id="counter">1 / 10</span>
+  <button id="next">→</button>
+</div>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const links = document.querySelectorAll('.sidebar a');
+  let idx = 0;
+  function show(n){
+    idx = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+    counter.textContent = (idx+1)+' / '+slides.length;
+    links.forEach((a,i)=>a.classList.toggle('active', i===idx));
+  }
+  document.getElementById('next').onclick = ()=>show(idx+1);
+  document.getElementById('prev').onclick = ()=>show(idx-1);
+  document.addEventListener('keydown', e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter') show(idx+1);
+    if(e.key==='ArrowLeft') show(idx-1);
+    if(e.key==='Home') show(0);
+    if(e.key==='End') show(slides.length-1);
+  });
+  links.forEach(a=>a.addEventListener('click', ()=>show(parseInt(a.dataset.slide))));
+  show(0);
+})();
+</script>
+</body>
+</html>
