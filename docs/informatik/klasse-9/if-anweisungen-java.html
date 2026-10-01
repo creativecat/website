@@ -5,66 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>if-Anweisungen in Java – Informatik 9</title>
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      /* ===== HELLER + MEHR KONTRAST (wie vererbung-java.html) ===== */
+      /* ===== HELLES DESIGN + MODERNE OPTIK ===== */
       .presentation-container {
-        --bg-dark: #22224a;
-        --bg-darker: #12122b;
+        --bg-dark: #23234e;
+        --bg-darker: #141432;
         --text-muted: rgba(255, 255, 255, 0.88);
         --border-color: rgba(255, 255, 255, 0.22);
         --bg-card: rgba(255, 255, 255, 0.09);
-        background: linear-gradient(160deg, #26265a 0%, #1a1a3e 55%, #141434 100%);
+        background:
+          radial-gradient(900px 520px at 88% -12%, rgba(139, 92, 246, 0.38), transparent 60%),
+          radial-gradient(760px 480px at -8% 112%, rgba(102, 126, 234, 0.32), transparent 60%),
+          linear-gradient(165deg, #2c2c64 0%, #20204a 55%, #171738 100%);
         box-shadow: 0 0 70px rgba(102, 126, 234, 0.35), var(--shadow-lg);
       }
       .slide { background: transparent; }
       .slide-content p { color: var(--text-muted); }
-      .lead { color: #dfe4ff; }
+      .lead { color: #e3e7ff; }
       .callout { color: #eef0ff; }
       .callout b { color: #fff; }
 
       .slide-content { font-size: 1.08em; max-height: 100%; }
-      .lead { font-size: 1.25em; margin-bottom: 14px; }
+      .lead { font-size: 1.22em; margin-bottom: 14px; }
+      h2.gradient-text { letter-spacing: 0.2px; }
 
-      /* ===== Sidebar ===== */
-      .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(15, 15, 35, 0.95); backdrop-filter: blur(10px); border-right: 1px solid rgba(255,255,255,0.14); padding: 24px 0; z-index: 1000; overflow-y: auto; }
-      .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 20px 14px; border-bottom: 1px solid rgba(255,255,255,0.14); margin: 0 0 10px; font-family: 'Poppins', sans-serif; }
-      .sidebar a { display: block; padding: 8px 20px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.84rem; cursor: pointer; border-left: 3px solid transparent; transition: all .2s; }
+      /* ===== Sidebar (modern, Pill-Aktiv-Markierung) ===== */
+      .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(12, 12, 30, 0.92); backdrop-filter: blur(14px); border-right: 1px solid rgba(255,255,255,0.10); padding: 24px 12px; z-index: 1000; overflow-y: auto; }
+      .sidebar h3 { color: #fff; font-size: 0.95rem; padding: 0 14px 14px; border-bottom: 1px solid rgba(255,255,255,0.12); margin: 0 0 12px; font-family: 'Poppins', sans-serif; }
+      .sidebar a { display: block; padding: 9px 14px; color: rgba(255,255,255,0.70); text-decoration: none; font-size: 0.84rem; cursor: pointer; border-radius: 10px; margin: 2px 0; transition: all .2s; }
       .sidebar a:hover { color: #fff; background: rgba(255,255,255,0.08); }
-      .sidebar a.active { color: #fff; background: rgba(255,255,255,0.12); border-left-color: #667eea; }
+      .sidebar a.active { color: #fff; background: linear-gradient(90deg, #667eea, #8b5cf6); box-shadow: 0 4px 14px rgba(102, 126, 234, 0.45); }
       .sidebar .back { margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
       body.has-sidebar .slide-content { margin-left: 120px; }
 
-      /* ===== Code ===== */
-      .code-box { background: rgba(5, 5, 20, 0.75); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px 26px; font-family: 'Courier New', monospace; font-size: 0.98rem; color: #d6dbf5; text-align: left; line-height: 1.5; margin-top: 14px; white-space: pre; overflow-x: auto; }
+      /* ===== Code (Mac-Fenster-Optik) ===== */
+      .code-box { position: relative; background: #101024; border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 34px 26px 16px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.95rem; color: #dbe1fb; text-align: left; line-height: 1.5; margin-top: 14px; white-space: pre; overflow-x: auto; box-shadow: 0 10px 26px rgba(0,0,0,0.30); }
+      .code-box::before { content: ''; position: absolute; top: 13px; left: 18px; width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; box-shadow: 18px 0 0 #febc2e, 36px 0 0 #28c840; }
       .code-box .kw { color: #c792ea; font-weight: 700; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #a5e88d; } .code-box .cm { color: #7a89b8; font-style: italic; } .code-box .hl { color: #ff8e53; font-weight: 700; }
-      .code-hint { background: rgba(102,126,234,0.18); border: 1px solid rgba(143,162,255,0.5); border-radius: 10px; padding: 10px 20px; margin-top: 12px; color: #eef0ff; font-size: 1.02em; }
+      .code-hint { background: rgba(102,126,234,0.16); border: 1px solid rgba(143,162,255,0.45); border-radius: 12px; padding: 11px 20px; margin-top: 12px; color: #eef0ff; font-size: 1.0em; backdrop-filter: blur(6px); }
       .code-hint b { color: #ffd93d; }
 
-      .duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 22px; }
-      .feature-card p { font-size: 1.05em; }
-      .feature-card h3 { font-size: 1.45em; }
+      .duo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+      .feature-card { border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); backdrop-filter: blur(8px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
+      .feature-card p { font-size: 1.02em; }
+      .feature-card h3 { font-size: 1.4em; }
+      .feature-card .feature-icon { background: linear-gradient(135deg, #667eea, #8b5cf6); box-shadow: 0 8px 18px rgba(102,126,234,0.45); }
 
-      .callout { background: rgba(102,126,234,0.22); border-left: 5px solid #8fa2ff; border-radius: 0 12px 12px 0; padding: 14px 24px; margin-top: 18px; font-size: 1.06em; }
-      .callout.orange { background: rgba(255,142,83,0.16); border-left-color: #ff8e53; }
+      .callout { background: rgba(102,126,234,0.20); border: none; border-left: 5px solid #8fa2ff; border-radius: 0 14px 14px 0; padding: 14px 22px; margin-top: 18px; font-size: 1.05em; backdrop-filter: blur(6px); }
+      .callout.orange { background: rgba(255,142,83,0.15); border-left-color: #ff8e53; }
       .callout.orange b { color: #ffc9a3; }
 
-      /* ===== Struktogramm (Nassi-Shneiderman) ===== */
-      .flow-wrap { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 12px 18px; margin-top: 14px; }
-      .flow-svg { width: 100%; height: auto; display: block; }
+      /* ===== Struktogramm: klassische weiße Tafel ===== */
+      .nassi-board { background: #ffffff; border-radius: 16px; padding: 18px 20px; margin-top: 14px; box-shadow: 0 18px 42px rgba(0,0,0,0.38); border: 1px solid rgba(255,255,255,0.5); }
+      .nassi-svg { width: 100%; height: auto; display: block; }
+      .nassi-svg .ln { stroke: #23233d; stroke-width: 2.5; fill: none; }
+      .nassi-svg .txt { font-family: 'Poppins', sans-serif; fill: #23233d; }
+      .nassi-svg .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; fill: #23233d; }
+      .nassi-svg .lbl-w { font-family: 'Poppins', sans-serif; font-weight: 700; fill: #2f9e44; }
+      .nassi-svg .lbl-f { font-family: 'Poppins', sans-serif; font-weight: 700; fill: #e8590c; }
+
+      /* Info-Chips neben dem Struktogramm */
+      .nassi-grid { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 14px; }
+      .chip { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)); border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 12px 16px; margin-bottom: 12px; text-align: left; }
+      .chip .n { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #8b5cf6); color: #fff; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+      .chip p { margin: 0; font-size: 0.92em; color: #e3e7ff; }
+      .chip b { color: #fff; }
 
       /* ===== Fragmente ===== */
       .frag { opacity: 0; transition: opacity 0.6s ease; }
       .frag-visible { opacity: 1; }
 
-      .table-ops { width: 100%; border-collapse: collapse; margin-top: 16px; background: rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; }
-      .table-ops th { background: rgba(143,162,255,0.35); color: #fff; padding: 12px 20px; text-align: left; font-size: 1.05em; }
-      .table-ops td { padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.12); color: #eef0ff; font-size: 1.05em; }
-      .table-ops code { font-family: 'Courier New', monospace; color: #ffd93d; font-weight: 700; }
+      .table-ops { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 16px; background: rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+      .table-ops th { background: linear-gradient(90deg, rgba(102,126,234,0.45), rgba(139,92,246,0.45)); color: #fff; padding: 12px 20px; text-align: left; font-size: 1.02em; }
+      .table-ops td { padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.10); color: #eef0ff; font-size: 1.02em; }
+      .table-ops tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+      .table-ops code { font-family: 'JetBrains Mono', 'Courier New', monospace; color: #ffd93d; font-weight: 700; }
       .table-ops tr:last-child td { border-bottom: none; }
 
-      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .duo-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .duo-grid { grid-template-columns: 1fr; } .nassi-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body class="has-sidebar">
@@ -146,39 +166,36 @@
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-table-cells-large"></i> Das Struktogramm macht die Entscheidung sichtbar</h2>
-                <p class="lead animated">Im Struktogramm (Nassi-Shneiderman-Diagramm) gibt es keine Pfeile und keine Rauten – alles läuft von <b>oben nach unten</b>:</p>
-                <div class="flow-wrap animated">
-                    <svg class="flow-svg" viewBox="0 0 860 350" xmlns="http://www.w3.org/2000/svg">
-                        <g class="animated">
-                            <rect x="230" y="15" width="400" height="80" fill="#ffd93d" stroke="#b8860b" stroke-width="3"/>
-                            <line x1="630" y1="15" x2="230" y2="95" stroke="#b8860b" stroke-width="2"/>
-                            <text x="430" y="52" text-anchor="middle" font-size="19" fill="#1a1a2e" font-weight="700" font-family="Poppins, sans-serif">Bedingung</text>
-                            <text x="430" y="76" text-anchor="middle" font-size="15" fill="#1a1a2e" font-family="'Courier New', monospace">alter >= 16 ?</text>
-                            <rect x="230" y="95" width="400" height="230" fill="rgba(255,255,255,0.03)" stroke="#b8860b" stroke-width="3"/>
-                            <line x1="430" y1="95" x2="430" y2="325" stroke="#b8860b" stroke-width="2"/>
-                            <text x="240" y="115" font-size="16" fill="#a5e88d" font-weight="700" font-family="Poppins, sans-serif">wahr ✓</text>
-                            <text x="620" y="115" text-anchor="end" font-size="16" fill="#ff8e53" font-weight="700" font-family="Poppins, sans-serif">falsch ✗</text>
-                        </g>
-                        <g class="frag">
-                            <rect x="255" y="145" width="150" height="100" rx="10" fill="#a5e88d" stroke="#4a6bff" stroke-width="3"/>
-                            <text x="330" y="185" text-anchor="middle" font-size="16" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">Anweisung</text>
-                            <text x="330" y="210" text-anchor="middle" font-size="13" fill="#1a1a2e" font-family="'Courier New', monospace">println(...)</text>
-                            <line x1="330" y1="95" x2="330" y2="141" stroke="#a5e88d" stroke-width="3"/>
-                            <polygon points="330,145 324,134 336,134" fill="#a5e88d"/>
-                        </g>
-                        <g class="frag">
-                            <rect x="460" y="145" width="150" height="100" rx="10" fill="rgba(255,142,83,0.14)" stroke="#ff8e53" stroke-width="2" stroke-dasharray="7 5"/>
-                            <text x="535" y="190" text-anchor="middle" font-size="14" fill="#ffc9a3" font-family="Poppins, sans-serif">leer – hier passiert</text>
-                            <text x="535" y="210" text-anchor="middle" font-size="14" fill="#ffc9a3" font-family="Poppins, sans-serif">nichts!</text>
-                        </g>
-                        <g class="frag">
-                            <text x="690" y="80" font-size="15" fill="#dfe4ff" font-family="Poppins, sans-serif">Kopf: Bedingung</text>
-                            <text x="690" y="100" font-size="15" fill="#dfe4ff" font-family="Poppins, sans-serif">mit Diagonale,</text>
-                            <text x="690" y="120" font-size="15" fill="#dfe4ff" font-family="Poppins, sans-serif">darunter die Zweige</text>
-                        </g>
-                    </svg>
+                <p class="lead animated">Im Struktogramm (nach Nassi-Shneiderman) gibt es keine Pfeile – alles läuft strikt <b>von oben nach unten</b>:</p>
+                <div class="nassi-grid">
+                    <div class="nassi-board animated">
+                        <svg class="nassi-svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="100" y="18" width="440" height="324" fill="#ffffff" class="ln"/>
+                            <line x1="100" y1="98" x2="540" y2="98" class="ln"/>
+                            <line x1="100" y1="98" x2="540" y2="18" class="ln"/>
+                            <text x="160" y="54" class="txt" font-size="18" font-weight="700">Bedingung</text>
+                            <text x="160" y="78" class="mono" font-size="15">alter >= 16 ?</text>
+                            <line x1="320" y1="98" x2="320" y2="342" class="ln"/>
+                            <text x="112" y="118" class="lbl-w" font-size="15">wahr</text>
+                            <text x="528" y="118" class="lbl-f" font-size="15" text-anchor="end">falsch</text>
+                            <g class="frag">
+                                <rect x="122" y="150" width="176" height="88" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
+                                <text x="210" y="188" class="txt" font-size="16" font-weight="600" text-anchor="middle">Anweisung(en)</text>
+                                <text x="210" y="212" class="mono" font-size="13" text-anchor="middle">println(...)</text>
+                            </g>
+                            <g class="frag">
+                                <text x="430" y="192" class="txt" font-size="15" text-anchor="middle" fill="#9aa0b5" font-style="italic">— hier passiert —</text>
+                                <text x="430" y="214" class="txt" font-size="15" text-anchor="middle" fill="#9aa0b5" font-style="italic">nichts —</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="chip animated"><div class="n">1</div><p><b>Kopf:</b> Die Bedingung steht oben – getrennt durch die <b>Diagonale</b>.</p></div>
+                        <div class="chip frag"><div class="n">2</div><p><b>Zweige:</b> Links alles bei <b>wahr</b>, rechts bei <b>falsch</b>.</p></div>
+                        <div class="chip frag"><div class="n">3</div><p><b>Ablauf:</b> Keine Pfeile! Das Programm läuft nur von <b>oben nach unten</b>.</p></div>
+                    </div>
                 </div>
-                <div class="callout frag"><b>So liest du es:</b> Kopf-Zeile = Bedingung. Links davon steht alles, was bei <b>wahr</b> passiert. Ist die Bedingung <b>falsch</b>, läuft das Programm einfach am leeren Zweig vorbei und macht weiter.</div>
+                <div class="callout frag"><b>So liest du es:</b> Ist die Bedingung <b>wahr</b>, läuft der linke Zweig. Bei <b>falsch</b> passiert hier nichts – das Programm springt einfach ans Ende des Struktogramms und macht weiter.</div>
             </div>
         </section>
 
@@ -205,7 +222,7 @@
     <span class="kw">public void</span> trefferErleiden() {
         <span class="kw">if</span> (leben > 0) {
             leben = leben - 10;
-            System.out.println(name + <span class="st">" hat noch " </span>+ leben + <span class="st">" Leben."</span>);
+            System.out.println(name + <span class="st">" hat noch "</span> + leben + <span class="st">" Leben."</span>);
         }
     }
 }</div>
@@ -234,36 +251,41 @@
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-toggle-on"></i> if – else: Zwei Wege</h2>
                 <p class="lead animated">Oft soll bei „falsch“ auch etwas passieren – dafür gibt es <b>else</b>:</p>
-                <div class="code-box animated"><span class="cm">// Beispiel: Level-Aufstieg</span>
+                <div class="nassi-grid">
+                    <div class="nassi-board animated">
+                        <svg class="nassi-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="100" y="18" width="440" height="264" fill="#ffffff" class="ln"/>
+                            <line x1="100" y1="88" x2="540" y2="88" class="ln"/>
+                            <line x1="100" y1="88" x2="540" y2="18" class="ln"/>
+                            <text x="160" y="48" class="txt" font-size="17" font-weight="700">Bedingung</text>
+                            <text x="160" y="70" class="mono" font-size="14">punkte >= 100 ?</text>
+                            <line x1="320" y1="88" x2="320" y2="282" class="ln"/>
+                            <text x="112" y="108" class="lbl-w" font-size="14">wahr</text>
+                            <text x="528" y="108" class="lbl-f" font-size="14" text-anchor="end">falsch</text>
+                            <g class="frag">
+                                <rect x="122" y="130" width="176" height="118" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
+                                <text x="210" y="172" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 1</text>
+                                <text x="210" y="196" class="mono" font-size="12" text-anchor="middle">println(</text>
+                                <text x="210" y="214" class="mono" font-size="12" text-anchor="middle">"Level geschafft!")</text>
+                            </g>
+                            <g class="frag">
+                                <rect x="342" y="130" width="176" height="118" rx="10" fill="#fff4e6" stroke="#e8590c" stroke-width="2.5"/>
+                                <text x="430" y="172" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 2</text>
+                                <text x="430" y="196" class="mono" font-size="12" text-anchor="middle">println(</text>
+                                <text x="430" y="214" class="mono" font-size="12" text-anchor="middle">"Noch ein bisschen …")</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="code-box animated" style="margin-top:0;"><span class="cm">// Beispiel: Level-Aufstieg</span>
 <span class="kw">int</span> punkte = 120;
 
 <span class="kw">if</span> (punkte >= 100) {
     System.out.println(<span class="st">"Level geschafft!"</span>);
 } <span class="hl">else</span> {
-    System.out.println(<span class="st">"Noch ein bisschen weiterspielen!"</span>);
+    System.out.println(<span class="st">"Noch ein bisschen weiter!"</span>);
 }</div>
-                <div class="flow-wrap frag">
-                    <svg class="flow-svg" viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="305" y="10" width="250" height="70" fill="#ffd93d" stroke="#b8860b" stroke-width="3"/>
-                        <line x1="555" y1="10" x2="305" y2="80" stroke="#b8860b" stroke-width="2"/>
-                        <text x="430" y="42" text-anchor="middle" font-size="17" fill="#1a1a2e" font-weight="700" font-family="Poppins, sans-serif">Bedingung</text>
-                        <text x="430" y="64" text-anchor="middle" font-size="14" fill="#1a1a2e" font-family="'Courier New', monospace">punkte >= 100 ?</text>
-                        <rect x="305" y="80" width="250" height="120" fill="rgba(255,255,255,0.03)" stroke="#b8860b" stroke-width="3"/>
-                        <line x1="430" y1="80" x2="430" y2="200" stroke="#b8860b" stroke-width="2"/>
-                        <text x="313" y="98" font-size="14" fill="#a5e88d" font-weight="700" font-family="Poppins, sans-serif">wahr ✓</text>
-                        <text x="547" y="98" text-anchor="end" font-size="14" fill="#ff8e53" font-weight="700" font-family="Poppins, sans-serif">falsch ✗</text>
-                        <rect x="318" y="110" width="100" height="70" rx="8" fill="#a5e88d" stroke="#4a6bff" stroke-width="2.5"/>
-                        <text x="368" y="140" text-anchor="middle" font-size="12" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">"Level</text>
-                        <text x="368" y="158" text-anchor="middle" font-size="12" fill="#1a1a2e" font-family="Poppins, sans-serif">geschafft!"</text>
-                        <rect x="442" y="110" width="100" height="70" rx="8" fill="#ff8e53" stroke="#4a6bff" stroke-width="2.5"/>
-                        <text x="492" y="140" text-anchor="middle" font-size="12" fill="#1a1a2e" font-weight="600" font-family="Poppins, sans-serif">"Noch ein</text>
-                        <text x="492" y="158" text-anchor="middle" font-size="12" fill="#1a1a2e" font-family="Poppins, sans-serif">bisschen …"</text>
-                        <text x="620" y="55" font-size="14" fill="#dfe4ff" font-family="Poppins, sans-serif">Im Struktogramm:</text>
-                        <text x="620" y="75" font-size="14" fill="#dfe4ff" font-family="Poppins, sans-serif">beide Zweige gefüllt –</text>
-                        <text x="620" y="95" font-size="14" fill="#dfe4ff" font-family="Poppins, sans-serif">genau EINER läuft.</text>
-                    </svg>
                 </div>
-                <div class="code-hint frag">💡 <b>else</b> bekommt keine eigene Bedingung! Es ist einfach der <b>sonst-Fall</b>: Es greift genau dann, wenn die if-Bedingung falsch ist. Genau einer der beiden Blöcke wird immer ausgeführt.</div>
+                <div class="code-hint frag">💡 <b>else</b> bekommt keine eigene Bedingung! Es ist der <b>sonst-Fall</b> – im Struktogramm der rechte Zweig. Genau <b>einer</b> der beiden Blöcke wird immer ausgeführt.</div>
             </div>
         </section>
 
