@@ -30,6 +30,10 @@
       .slide-content { font-size: 1.08em; max-height: 100%; }
       .lead { font-size: 1.22em; margin-bottom: 14px; }
       h2.gradient-text { letter-spacing: 0.2px; }
+      .shift-up { margin-top: -30px; }
+
+      /* Echte Operatoren: keine Ligaturen (== bleibt ==, != bleibt !=) */
+      code, .code-box, .ex-console, .mono, .table-ops code { font-variant-ligatures: none !important; font-feature-settings: "liga" 0, "calt" 0; }
 
       /* ===== Sidebar ===== */
       .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 250px; background: rgba(12, 12, 30, 0.92); backdrop-filter: blur(14px); border-right: 1px solid rgba(255,255,255,0.10); padding: 24px 12px; z-index: 1000; overflow-y: auto; }
@@ -44,6 +48,7 @@
       .code-box { position: relative; background: #101024; border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 34px 26px 16px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.95rem; color: #e6eaff; text-align: left; line-height: 1.5; margin-top: 14px; white-space: pre; overflow-x: auto; box-shadow: 0 10px 26px rgba(0,0,0,0.30); }
       .code-box::before { content: ''; position: absolute; top: 13px; left: 18px; width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; box-shadow: 18px 0 0 #febc2e, 36px 0 0 #28c840; }
       .code-box .kw { color: #c792ea; font-weight: 700; } .code-box .ty { color: #ffcb6b; } .code-box .st { color: #a5e88d; } .code-box .cm { color: #9aa5cc; font-style: italic; } .code-box .hl { color: #ff8e53; font-weight: 700; }
+      .code-box.code-larger { font-size: 1.06rem; line-height: 1.62; padding: 38px 28px 20px; }
       .code-hint { background: rgba(102,126,234,0.16); border: 1px solid rgba(143,162,255,0.45); border-radius: 12px; padding: 11px 20px; margin-top: 12px; color: #ffffff; font-size: 1.0em; }
       .code-hint b { color: #ffd93d; }
 
@@ -51,12 +56,9 @@
       .feature-card { border-radius: 18px; border: 1px solid rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); backdrop-filter: blur(8px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
       .feature-card p { font-size: 1.02em; color: #ffffff; }
       .feature-card h3 { font-size: 1.4em; }
-      .feature-card .feature-icon { background: linear-gradient(135deg, #667eea, #8b5cf6); box-shadow: 0 8px 18px rgba(102, 126, 234, 0.45); }
-      /* Moderne Icon-Farben pro Fehlerkarte */
-      .feature-icon.ico-red { background: linear-gradient(135deg, #ff5f57, #e03131); box-shadow: 0 8px 18px rgba(224, 49, 49, 0.40); }
-      .feature-icon.ico-orange { background: linear-gradient(135deg, #ff9f43, #e8590c); box-shadow: 0 8px 18px rgba(232, 89, 12, 0.40); }
-      .feature-icon.ico-amber { background: linear-gradient(135deg, #febc2e, #f08c00); box-shadow: 0 8px 18px rgba(240, 140, 0, 0.40); }
-      .feature-icon.ico-rose { background: linear-gradient(135deg, #f783ac, #d6336c); box-shadow: 0 8px 18px rgba(214, 51, 108, 0.40); }
+
+      /* ===== Einheitliche moderne Kreis-Icons (alle Folien) ===== */
+      .feature-icon { width: 64px !important; height: 64px !important; min-width: 64px; padding: 0 !important; border-radius: 50% !important; background: linear-gradient(135deg, #667eea, #8b5cf6) !important; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; color: #fff; box-shadow: 0 10px 24px rgba(102, 126, 234, 0.45); border: 1px solid rgba(255,255,255,0.25); }
 
       .callout { background: rgba(102,126,234,0.22); border: none; border-left: 5px solid #8fa2ff; border-radius: 0 14px 14px 0; padding: 14px 22px; margin-top: 18px; font-size: 1.05em; }
       .callout.orange { background: rgba(255,142,83,0.16); border-left-color: #ff8e53; }
@@ -71,12 +73,7 @@
       .nassi-svg .lbl-w { font-family: 'Poppins', sans-serif; font-weight: 700; fill: #2f9e44; }
       .nassi-svg .lbl-f { font-family: 'Poppins', sans-serif; font-weight: 700; fill: #e8590c; }
 
-      /* Info-Chips neben dem Struktogramm */
-      .nassi-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 14px; }
-      .chip { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05)); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 12px 16px; margin-bottom: 12px; text-align: left; }
-      .chip .n { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #8b5cf6); color: #fff; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-      .chip p { margin: 0; font-size: 0.92em; color: #ffffff; }
-      .chip b { color: #fff; }
+      .nassi-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 14px; }
 
       /* ===== Interaktive else-if-Folie ===== */
       .ex-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; align-items: start; margin-top: 14px; }
@@ -103,7 +100,7 @@
       .table-ops th { background: linear-gradient(90deg, rgba(102,126,234,0.45), rgba(139,92,246,0.45)); color: #ffffff; padding: 12px 20px; text-align: left; font-size: 1.02em; }
       .table-ops td { padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.10); color: #ffffff; font-size: 1.02em; }
       .table-ops tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
-      .table-ops code { font-family: 'JetBrains Mono', 'Courier New', monospace; color: #ffd93d; font-weight: 700; }
+      .table-ops code { font-family: 'JetBrains Mono', 'Courier New', monospace; color: #ffd93d; font-weight: 700; letter-spacing: 0.5px; }
       .table-ops tr:last-child td { border-bottom: none; }
 
       @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .duo-grid { grid-template-columns: 1fr; } .nassi-grid { grid-template-columns: 1fr; } .ex-grid { grid-template-columns: 1fr; } }
@@ -213,7 +210,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="code-box animated" style="margin-top:0;"><span class="cm">// der passende Java-Code</span>
+                    <div class="code-box code-larger animated" style="margin-top:0;"><span class="cm">// der passende Java-Code</span>
 <span class="kw">int</span> alter = 15;
 
 <span class="frag" data-g="4a"><span class="kw">if</span> (alter >= 16) {</span>
@@ -229,7 +226,7 @@
 
         <!-- FOLIE 5: Klasse Spielcharakter -->
         <section class="slide">
-            <div class="slide-content">
+            <div class="slide-content shift-up">
                 <h2 class="gradient-text animated"><i class="fas fa-user-astronaut"></i> Unsere Beispiel-Klasse: Spielcharakter</h2>
                 <p class="lead animated">Wir bauen den Helden für ein Jump'n'Run – und die if-Anweisung steckt in der Methode <b>trefferErleiden()</b>:</p>
                 <div class="code-box animated"><span class="kw">public class</span> <span class="ty">Spielcharakter</span> {
@@ -255,7 +252,7 @@
     }
 }</div>
                 <div class="code-hint frag">💡 Vor jedem Treffer prüft das Programm: <b>leben > 0</b> – also „hat der Held noch Leben?“. Nur wenn die Bedingung <b>wahr</b> ist, werden die beiden Anweisungen im Block ausgeführt.</div>
-                <div class="callout frag"><b>Teste dein Verständnis:</b> Was passiert, wenn <code style="color:#ffd93d">held.trefferErleiden()</code> bei <code style="color:#ffd93d">leben = 0</code> aufgerufen wird? Und warum ist das sinnvoll?</div>
+                <div class="callout frag"><b>Teste dein Verständnis:</b> Was passiert bei <code style="color:#ffd93d">leben = 0</code>? Genau – <b>nichts</b>! Unser Held würde unbesiegbar weiterlaufen … 😅 Wir brauchen also eine <b>Alternative</b>: ein <b>else</b>, in dem z. B. die Methode <code style="color:#ffd93d">sterben()</code> aufgerufen wird. Genau das lernen wir als Nächstes!</div>
             </div>
         </section>
 
@@ -270,7 +267,7 @@
                     <tr><td><code>&lt;</code> <code>&gt;</code></td><td>kleiner / größer</td><td><code>leben &lt; 3</code></td><td>der Held weniger als 3 Leben hat</td></tr>
                     <tr><td><code>&lt;=</code> <code>&gt;=</code></td><td>kleiner-gleich / größer-gleich</td><td><code>punkte &gt;= 1000</code></td><td>mindestens 1000 Punkte erreicht sind</td></tr>
                 </table>
-                <div class="callout orange frag"><b>Achtung, Klassiker:</b> <code>=</code> ist eine <b>Zuweisung</b> (nameStart = "Ryu"), <code>==</code> ist ein <b>Vergleich</b> (punkte == 100). Verwechseln = Lieblingsfehler von Anfängern und Profis! 😉</div>
+                <div class="callout orange frag"><b>Achtung, Klassiker:</b> <code>=</code> ist eine <b>Zuweisung</b> (nameStart = "Ryu"), <code>==</code> ist ein <b>Vergleich</b> (punkte == 100). Und: <code>&lt;&gt;</code> gibt es in Java <b>nicht</b> – ungleich schreibt man immer <code>!=</code>. Verwechseln = Lieblingsfehler von Anfängern und Profis! 😉</div>
             </div>
         </section>
 
@@ -306,13 +303,14 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="code-box animated" style="margin-top:0; font-size:1.0rem;"><span class="cm">// Beispiel: Level-Aufstieg</span>
+                    <div class="code-box code-larger animated" style="margin-top:0;"><span class="cm">// Beispiel: Level-Aufstieg</span>
 <span class="kw">int</span> punkte = 120;
 
 <span class="frag" data-g="7a"><span class="kw">if</span> (punkte >= 100) {</span>
 <span class="frag" data-g="7b">    System.out.println(<span class="st">"Level geschafft!"</span>);
-} <span class="hl">else</span> {</span>
-<span class="frag" data-g="7c">    System.out.println(<span class="st">"Noch ein bisschen weiter!"</span>);
+}</span>
+<span class="frag" data-g="7c"><span class="hl">else</span> {
+    System.out.println(<span class="st">"Noch ein bisschen weiter!"</span>);
 }</span>
 </div>
                 </div>
@@ -378,22 +376,22 @@ System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"
                 <h2 class="gradient-text animated"><i class="fas fa-triangle-exclamation"></i> Vier Klassiker-Fehler</h2>
                 <div class="duo-grid" style="margin-top:20px;">
                     <div class="feature-card animated">
-                        <div class="feature-icon ico-red"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
                         <h3>= statt ==</h3>
                         <p><code style="color:#ff8e53">if (punkte = 100)</code> ❌ &nbsp;→&nbsp; <code style="color:#a5e88d">if (punkte == 100)</code> ✓</p>
                     </div>
                     <div class="feature-card animated">
-                        <div class="feature-icon ico-orange"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
                         <h3>Semikolon nach if</h3>
                         <p><code style="color:#ff8e53">if (a &gt; b); { ... }</code> ❌ &nbsp;→&nbsp; das <b>;</b> beendet die if-Anweisung sofort – der Block läuft dann <b>immer</b>!</p>
                     </div>
                     <div class="feature-card frag">
-                        <div class="feature-icon ico-amber"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
                         <h3>Vergessene Klammern</h3>
                         <p>Zur <b>einzelnen</b> Anweisung dürfen die { } wegfallen – aber lieber <b>immer</b> setzen! Sonst überraschen dich später Fehler.</p>
                     </div>
                     <div class="feature-card frag">
-                        <div class="feature-icon ico-rose"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
                         <h3>Text vergleichen mit ==</h3>
                         <p>Für Strings nimmt man <code style="color:#a5e88d">name.equals("Ryu")</code> statt <code style="color:#ff8e53">name == "Ryu"</code>.</p>
                     </div>
@@ -421,10 +419,10 @@ System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"
                     <div class="feature-card frag">
                         <div class="feature-icon"><i class="fas fa-pen-ruler"></i></div>
                         <h3>Selber schreiben</h3>
-                        <p>Ergänze in der Klasse <b>Spielcharakter</b> eine Methode <b>levelAufsteigen()</b>: Sie erhöht das neue Attribut <b>level</b> um 1 – und wenn level danach mindestens 10 ist, gibt sie zusätzlich „Maximale Stufe erreicht!“ aus.</p>
+                        <p>Ergänze in der Klasse <b>Spielcharakter</b> eine Methode <b>sterben()</b>: Sie gibt „Game Over!“ aus – und erweitere <b>trefferErleiden()</b> mit <b>else</b>, sodass sterben() genau dann aufgerufen wird, wenn leben nicht größer als 0 ist.</p>
                     </div>
                 </div>
-                <div class="callout frag"><b>Tipp für Schnelle:</b> Schreibe eine Methode <b>hatGewonnen()</b>, die true zurückgibt, wenn punkte &gt;= 1000 ist. Was bedeutet das <b>return</b> hier?</div>
+                <div class="callout frag"><b>Tipp für Schnelle:</b> Schreibe zusätzlich eine Methode <b>hatGewonnen()</b>, die true zurückgibt, wenn punkte &gt;= 1000 ist. Was bedeutet das <b>return</b> hier?</div>
             </div>
         </section>
 
