@@ -73,6 +73,23 @@
       .chip p { margin: 0; font-size: 0.92em; color: #ffffff; }
       .chip b { color: #fff; }
 
+      /* ===== Interaktive else-if-Folie ===== */
+      .ex-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 22px; align-items: start; margin-top: 14px; }
+      .ex-val { display: none; }
+      .ex-val.ex-on { display: inline; color: #ff8e53; font-weight: 700; }
+      .ex-branch { border-radius: 6px; padding: 1px 5px; margin: 0 -5px; transition: background .3s; }
+      .ex-branch.ex-on { background: rgba(165,232,141,0.16); box-shadow: inset 0 0 0 1.5px rgba(165,232,141,0.45); }
+      .ex-console { position: relative; background: #0b0b1c; border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 16px 18px 14px; box-shadow: 0 10px 26px rgba(0,0,0,0.30); font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.92rem; }
+      .ex-console::before { content: ''; position: absolute; top: -9px; left: 18px; width: 10px; height: 10px; border-radius: 50%; background: #28c840; box-shadow: 16px 0 0 #febc2e, 32px 0 0 #ff5f57; }
+      .ex-console-head { color: #8fd3a5; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.92rem; border-bottom: 1px solid rgba(255,255,255,0.14); padding: 2px 0 9px; margin-bottom: 10px; }
+      .ex-out { display: none; }
+      .ex-out.ex-on { display: block; }
+      .ex-out span { display: block; padding: 3px 0; }
+      .ex-out .ex-run { color: #ffd93d; font-size: 0.85rem; margin-bottom: 7px; }
+      .ex-out .o { color: #b9f6c7; }
+      .ex-out .o2 { color: #9fb4ff; }
+      .ex-count { margin-top: 12px; display: inline-block; background: linear-gradient(90deg, rgba(102,126,234,0.35), rgba(139,92,246,0.35)); color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.82rem; font-weight: 600; border-radius: 999px; padding: 5px 14px; }
+
       /* ===== Fragmente ===== */
       .frag { opacity: 0; transition: opacity 0.6s ease; }
       .frag-visible { opacity: 1; }
@@ -84,7 +101,7 @@
       .table-ops code { font-family: 'JetBrains Mono', 'Courier New', monospace; color: #ffd93d; font-weight: 700; }
       .table-ops tr:last-child td { border-bottom: none; }
 
-      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .duo-grid { grid-template-columns: 1fr; } .nassi-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 900px) { .sidebar { display: none; } body.has-sidebar .slide-content { margin-left: 0; } .duo-grid { grid-template-columns: 1fr; } .nassi-grid { grid-template-columns: 1fr; } .ex-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body class="has-sidebar">
@@ -292,22 +309,55 @@
             </div>
         </section>
 
-        <!-- FOLIE 8: else if -->
-        <section class="slide">
+        <!-- FOLIE 8: else if – interaktiv -->
+        <section class="slide" id="ex-slide">
             <div class="slide-content">
-                <h2 class="gradient-text animated"><i class="fas fa-list-ul"></i> else if: Mehrere Fälle nacheinander</h2>
-                <p class="lead animated">Die Spielstatistik soll jedem Helden einen Rang geben:</p>
-                <div class="code-box animated"><span class="cm">// Rang je nach Punktestand</span>
-<span class="kw">if</span> (punkte >= 1000) {
-    System.out.println(<span class="st">"Rang: LEGENDE"</span>);
-} <span class="hl">else if</span> (punkte >= 500) {
-    System.out.println(<span class="st">"Rang: GOLD"</span>);
-} <span class="hl">else if</span> (punkte >= 100) {
-    System.out.println(<span class="st">"Rang: SILBER"</span>);
-} <span class="hl">else</span> {
-    System.out.println(<span class="st">"Rang: BRONZE"</span>);
-}</div>
-                <div class="code-hint frag">💡 Java prüft die Bedingungen <b>von oben nach unten</b> – sobald eine wahr ist, wird ihr Block ausgeführt und alle weiteren werden <b>übersprungen</b>. Das <b>else</b> am Ende fängt alles auf, was vorher nicht gepasst hat.</div>
+                <h2 class="gradient-text animated"><i class="fas fa-list-ul"></i> else if: Mehrere Fälle – live durchklicken</h2>
+                <p class="lead animated">Vier Startwerte, vier Ränge: Drücke <b>→</b> und beobachte Code und Konsole!</p>
+                <div class="ex-grid">
+                    <div class="code-box animated" style="margin-top:0;"><span class="cm">// Rang je nach Punktestand</span>
+<span class="kw">int</span> punkte = <span class="ex-val" data-step="1">1500</span><span class="ex-val" data-step="2">700</span><span class="ex-val" data-step="3">350</span><span class="ex-val" data-step="4">40</span>;
+
+<span class="ex-branch" data-step="1"><span class="kw">if</span> (punkte >= 1000) {</span>
+<span class="ex-branch" data-step="1">    System.out.println(<span class="st">"Rang: LEGENDE"</span>);</span>
+<span class="ex-branch" data-step="2">} <span class="kw">else if</span> (punkte >= 500) {</span>
+<span class="ex-branch" data-step="2">    System.out.println(<span class="st">"Rang: GOLD"</span>);</span>
+<span class="ex-branch" data-step="3">} <span class="kw">else if</span> (punkte >= 100) {</span>
+<span class="ex-branch" data-step="3">    System.out.println(<span class="st">"Rang: SILBER"</span>);</span>
+<span class="ex-branch" data-step="4">} <span class="kw">else</span> {</span>
+<span class="ex-branch" data-step="4">    System.out.println(<span class="st">"Rang: BRONZE"</span>);</span>
+}
+
+<span class="cm">// nach der if-Anweisung läuft das Programm weiter:</span>
+System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"</span>);</div>
+                    <div>
+                        <div class="ex-console animated">
+                            <div class="ex-console-head"><i class="fas fa-terminal"></i> Konsole</div>
+                            <div class="ex-out" data-step="1">
+                                <span class="ex-run">&gt; punkte = 1500</span>
+                                <span class="o">Rang: LEGENDE</span>
+                                <span class="o2">Statistik gespeichert – weiter im Spiel!</span>
+                            </div>
+                            <div class="ex-out" data-step="2">
+                                <span class="ex-run">&gt; punkte = 700</span>
+                                <span class="o">Rang: GOLD</span>
+                                <span class="o2">Statistik gespeichert – weiter im Spiel!</span>
+                            </div>
+                            <div class="ex-out" data-step="3">
+                                <span class="ex-run">&gt; punkte = 350</span>
+                                <span class="o">Rang: SILBER</span>
+                                <span class="o2">Statistik gespeichert – weiter im Spiel!</span>
+                            </div>
+                            <div class="ex-out" data-step="4">
+                                <span class="ex-run">&gt; punkte = 40</span>
+                                <span class="o">Rang: BRONZE</span>
+                                <span class="o2">Statistik gespeichert – weiter im Spiel!</span>
+                            </div>
+                        </div>
+                        <div class="ex-count">Beispiel <span id="ex-num">1</span> / 4</div>
+                    </div>
+                </div>
+                <div class="code-hint" style="margin-top:14px;">💡 Java prüft <b>von oben nach unten</b> – nur der <b>erste</b> wahre Block läuft, der Rest wird übersprungen. Und ganz wichtig: Danach läuft das Programm <b>normal weiter</b> – die letzte Ausgabe kommt in <b>jedem</b> der vier Fälle!</div>
             </div>
         </section>
 
@@ -375,7 +425,7 @@
                     <p><i class="fas fa-code-branch"></i> <b>if (Bedingung) { … }</b> – führt Code nur aus, wenn die Bedingung wahr ist</p>
                     <p><i class="fas fa-table-cells-large"></i> <b>Struktogramm</b> – Bedingung im Dreieck oben, darunter die Zweige, alles von oben nach unten</p>
                     <p><i class="fas fa-toggle-on"></i> <b>else</b> – der sonst-Fall für alles andere</p>
-                    <p><i class="fas fa-list-ul"></i> <b>else if</b> – mehrere Fälle, von oben nach unten geprüft</p>
+                    <p><i class="fas fa-list-ul"></i> <b>else if</b> – mehrere Fälle, von oben nach unten geprüft – danach läuft das Programm weiter</p>
                     <p><i class="fas fa-scale-unbalanced"></i> <b>== != &lt; &gt; &lt;= &gt;=</b> – Vergleichsoperatoren (nicht = verwechseln!)</p>
                 </div>
                 <p class="frag" style="margin-top:22px; color:#ffffff;">Nächste Stunde: Logisches UND &amp; ODER – um noch komplexere Bedingungen zu stellen! 🧠</p>
@@ -440,6 +490,43 @@
           }, true);
         }
 
+        /* ===== Interaktive else-if-Folie: Beispiele durchklicken ===== */
+        var exSlide = document.getElementById('ex-slide');
+        var exCur = 1;
+        var EX_MAX = 4;
+        var exNum = document.getElementById('ex-num');
+        function exRender() {
+          var steps = exSlide.querySelectorAll('[data-step]');
+          Array.prototype.forEach.call(steps, function(el) {
+            el.classList.toggle('ex-on', +el.getAttribute('data-step') === exCur);
+          });
+          if (exNum) exNum.textContent = String(exCur);
+        }
+        function exNext() { if (exCur < EX_MAX) { exCur++; exRender(); return true; } return false; }
+        function exPrev() { if (exCur > 1) { exCur--; exRender(); return true; } return false; }
+        function exActive() { return exSlide && exSlide.classList.contains('active'); }
+
+        document.addEventListener('keydown', function(e) {
+          if (!e.isTrusted || !exActive()) return;
+          if (KEYS_NEXT.indexOf(e.key) !== -1) {
+            if (exNext()) { e.preventDefault(); e.stopImmediatePropagation(); }
+          } else if (e.key === 'ArrowLeft') {
+            if (exPrev()) { e.preventDefault(); e.stopImmediatePropagation(); }
+          }
+        }, true);
+
+        if (nav) {
+          nav.addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn || !exActive()) return;
+            if (btn.id === 'next') {
+              if (exNext()) { e.preventDefault(); e.stopImmediatePropagation(); }
+            } else if (btn.id === 'prev') {
+              if (exPrev()) { e.preventDefault(); e.stopImmediatePropagation(); }
+            }
+          }, true);
+        }
+
         new MutationObserver(function() {
           document.querySelectorAll('.slide').forEach(function(s) {
             if (!s.classList.contains('active')) {
@@ -448,7 +535,13 @@
               });
             }
           });
+          if (exSlide && !exSlide.classList.contains('active') && exCur !== 1) {
+            exCur = 1;
+            exRender();
+          }
         }).observe(document.querySelector('.presentation-container'), { subtree: true, attributes: true, attributeFilter: ['class'] });
+
+        exRender();
 
         var sidebar = document.getElementById('sidebar');
         if (!sidebar) return;
