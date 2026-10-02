@@ -52,6 +52,11 @@
       .feature-card p { font-size: 1.02em; color: #ffffff; }
       .feature-card h3 { font-size: 1.4em; }
       .feature-card .feature-icon { background: linear-gradient(135deg, #667eea, #8b5cf6); box-shadow: 0 8px 18px rgba(102, 126, 234, 0.45); }
+      /* Moderne Icon-Farben pro Fehlerkarte */
+      .feature-icon.ico-red { background: linear-gradient(135deg, #ff5f57, #e03131); box-shadow: 0 8px 18px rgba(224, 49, 49, 0.40); }
+      .feature-icon.ico-orange { background: linear-gradient(135deg, #ff9f43, #e8590c); box-shadow: 0 8px 18px rgba(232, 89, 12, 0.40); }
+      .feature-icon.ico-amber { background: linear-gradient(135deg, #febc2e, #f08c00); box-shadow: 0 8px 18px rgba(240, 140, 0, 0.40); }
+      .feature-icon.ico-rose { background: linear-gradient(135deg, #f783ac, #d6336c); box-shadow: 0 8px 18px rgba(214, 51, 108, 0.40); }
 
       .callout { background: rgba(102,126,234,0.22); border: none; border-left: 5px solid #8fa2ff; border-radius: 0 14px 14px 0; padding: 14px 22px; margin-top: 18px; font-size: 1.05em; }
       .callout.orange { background: rgba(255,142,83,0.16); border-left-color: #ff8e53; }
@@ -67,25 +72,25 @@
       .nassi-svg .lbl-f { font-family: 'Poppins', sans-serif; font-weight: 700; fill: #e8590c; }
 
       /* Info-Chips neben dem Struktogramm */
-      .nassi-grid { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 14px; }
+      .nassi-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 14px; }
       .chip { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05)); border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 12px 16px; margin-bottom: 12px; text-align: left; }
       .chip .n { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #8b5cf6); color: #fff; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
       .chip p { margin: 0; font-size: 0.92em; color: #ffffff; }
       .chip b { color: #fff; }
 
       /* ===== Interaktive else-if-Folie ===== */
-      .ex-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 22px; align-items: start; margin-top: 14px; }
+      .ex-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; align-items: start; margin-top: 14px; }
       .ex-val { display: none; }
       .ex-val.ex-on { display: inline; color: #ff8e53; font-weight: 700; }
       .ex-branch { border-radius: 6px; padding: 1px 5px; margin: 0 -5px; transition: background .3s; }
       .ex-branch.ex-on { background: rgba(165,232,141,0.16); box-shadow: inset 0 0 0 1.5px rgba(165,232,141,0.45); }
-      .ex-console { position: relative; background: #0b0b1c; border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 16px 18px 14px; box-shadow: 0 10px 26px rgba(0,0,0,0.30); font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.92rem; }
+      .ex-console { position: relative; background: #0b0b1c; border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; padding: 18px 20px 16px; box-shadow: 0 10px 26px rgba(0,0,0,0.30); font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 1.0rem; }
       .ex-console::before { content: ''; position: absolute; top: -9px; left: 18px; width: 10px; height: 10px; border-radius: 50%; background: #28c840; box-shadow: 16px 0 0 #febc2e, 32px 0 0 #ff5f57; }
-      .ex-console-head { color: #8fd3a5; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.92rem; border-bottom: 1px solid rgba(255,255,255,0.14); padding: 2px 0 9px; margin-bottom: 10px; }
+      .ex-console-head { color: #8fd3a5; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95rem; border-bottom: 1px solid rgba(255,255,255,0.14); padding: 2px 0 10px; margin-bottom: 12px; }
       .ex-out { display: none; }
       .ex-out.ex-on { display: block; }
-      .ex-out span { display: block; padding: 3px 0; }
-      .ex-out .ex-run { color: #ffd93d; font-size: 0.85rem; margin-bottom: 7px; }
+      .ex-out span { display: block; padding: 6px 0; line-height: 1.55; }
+      .ex-out .ex-run { color: #ffd93d; font-size: 0.88rem; margin-bottom: 8px; }
       .ex-out .o { color: #b9f6c7; }
       .ex-out .o2 { color: #9fb4ff; }
       .ex-count { margin-top: 12px; display: inline-block; background: linear-gradient(90deg, rgba(102,126,234,0.35), rgba(139,92,246,0.35)); color: #fff; font-family: 'Poppins', sans-serif; font-size: 0.82rem; font-weight: 600; border-radius: 999px; padding: 5px 14px; }
@@ -179,41 +184,46 @@
             </div>
         </section>
 
-        <!-- FOLIE 4: Struktogramm -->
+        <!-- FOLIE 4: Struktogramm + Code parallel -->
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-table-cells-large"></i> Das Struktogramm macht die Entscheidung sichtbar</h2>
-                <p class="lead animated">Im Struktogramm gibt es keine Pfeile – alles läuft strikt <b>von oben nach unten</b>:</p>
+                <p class="lead animated">Links das Struktogramm, rechts der passende Code – beide erscheinen <b>Schritt für Schritt zusammen</b>:</p>
                 <div class="nassi-grid">
                     <div class="nassi-board animated">
                         <svg class="nassi-svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
                             <rect x="100" y="18" width="440" height="324" fill="#ffffff" class="ln"/>
                             <polygon points="100,18 540,18 320,116" fill="#ffffff" class="ln"/>
-                            <text x="320" y="52" class="txt" font-size="18" font-weight="700" text-anchor="middle">Bedingung</text>
-                            <text x="320" y="78" class="mono" font-size="14" text-anchor="middle">alter >= 16 ?</text>
+                            <g class="frag" data-g="4a">
+                                <text x="320" y="52" class="txt" font-size="18" font-weight="700" text-anchor="middle">Bedingung</text>
+                                <text x="320" y="78" class="mono" font-size="14" text-anchor="middle">alter >= 16 ?</text>
+                            </g>
                             <line x1="100" y1="116" x2="540" y2="116" class="ln"/>
                             <line x1="320" y1="116" x2="320" y2="342" class="ln"/>
-                            <g class="frag">
+                            <g class="frag" data-g="4b">
                                 <text x="150" y="106" class="lbl-w" font-size="15">wahr</text>
-                                <text x="490" y="106" class="lbl-f" font-size="15" text-anchor="end">falsch</text>
-                            </g>
-                            <g class="frag">
                                 <rect x="122" y="150" width="176" height="88" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
                                 <text x="210" y="188" class="txt" font-size="16" font-weight="600" text-anchor="middle">Anweisung(en)</text>
                                 <text x="210" y="212" class="mono" font-size="13" text-anchor="middle">println(...)</text>
                             </g>
-                            <g class="frag">
+                            <g class="frag" data-g="4c">
+                                <text x="490" y="106" class="lbl-f" font-size="15" text-anchor="end">falsch</text>
                                 <text x="430" y="190" class="txt" font-size="15" text-anchor="middle" fill="#868e9f" font-style="italic">— hier passiert</text>
                                 <text x="430" y="212" class="txt" font-size="15" text-anchor="middle" fill="#868e9f" font-style="italic">nichts —</text>
                             </g>
                         </svg>
                     </div>
-                    <div>
-                        <div class="chip animated"><div class="n">1</div><p><b>Kopf:</b> Die Bedingung steht im Dreieck ganz oben.</p></div>
-                        <div class="chip frag"><div class="n">2</div><p><b>Zweige:</b> Links alles bei <b>wahr</b>, rechts bei <b>falsch</b> – die Bezeichnungen stehen über dem Trennstrich.</p></div>
-                    </div>
+                    <div class="code-box animated" style="margin-top:0;"><span class="cm">// der passende Java-Code</span>
+<span class="kw">int</span> alter = 15;
+
+<span class="frag" data-g="4a"><span class="kw">if</span> (alter >= 16) {</span>
+<span class="frag" data-g="4b">    System.out.println(<span class="st">"Du darfst den Moped-Führerschein machen!"</span>);
+}</span>
+<span class="frag" data-g="4c"><span class="cm">// bei falsch: passiert nichts –</span>
+<span class="cm">// das Programm läuft einfach weiter</span></span>
+</div>
                 </div>
-                <div class="callout frag"><b>So liest du es:</b> Ist die Bedingung <b>wahr</b>, läuft der linke Zweig. Bei <b>falsch</b> passiert hier nichts – das Programm läuft am leeren Zweig vorbei und macht einfach weiter.</div>
+                <div class="callout frag" data-g="4d"><b>So liest du es:</b> Bedingung im Dreieck oben, wahr-Zweig links, falsch-Zweig rechts. Jeder Teil des Struktogramms hat seine <b>genau passende Stelle im Code</b> daneben!</div>
             </div>
         </section>
 
@@ -264,31 +274,31 @@
             </div>
         </section>
 
-        <!-- FOLIE 7: if-else -->
+        <!-- FOLIE 7: if-else, Struktogramm + Code parallel -->
         <section class="slide">
             <div class="slide-content">
                 <h2 class="gradient-text animated"><i class="fas fa-toggle-on"></i> if – else: Zwei Wege</h2>
-                <p class="lead animated">Oft soll bei „falsch“ auch etwas passieren – dafür gibt es <b>else</b>:</p>
+                <p class="lead animated">Bei „falsch“ gibt es jetzt auch etwas zu tun – wieder <b>parallel</b> zu sehen:</p>
                 <div class="nassi-grid">
                     <div class="nassi-board animated">
                         <svg class="nassi-svg" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
                             <rect x="100" y="18" width="440" height="264" fill="#ffffff" class="ln"/>
                             <polygon points="100,18 540,18 320,104" fill="#ffffff" class="ln"/>
-                            <text x="320" y="50" class="txt" font-size="17" font-weight="700" text-anchor="middle">Bedingung</text>
-                            <text x="320" y="74" class="mono" font-size="13" text-anchor="middle">punkte >= 100 ?</text>
+                            <g class="frag" data-g="7a">
+                                <text x="320" y="50" class="txt" font-size="17" font-weight="700" text-anchor="middle">Bedingung</text>
+                                <text x="320" y="74" class="mono" font-size="13" text-anchor="middle">punkte >= 100 ?</text>
+                            </g>
                             <line x1="100" y1="104" x2="540" y2="104" class="ln"/>
                             <line x1="320" y1="104" x2="320" y2="282" class="ln"/>
-                            <g class="frag">
+                            <g class="frag" data-g="7b">
                                 <text x="150" y="96" class="lbl-w" font-size="14">wahr</text>
-                                <text x="490" y="96" class="lbl-f" font-size="14" text-anchor="end">falsch</text>
-                            </g>
-                            <g class="frag">
                                 <rect x="122" y="128" width="176" height="112" rx="10" fill="#ebfbee" stroke="#2f9e44" stroke-width="2.5"/>
                                 <text x="210" y="168" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 1</text>
                                 <text x="210" y="192" class="mono" font-size="11" text-anchor="middle">println(</text>
                                 <text x="210" y="210" class="mono" font-size="11" text-anchor="middle">"Level geschafft!")</text>
                             </g>
-                            <g class="frag">
+                            <g class="frag" data-g="7c">
+                                <text x="490" y="96" class="lbl-f" font-size="14" text-anchor="end">falsch</text>
                                 <rect x="342" y="128" width="176" height="112" rx="10" fill="#fff4e6" stroke="#e8590c" stroke-width="2.5"/>
                                 <text x="430" y="168" class="txt" font-size="15" font-weight="600" text-anchor="middle">Anweisung 2</text>
                                 <text x="430" y="192" class="mono" font-size="11" text-anchor="middle">println(</text>
@@ -296,16 +306,17 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="code-box animated" style="margin-top:0;"><span class="cm">// Beispiel: Level-Aufstieg</span>
+                    <div class="code-box animated" style="margin-top:0; font-size:1.0rem;"><span class="cm">// Beispiel: Level-Aufstieg</span>
 <span class="kw">int</span> punkte = 120;
 
-<span class="kw">if</span> (punkte >= 100) {
-    System.out.println(<span class="st">"Level geschafft!"</span>);
-} <span class="hl">else</span> {
-    System.out.println(<span class="st">"Noch ein bisschen weiter!"</span>);
-}</div>
+<span class="frag" data-g="7a"><span class="kw">if</span> (punkte >= 100) {</span>
+<span class="frag" data-g="7b">    System.out.println(<span class="st">"Level geschafft!"</span>);
+} <span class="hl">else</span> {</span>
+<span class="frag" data-g="7c">    System.out.println(<span class="st">"Noch ein bisschen weiter!"</span>);
+}</span>
+</div>
                 </div>
-                <div class="code-hint frag">💡 <b>else</b> bekommt keine eigene Bedingung! Es ist der <b>sonst-Fall</b> – im Struktogramm der rechte Zweig. Genau <b>einer</b> der beiden Blöcke wird immer ausgeführt.</div>
+                <div class="code-hint frag" data-g="7d">💡 <b>else</b> bekommt keine eigene Bedingung! Es ist der <b>sonst-Fall</b> – im Struktogramm der rechte Zweig, im Code der <b>else-Block</b>. Genau <b>einer</b> der beiden Blöcke wird immer ausgeführt.</div>
             </div>
         </section>
 
@@ -367,22 +378,22 @@ System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"
                 <h2 class="gradient-text animated"><i class="fas fa-triangle-exclamation"></i> Vier Klassiker-Fehler</h2>
                 <div class="duo-grid" style="margin-top:20px;">
                     <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon ico-red"><i class="fas fa-xmark"></i></div>
                         <h3>= statt ==</h3>
                         <p><code style="color:#ff8e53">if (punkte = 100)</code> ❌ &nbsp;→&nbsp; <code style="color:#a5e88d">if (punkte == 100)</code> ✓</p>
                     </div>
                     <div class="feature-card animated">
-                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon ico-orange"><i class="fas fa-xmark"></i></div>
                         <h3>Semikolon nach if</h3>
                         <p><code style="color:#ff8e53">if (a &gt; b); { ... }</code> ❌ &nbsp;→&nbsp; das <b>;</b> beendet die if-Anweisung sofort – der Block läuft dann <b>immer</b>!</p>
                     </div>
                     <div class="feature-card frag">
-                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon ico-amber"><i class="fas fa-xmark"></i></div>
                         <h3>Vergessene Klammern</h3>
                         <p>Zur <b>einzelnen</b> Anweisung dürfen die { } wegfallen – aber lieber <b>immer</b> setzen! Sonst überraschen dich später Fehler.</p>
                     </div>
                     <div class="feature-card frag">
-                        <div class="feature-icon"><i class="fas fa-xmark"></i></div>
+                        <div class="feature-icon ico-rose"><i class="fas fa-xmark"></i></div>
                         <h3>Text vergleichen mit ==</h3>
                         <p>Für Strings nimmt man <code style="color:#a5e88d">name.equals("Ryu")</code> statt <code style="color:#ff8e53">name == "Ryu"</code>.</p>
                     </div>
@@ -445,8 +456,29 @@ System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"
     <script>
       window.addEventListener('DOMContentLoaded', function() {
         var KEYS_NEXT = ['ArrowRight', ' ', 'Enter'];
+
+        /* ===== Frag-Gruppen: Elemente mit gleichem data-g erscheinen ZUSAMMEN ===== */
+        document.querySelectorAll('.slide').forEach(function(s, si) {
+          var i = 0;
+          s.querySelectorAll('.frag').forEach(function(f) {
+            if (!f.dataset.g) f.dataset.g = si + 'u' + (i++);
+          });
+        });
         function fragsOf(slide) { return Array.prototype.slice.call(slide.querySelectorAll('.frag')); }
-        function isVisible(f) { return f.classList.contains('frag-visible'); }
+        function groupsOf(frags) {
+          var gs = [];
+          frags.forEach(function(f) { if (gs.indexOf(f.dataset.g) === -1) gs.push(f.dataset.g); });
+          return gs;
+        }
+        function groupVisible(frags, g) {
+          return frags.filter(function(f) { return f.dataset.g === g; }).every(function(f) { return f.classList.contains('frag-visible'); });
+        }
+        function groupShow(frags, g) {
+          frags.forEach(function(f) { if (f.dataset.g === g) f.classList.add('frag-visible'); });
+        }
+        function groupHide(frags, g) {
+          frags.forEach(function(f) { if (f.dataset.g === g) f.classList.remove('frag-visible'); });
+        }
 
         document.addEventListener('keydown', function(e) {
           if (!e.isTrusted) return;
@@ -454,16 +486,21 @@ System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"
           if (!slide) return;
           var frags = fragsOf(slide);
           if (!frags.length) return;
-          var hidden = frags.filter(function(f) { return !isVisible(f); });
-          var shown = frags.filter(function(f) { return isVisible(f); });
-          if (KEYS_NEXT.indexOf(e.key) !== -1 && hidden.length) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            hidden[0].classList.add('frag-visible');
-          } else if (e.key === 'ArrowLeft' && shown.length) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            shown[shown.length - 1].classList.remove('frag-visible');
+          var groups = groupsOf(frags);
+          if (KEYS_NEXT.indexOf(e.key) !== -1) {
+            var next = groups.filter(function(g) { return !groupVisible(frags, g); })[0];
+            if (next !== undefined) {
+              e.preventDefault();
+              e.stopImmediatePropagation();
+              groupShow(frags, next);
+            }
+          } else if (e.key === 'ArrowLeft') {
+            var shownGs = groups.filter(function(g) { return groupVisible(frags, g); });
+            if (shownGs.length) {
+              e.preventDefault();
+              e.stopImmediatePropagation();
+              groupHide(frags, shownGs[shownGs.length - 1]);
+            }
           }
         }, true);
 
@@ -476,16 +513,21 @@ System.out.println(<span class="st">"Statistik gespeichert – weiter im Spiel!"
             if (!slide) return;
             var frags = fragsOf(slide);
             if (!frags.length) return;
-            var hidden = frags.filter(function(f) { return !isVisible(f); });
-            var shown = frags.filter(function(f) { return isVisible(f); });
-            if (btn.id === 'next' && hidden.length) {
-              e.preventDefault();
-              e.stopImmediatePropagation();
-              hidden[0].classList.add('frag-visible');
-            } else if (btn.id === 'prev' && shown.length) {
-              e.preventDefault();
-              e.stopImmediatePropagation();
-              shown[shown.length - 1].classList.remove('frag-visible');
+            var groups = groupsOf(frags);
+            if (btn.id === 'next') {
+              var next = groups.filter(function(g) { return !groupVisible(frags, g); })[0];
+              if (next !== undefined) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                groupShow(frags, next);
+              }
+            } else if (btn.id === 'prev') {
+              var shownGs = groups.filter(function(g) { return groupVisible(frags, g); });
+              if (shownGs.length) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                groupHide(frags, shownGs[shownGs.length - 1]);
+              }
             }
           }, true);
         }
